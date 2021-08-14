@@ -28,50 +28,54 @@ const Header = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <ElevationScroll>
-      <AppBar color="secondary">
-        <Toolbar>
-          <Grid
-            container
-            justify="space-around"
-            direction="row"
-            alignItems="center"
-          >
-            <Grid item>
-              <Typography variant="h3" className={classes.headerTitle}>seller.lk</Typography>
-            </Grid>
-            <Grid item>
-              <Grid item container spacing={1}>
-                <Grid item>
-                  <Hidden smDown>
-                    <Button variant="contained" className={classes.postAdBtn}>
-                      Post Your Ad Free
+    <React.Fragment>
+      <ElevationScroll>
+        <AppBar color="secondary">
+          <Toolbar>
+            <Grid
+              container
+              justify="space-around"
+              direction="row"
+              alignItems="center"
+            >
+              <Grid item>
+                <Typography variant="h3" className={classes.headerTitle}>seller.lk</Typography>
+              </Grid>
+              <Grid item>
+                <Grid item container spacing={1}>
+                  <Grid item>
+                    <Hidden smDown>
+                      <Button variant="contained" className={classes.postAdBtn}>
+                        Post Your Ad Free
+                      </Button>
+                    </Hidden>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined" className={classes.registerBtn}>
+                      Register
                     </Button>
-                  </Hidden>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined" className={classes.registerBtn}>
-                    Register
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="outlined">Login</Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined">Login</Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar>
-    </ElevationScroll>
+          </Toolbar>
+        </AppBar>
+      </ElevationScroll>
+      <div className={classes.toolbarMargin} />
+    </React.Fragment>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
-    ...theme.mixins.toolbar,
+    ...theme.mixins.toolbar
+
   },
   registerBtn: {
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
       size: "small",
     },
     postAdBtn: {
@@ -80,10 +84,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  headerTitle:{
+  headerTitle: {
     [theme.breakpoints.down("md")]: {
-      fontSize:'2.5rem'
+      fontSize: '2rem'
     },
+    fontFamily: 'Georama'
   }
 }));
 
