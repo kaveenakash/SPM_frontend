@@ -30,15 +30,15 @@ const SearchBarBlock = (props) => {
         direction="column"
         alignItems="center"
         className={classes.searchBarSection}
-        spacing={3}
+       
       >
-        <Grid item>
+        <Grid item >
           <Typography variant="h4" className={classes.headerTitle}>
             Search in 8929 Listings
           </Typography>
-          <Divider className={classes.headerDivider} variant="middle" />
+         <center><Divider className={classes.headerDivider} variant="middle"  /></center> 
         </Grid>
-        <Grid item>
+        <Grid item className={classes.searchTabs}>
           <Grid item container direction="row" spacing={1}>
             <Grid item>
               <TextField
@@ -110,7 +110,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "1.4rem",
   },
   headerDivider: {
-    height: "0.12rem",
+    height: "0.14rem",
+    width:'4rem',
+    backgroundColor:theme.palette.common.darkGray
   },
   searchField: {
     width: "30rem",
@@ -120,6 +122,9 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon:{
       color:theme.palette.common.seaWhite
+  },
+  searchTabs:{
+    marginTop:'2rem'
   }
 }));
 export default SearchBarBlock;

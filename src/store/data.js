@@ -44,3 +44,27 @@ export const categories = [
       label: "Avissawella",
     },
   ];
+ export  const categoryType = [
+    {
+      id:1,
+      title: "Vehicles",
+      total:7235
+    
+    },
+    {
+      id:2,
+      title: "Property",
+      total:4100
+    },
+    {
+      id:3,
+      title: "Electronics",
+      total:2231
+    },
+    {
+      id:4,
+      title: "Business & Services",
+      total:1245
+    },
+    
+  ];
