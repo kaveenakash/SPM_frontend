@@ -1,22 +1,25 @@
-import React,{Fragment} from 'react' 
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import Header from '../components/ui/Header'
-import CategoryBlock from './Home/CategoryBlock'
-import SearchBarBlock from './Home/SearchBarBlock'
-import LatestListingBlock from './Home/LatestListingBlock'
-import NotificationBlock from './Home/NotificationBlock'
-import Footer from './ui/Footer'
+import Header from "../components/ui/Header";
+import Home from "./home/Home";
+import Footer from "./ui/Footer";
+import VehicleDetail from './vehicle/VehicleDetail';
 
 function App() {
   return (
-    <Fragment>
-        <Header/>
-        <SearchBarBlock/>
-        <CategoryBlock/>
-        <LatestListingBlock/>
-        <NotificationBlock/>
-        <Footer/>
-    </Fragment>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/vehicle/:id">
+            <VehicleDetail/>
+        </Route>
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 

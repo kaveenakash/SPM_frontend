@@ -10,6 +10,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles } from "@material-ui/styles";
+import Container from '@material-ui/core/Container';
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -28,21 +29,22 @@ const Header = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <React.Fragment>
+    <React.Fragment >
       <ElevationScroll>
-        <AppBar color="secondary">
-          <Toolbar>
+        <AppBar color="secondary" >
+          <Toolbar disableGutters {...props}>
+          <Container fixed>
             <Grid
               container
-              justify="space-around"
+              justify="space-between"
               direction="row"
               alignItems="center"
             >
               <Grid item>
                 <Typography variant="h3" className={classes.headerTitle}>seller.lk</Typography>
               </Grid>
-              <Grid item>
-                <Grid item container spacing={1}>
+              <Grid item >
+                <Grid item container spacing={1} justify="flex-end" direction="row">
                   <Grid item>
                     <Hidden smDown>
                       <Button variant="contained" className={classes.postAdBtn}>
@@ -61,6 +63,7 @@ const Header = (props) => {
                 </Grid>
               </Grid>
             </Grid>
+            </Container>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

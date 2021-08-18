@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -23,7 +23,7 @@ const CustomCard = (props) => {
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="http://riyapola.com/oc-content/uploads/467/56013.jpg"
+          image="http://patpat-s3-live.s3.amazonaws.com/uploads/4ccc12468dd48bc6d728de1cfcd2a87e-195201.jpeg"
           title="Contemplative Reptile"
         />
         <div className={classes.categoryOverlay}>SUVS/JEEPS</div>
