@@ -14,34 +14,31 @@ import AmountCard from '../reusable/AmountCard'
 import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
-import {vehicleAdds} from '../../store/data'
+import {propertyAdds} from '../../store/data'
 
-const VehicleDetail = (props) => {
+const PropertyDetail = (props) => {
   const history = useHistory();
   const params = useParams();
   const classes = useStyles();
   const theme = useTheme();
 
-  const [vehicleData,setVehicleData] = useState([])
+  const [propertyData,setPropertyData] = useState([])
 
   const handleHomeLink = (event) => {
     event.preventDefault();
     history.replace("/");
   };
 
- 
-    
-    
-
+   
   useEffect(() =>{
 
-    async function findVehicle() {
+    async function findProperty() {
 
-      const selectedVehicle = vehicleAdds.filter(item => item.id == params.id)
-      setVehicleData(selectedVehicle)
-      console.log(selectedVehicle)
+      const selectedPropery = propertyAdds.filter(item => item.id == params.id)
+      setPropertyData(selectedPropery)
+      console.log(selectedPropery)
     }
-    findVehicle()
+    findProperty()
   },[]) 
 
   console.log(params.id)
@@ -60,13 +57,13 @@ const VehicleDetail = (props) => {
                   href="/getting-started/installation/"
                   onClick={handleHomeLink}
                 >
-                  Vehicle
+                  Property
                 </Link>
               </Breadcrumbs>
             </Grid>
            
           </Grid>
-          {vehicleData.map(item => {
+          {propertyData.map(item => {
             return(
           <Grid item>
               <Grid item container direction="column" alignItems="flex-start" >
@@ -87,10 +84,10 @@ const VehicleDetail = (props) => {
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                      <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                      <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/>
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
-                                      <DescriptionTable vehicleDetails={vehicleData}/>
+                                      <DescriptionTable propertyDetails={propertyData}/>
                                   </Grid>
                               </Grid>
                           </Grid>
@@ -142,4 +139,4 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default VehicleDetail;
+export default PropertyDetail;

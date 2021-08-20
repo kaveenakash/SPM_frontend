@@ -26,7 +26,7 @@ const DescriptionTable = (props) => {
               <>
               <StyledTableRow key={row.name}>
                 <StyledTableCell align="left">Ad Reference</StyledTableCell>
-                <StyledTableCell align="left">{row.name}</StyledTableCell>
+                <StyledTableCell align="left">{row.AdReference}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow key={row.name}>
                 <StyledTableCell align="left">Model Year</StyledTableCell>

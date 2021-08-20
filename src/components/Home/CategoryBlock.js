@@ -43,12 +43,12 @@ const CategoryBlock = (props) => {
                 <Grid item container justify="center" alignItems="center" spacing={2}>
                   <Grid item>
                     <Avatar variant="circle" className={classes.iconContainer} >
-                      <HomeIcon fontSize="large" className={classes.icon} />
+                      <HomeIcon fontSize="large" className={classes.icon} onClick={() => history.push('/property')}/>
                     </Avatar>
                   </Grid>
                   <Grid item>
                     <Grid item container direction="column" spacing={1} justify="flex-start">
-                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle}>Property</Typography></Grid>
+                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} onClick={() => history.push('/property')}>Property</Typography></Grid>
                       <Grid item>Listings <b>3221</b></Grid>
                     </Grid>
                   </Grid>

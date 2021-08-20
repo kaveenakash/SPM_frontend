@@ -19,7 +19,7 @@ const CarouselCard = (props) => {
       cycleNavigation={false}
       style={{ margin: 0 }}
     >
-      { props.vehicleData.map((item, i) => (
+      { props.imageData.map((item, i) => (
         <CarouselItem key={i} item={item} />
       ))}
     </Carousel>
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 800,
     minHeight: 440,
+    maxHeight:600,
     maxWidth: 800,
     backgroundColor: "#FEF4C5",
   },

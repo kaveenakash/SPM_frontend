@@ -6,15 +6,14 @@ import CategoryBox from "../reusable/CategoryBox";
 import Container from "@material-ui/core/Container";
 
 
-import { vehicleCategories, vehicleAdds } from "../../store/data";
+import { propertyCategories, propertyAdds } from "../../store/data";
 import { CategoryCheck,FilterListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
-import Warning  from "../reusable/warning/Warning";
 
-export default function VehiclePage() {
+export default function PropertyPage() {
   const classes = useStyles();
-  const [categories, setCategories] = useState(vehicleCategories);
-  const [vehicleListings, setVehicleListings] = useState(vehicleAdds);
+  const [categories, setCategories] = useState(propertyCategories);
+  const [propertyListings, setPropertyListings] = useState(propertyAdds);
   
 
   const handleCheckdCategories = async (id) => {
@@ -24,8 +23,8 @@ export default function VehiclePage() {
   };
 
   const handleVehicleFilter = (categories) =>{
-   const filterData =  FilterListings(categories,vehicleAdds)
-   setVehicleListings(filterData)
+   const filterData =  FilterListings(categories,propertyAdds)
+   setPropertyListings(filterData)
   }
 
   
@@ -36,7 +35,7 @@ export default function VehiclePage() {
         <Grid container direction="column">
           <Grid item className={classes.headerContainer}>
             <Typography variant="h4" align="center" className={classes.header}>
-              All Vehicle Listings
+              All Property Listings
             </Typography>
           </Grid>
           <Grid item className={classes.bodyContainer}>
@@ -61,10 +60,10 @@ export default function VehiclePage() {
                   className={classes.cardContainer}
                   justify="center"
                 >
-                  {vehicleListings.map((item) => {
+                  {propertyListings.map((item) => {
                     return (
                       <Grid item xs={12} sm={4} md={4} lg={3} xl={3} key={item.id+item.name} >
-                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user}  path={'vehicle'}/>
+                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user} path={'property'} />
                       </Grid>
                     );
                   })}

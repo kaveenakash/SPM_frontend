@@ -228,3 +228,121 @@ export const vehicleAdds = [
     town:"Galigamuwa"
   },
 ];
+
+
+
+
+export const propertyCategories = [
+  { id: 1, name: "All", isChecked: true },
+  { id: 2, name: "Houses - Apartments", isChecked: false },
+  { id: 3, name: "Rooms & Anexes", isChecked: false },
+  { id: 4, name: "Vacation Rentals", isChecked: false },
+  { id: 5, name: "Land", isChecked: false },
+  { id: 6, name: "Office - Commercial property", isChecked: false },
+];
+
+
+
+export const propertyAdds = [
+  {
+    id: 2,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 55000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Luxury Apartment In Nugegoda",
+    area:"1000sqft",
+    date: "2021-08-19",
+    category: "Houses - Apartments",
+    user: "Nirmal",
+    image: [
+      "http://riyapola.com/oc-content/uploads/156/5243.jpg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 3,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 55000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Luxury Apartment In Nugegoda",
+    date: "2021-08-19",
+    category: "Houses - Apartments",
+    user: "Nirmal",
+    image: [
+      "http://riyapola.com/oc-content/uploads/156/5243.jpg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 4,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 55000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Luxury Apartment In Nugegoda",
+    date: "2021-08-19",
+    category: "Houses - Apartments",
+    user: "Nirmal",
+    image: [
+      "http://riyapola.com/oc-content/uploads/156/5243.jpg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 5,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 55000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Luxury Apartment In Nugegoda",
+    date: "2021-08-19",
+    category: "Houses - Apartments",
+    user: "Nirmal",
+    image: [
+      "http://riyapola.com/oc-content/uploads/156/5243.jpg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 6,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 55000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Luxury Apartment In Nugegoda",
+    date: "2021-08-19",
+    category: "Houses - Apartments",
+    user: "Nirmal",
+    image: [
+      "http://riyapola.com/oc-content/uploads/156/5243.jpg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+]

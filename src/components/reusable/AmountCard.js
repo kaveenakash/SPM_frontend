@@ -6,13 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 const AmountCard = (props) => {
   const classes = useStyles();
-  const {amount,leaseRental,downPayment} = props
-
-  function separator(numb) {
-    var str = numb.toString().split(".");
-    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    return str.join(".");
-}
+  const { amount, leaseRental, downPayment, boxOneTitle, boxTwoTitle } = props;
 
   return (
     <Grid container direction="column" className={classes.root}>
@@ -33,7 +27,7 @@ const AmountCard = (props) => {
             <Grid item>
               <Typography variant="h5" className={classes.amount}>
                 {" "}
-                {amount.toLocaleString('en-US')}
+                {amount.toLocaleString("en-US")}
               </Typography>
             </Grid>
           </Grid>
@@ -43,10 +37,12 @@ const AmountCard = (props) => {
         <Paper variant="outlined" className={classes.paper}>
           <Grid item container justify="center" alignItems="center" spacing={2}>
             <Grid item>
-              <Typography variant="subtitle2">BEST LEASE RENTAL :</Typography>
+              <Typography variant="subtitle2">{boxOneTitle} :</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5">LKR {leaseRental.toLocaleString('en-US')}</Typography>
+              <Typography variant="h5">
+                LKR {leaseRental.toLocaleString("en-US")}
+              </Typography>
             </Grid>
           </Grid>
         </Paper>
@@ -55,10 +51,13 @@ const AmountCard = (props) => {
         <Paper variant="outlined" className={classes.paper}>
           <Grid item container justify="center" alignItems="center" spacing={2}>
             <Grid item>
-              <Typography variant="subtitle2">DOWN PAYMENT :</Typography>
+              <Typography variant="subtitle2">{boxTwoTitle} :</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5"> LKR {downPayment.toLocaleString('en-US')}</Typography>
+              <Typography variant="h5">
+                {" "}
+                LKR {downPayment.toLocaleString("en-US")}
+              </Typography>
             </Grid>
           </Grid>
         </Paper>

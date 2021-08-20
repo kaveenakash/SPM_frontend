@@ -17,9 +17,9 @@ import { useHistory } from "react-router-dom";
 const CustomCard = (props) => {
   const classes = useStyles();
   const history = useHistory()
-  const {id,imageURL,amount,date,category,owner,name} = props
+  const {id,imageURL,amount,date,category,owner,name,path} = props
   const handleClickItem = (id) => {
-    history.push(`/vehicle/${id}`)
+    history.push(`/${path}/${id}`)
   }
 
   return (
