@@ -10,7 +10,7 @@ const CarouselItem = (props) => {
     <Card className={classes.root}>
       <Grid container direction="row" justify="center">
         <Grid item>
-          <img src={props.item.img} />
+          <img src={props.item} />
         </Grid>
       </Grid>
     </Card>

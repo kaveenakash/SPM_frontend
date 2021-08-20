@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 
+import {vehicleAdds } from "../../store/data";
+
 const LatestListingBlock = () => {
   const classes = useStyles();
   return (
@@ -26,27 +28,13 @@ const LatestListingBlock = () => {
             className={classes.cardContainer}
             justify="center"
           >
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
-            <Grid item>
-              <CustomCard />
-            </Grid>
+            {vehicleAdds.map((item) => {
+                    return (
+                      <Grid item key={item.id+item.name} >
+                        <CustomCard id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user} />
+                      </Grid>
+                    );
+                  })}
           </Grid>
           <Grid item className={classes.moreButtonContainer}>
             <Grid item container justify="center">

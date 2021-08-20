@@ -19,7 +19,7 @@ const CarouselCard = (props) => {
       cycleNavigation={false}
       style={{ margin: 0 }}
     >
-      {items.map((item, i) => (
+      { props.vehicleData.map((item, i) => (
         <CarouselItem key={i} item={item} />
       ))}
     </Carousel>

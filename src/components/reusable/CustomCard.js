@@ -12,8 +12,15 @@ import EventNoteIcon from "@material-ui/icons/EventNote";
 import Grid from "@material-ui/core/Grid";
 import PersonIcon from "@material-ui/icons/Person";
 import { BorderAllOutlined } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
+
 const CustomCard = (props) => {
   const classes = useStyles();
+  const history = useHistory()
+  const {id,imageURL,amount,date,category,owner,name} = props
+  const handleClickItem = (id) => {
+    history.push(`/vehicle/${id}`)
+  }
 
   return (
     <Card className={classes.root}>
@@ -21,16 +28,16 @@ const CustomCard = (props) => {
         <CardMedia
           className={classes.media}
           component="img"
-          alt="Contemplative Reptile"
+          alt="image"
           height="140"
-          image="http://patpat-s3-live.s3.amazonaws.com/uploads/4ccc12468dd48bc6d728de1cfcd2a87e-195201.jpeg"
-          title="Contemplative Reptile"
+          image={imageURL?imageURL[0]:''}
+          title="item image"
         />
-        <div className={classes.categoryOverlay}>SUVS/JEEPS</div>
-        <div className={classes.priceOverlay}>9750000.00 Rs</div>
+        <div className={classes.categoryOverlay}>{category}</div>
+        <div className={classes.priceOverlay}>{amount} Rs</div>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            XTrail 2015
+           {name}
           </Typography>
           <Grid container direction="column" className={classes.content}>
             <Grid item>
@@ -39,6 +46,7 @@ const CustomCard = (props) => {
                 container
                 justify="space-between"
                 alignItems="baseline"
+                direction="column"
               >
                 <Grid item>
                   <Grid item container spacing={1}>
@@ -51,7 +59,7 @@ const CustomCard = (props) => {
                         variant="subtitle1"
                         className={classes.dateText}
                       >
-                        08/12/2021
+                        {date}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -67,7 +75,7 @@ const CustomCard = (props) => {
                         variant="subtitle1"
                         className={classes.sellerText}
                       >
-                        Sandun
+                        {owner}
                       </Typography>
                     </Grid>
                   </Grid>
@@ -84,6 +92,7 @@ const CustomCard = (props) => {
           size="medium"
           color="secondary"
           className={classes.viewMoreBtn}
+          onClick={() => handleClickItem(id)}
         >
           View More
         </Button>

@@ -5,6 +5,7 @@ import Header from "../components/ui/Header";
 import Home from "./home/Home";
 import Footer from "./ui/Footer";
 import VehicleDetail from './vehicle/VehicleDetail';
+import VehiclePage from './vehicle/VehiclePage';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         </Route>
         <Route path="/vehicle/:id">
             <VehicleDetail/>
+        </Route>
+        <Route path="/vehicle">
+            <VehiclePage/>
         </Route>
       </Switch>
       <Footer />

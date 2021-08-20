@@ -1,70 +1,230 @@
 export const categories = [
-    {
-      value: "All Categories",
-      label: "All Categories",
-    },
-    {
-      value: "Vehicles",
-      label: "Vehicles",
-    },
-    {
-      value: "Property",
-      label: "Property",
-    },
-    {
-      value: "Electronics",
-      label: "Electronics",
-    },
-    {
-      value: "Business & Services",
-      label: "Business & Services",
-    },
-  ];
+  {
+    value: "All Categories",
+    label: "All Categories",
+  },
+  {
+    value: "Vehicles",
+    label: "Vehicles",
+  },
+  {
+    value: "Property",
+    label: "Property",
+  },
+  {
+    value: "Electronics",
+    label: "Electronics",
+  },
+  {
+    value: "Business & Services",
+    label: "Business & Services",
+  },
+];
 
+export const regions = [
+  {
+    value: "Select a Region",
+    label: "Select a Region",
+  },
+  {
+    value: "Ampara",
+    label: "Ampara",
+  },
+  {
+    value: "Kegalle",
+    label: "Kegalle",
+  },
+  {
+    value: "Colombo",
+    label: "Colombo",
+  },
+  {
+    value: "Avissawella",
+    label: "Avissawella",
+  },
+];
+export const categoryType = [
+  {
+    id: 1,
+    title: "Vehicles",
+    total: 7235,
+  },
+  {
+    id: 2,
+    title: "Property",
+    total: 4100,
+  },
+  {
+    id: 3,
+    title: "Electronics",
+    total: 2231,
+  },
+  {
+    id: 4,
+    title: "Business & Services",
+    total: 1245,
+  },
+];
 
- export  const regions = [
-    {
-      value: "Select a Region",
-      label: "Select a Region",
-    },
-    {
-      value: "Ampara",
-      label: "Ampara",
-    },
-    {
-      value: "Kegalle",
-      label: "Kegalle",
-    },
-    {
-      value: "Colombo",
-      label: "Colombo",
-    },
-    {
-      value: "Avissawella",
-      label: "Avissawella",
-    },
-  ];
- export  const categoryType = [
-    {
-      id:1,
-      title: "Vehicles",
-      total:7235
-    
-    },
-    {
-      id:2,
-      title: "Property",
-      total:4100
-    },
-    {
-      id:3,
-      title: "Electronics",
-      total:2231
-    },
-    {
-      id:4,
-      title: "Business & Services",
-      total:1245
-    },
-    
-  ];
+export const vehicleCategories = [
+  { id: 1, name: "All", isChecked: true },
+  { id: 2, name: "Cars", isChecked: false },
+  { id: 3, name: "Buses", isChecked: false },
+  { id: 4, name: "Car Parts", isChecked: false },
+  { id: 5, name: "Boats", isChecked: false },
+  { id: 6, name: "Lorries", isChecked: false },
+  { id: 7, name: "Motorcycles", isChecked: false },
+  { id: 8, name: "Three Wheelers", isChecked: false },
+  { id: 9, name: "Tractors", isChecked: false },
+  { id: 10, name: "SUVs/Jeeps", isChecked: false },
+  { id: 11, name: "Vans", isChecked: false },
+  { id: 12, name: "Other", isChecked: false },
+];
+
+export const vehicleAdds = [
+  {
+    id: 2,
+    categoryId: 2,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Mercedes Benz ML320",
+    date: "2021-08-19",
+    category: "Cars",
+    user: "Sandun",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 3,
+    categoryId: 3,
+    AdReference: "W4018081744961202101",
+    amount: 4990000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Mercedes Benz ML320",
+    date: "2021-08-19",
+    category: "Buses",
+    user: "Sandun",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/18df56ed56c5471cbcd41fecbf6a5087-367635.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/0dbef7ac65c873b2a3e80019548b3c3a-226162.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/c7e71e1c821328a71e0612e7f07d5236-195630.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/65b51a60ffbd91121104e255c2c5d3f2-875768.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 4,
+    categoryId: 3,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Mercedes Benz ML320",
+    date: "2021-08-19",
+    category: "Buses",
+    user: "Sandun",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 5,
+    categoryId: 4,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Mercedes Benz ML320",
+    date: "2021-08-19",
+    category: "Car Parts",
+    user: "Sandun",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  {
+    id: 6,
+    categoryId: 5,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Mercedes Benz ML320",
+    date: "2021-08-19",
+    category: "Boats",
+    user: "Sandun",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+];

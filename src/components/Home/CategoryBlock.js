@@ -8,10 +8,11 @@ import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import HomeIcon from '@material-ui/icons/Home';
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
-
+import { useHistory } from "react-router-dom";
 
 const CategoryBlock = (props) => {
   const classes = useStyles();
+  const history = useHistory()
   return (
     <React.Fragment>
       <Paper variant="outlined" elevation={1} className={classes.root}>
@@ -72,12 +73,12 @@ const CategoryBlock = (props) => {
                 <Grid item container justify="center" alignItems="center" spacing={2}>
                   <Grid item>
                     <Avatar variant="circle" className={classes.iconContainer} >
-                      <DriveEtaIcon fontSize="large" className={classes.icon} />
+                      <DriveEtaIcon fontSize="large" className={classes.icon} onClick={() => history.push('/vehicle')}/>
                     </Avatar>
                   </Grid>
                   <Grid item>
                     <Grid item container direction="column" spacing={1} justify="flex-start">
-                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle}>Vehicles</Typography></Grid>
+                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} onClick={() => history.push('/vehicle')}>Vehicles</Typography></Grid>
                       <Grid item>Listings <b>2478</b></Grid>
                     </Grid>
                   </Grid>
@@ -114,11 +115,15 @@ const useStyles = makeStyles((theme) => ({
   icon:{
       color:theme.palette.common.pureBlack,
       '&:hover':{
-          color:theme.palette.secondary.main
+          color:theme.palette.secondary.main,
+          cursor:'pointer'
       }
   },
   subCategoryTitle:{
-      fontWeight:700
+      fontWeight:700,
+      '&:hover':{
+        cursor:'pointer'
+      }
   }
 
 }));

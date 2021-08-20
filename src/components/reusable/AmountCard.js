@@ -6,6 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 const AmountCard = (props) => {
   const classes = useStyles();
+  const {amount,leaseRental,downPayment} = props
+
+  function separator(numb) {
+    var str = numb.toString().split(".");
+    str[0] = str[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return str.join(".");
+}
+
   return (
     <Grid container direction="column" className={classes.root}>
       <Grid item className={classes.paperContainer}>
@@ -25,7 +33,7 @@ const AmountCard = (props) => {
             <Grid item>
               <Typography variant="h5" className={classes.amount}>
                 {" "}
-                5,350,000
+                {amount.toLocaleString('en-US')}
               </Typography>
             </Grid>
           </Grid>
@@ -38,7 +46,7 @@ const AmountCard = (props) => {
               <Typography variant="subtitle2">BEST LEASE RENTAL :</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5">LKR 84,996</Typography>
+              <Typography variant="h5">LKR {leaseRental.toLocaleString('en-US')}</Typography>
             </Grid>
           </Grid>
         </Paper>
@@ -50,7 +58,7 @@ const AmountCard = (props) => {
               <Typography variant="subtitle2">DOWN PAYMENT :</Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h5"> LKR 1,070,00</Typography>
+              <Typography variant="h5"> LKR {downPayment.toLocaleString('en-US')}</Typography>
             </Grid>
           </Grid>
         </Paper>

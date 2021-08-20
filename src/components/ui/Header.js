@@ -5,12 +5,13 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import AddBoxIcon from "@material-ui/icons/AddBox";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { useTheme } from "@material-ui/core/styles";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles } from "@material-ui/styles";
 import Container from '@material-ui/core/Container';
+import {useHistory} from 'react-router-dom'
+import Link from '@material-ui/core/Link'
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -27,6 +28,7 @@ function ElevationScroll(props) {
 const Header = (props) => {
   const classes = useStyles();
   const theme = useTheme();
+  const history = useHistory()
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <React.Fragment >
@@ -41,7 +43,7 @@ const Header = (props) => {
               alignItems="center"
             >
               <Grid item>
-                <Typography variant="h3" className={classes.headerTitle}>seller.lk</Typography>
+               <Typography variant="h3" className={classes.headerTitle} onClick={() => history.replace('/')}>seller.lk</Typography>
               </Grid>
               <Grid item >
                 <Grid item container spacing={1} justify="flex-end" direction="row">
@@ -91,7 +93,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       fontSize: '2rem'
     },
-    fontFamily: 'Georama'
+    fontFamily: 'Georama',
+    '&:hover':{
+      cursor:'pointer'
+    }
   }
 }));
 
