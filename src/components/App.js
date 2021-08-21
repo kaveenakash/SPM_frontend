@@ -8,6 +8,8 @@ import PropertyPage from "./property/PropertyPage";
 import Footer from "./ui/Footer";
 import VehicleDetail from './vehicle/VehicleDetail';
 import VehiclePage from './vehicle/VehiclePage';
+import VehicleAddForm from './vehicle/VehicleAddForm';
+import PropertyAddForm from './property/PropertyAddForm';
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+        <Route path="/property/add-form">
+            <PropertyAddForm/>
+        </Route>
         <Route exact path="/property/:id">
           <PropertyDetail />
         </Route>
@@ -24,7 +29,11 @@ function App() {
           <PropertyPage />
         </Route>
 
-        <Route path="/vehicle/:id">
+
+        <Route path="/vehicle/add-form">
+            <VehicleAddForm/>
+        </Route>
+        <Route exact path="/vehicle/:id">
             <VehicleDetail/>
         </Route>
         <Route path="/vehicle">
