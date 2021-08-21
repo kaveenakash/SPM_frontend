@@ -8,6 +8,7 @@ const lightGray = '#F2F2F2'
 const seaWhite = '#FFFFFF'
 const borderColor = `#DDDDDD`
 const pureBlack = `#000000`
+const seaGreen = `#37A085`
 export default createTheme({
   palette: {
     common:{
@@ -18,7 +19,8 @@ export default createTheme({
       darkGray:`${darkGray}`,
       lightGray:`${lightGray}`,
       borderColor:`${borderColor}`,
-      pureBlack:`${pureBlack}`
+      pureBlack:`${pureBlack}`,
+      seaGreen:`${seaGreen}`
     },
     primary: {
       main: `${seaBlue}`,
