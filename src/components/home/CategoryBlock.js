@@ -23,16 +23,16 @@ const CategoryBlock = (props) => {
             </Typography>
           </Grid>
           <Grid item className={classes.categoryContainer}>
-            <Grid item container justify="center" spacing={10}>
+            <Grid item container justifyContent="center" spacing={10}>
               <Grid item>
-                <Grid item container justify="center" alignItems="center" spacing={2}>
+                <Grid item container justifyContent="center" alignItems="center" spacing={2}>
                   <Grid item>
-                    <Avatar variant="circle" className={classes.iconContainer} >
+                    <Avatar variant="circular" className={classes.iconContainer} >
                       <BusinessCenterIcon fontSize="large" className={classes.icon} />
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Grid item container direction="column" spacing={1} justify="flex-start">
+                    <Grid item container direction="column" spacing={1} justifyContent="flex-start">
                       <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle}>Services</Typography></Grid>
                       <Grid item>Listings <b>8206</b></Grid>
                     </Grid>
@@ -40,14 +40,14 @@ const CategoryBlock = (props) => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid item container justify="center" alignItems="center" spacing={2}>
+                <Grid item container justifyContent="center" alignItems="center" spacing={2}>
                   <Grid item>
-                    <Avatar variant="circle" className={classes.iconContainer} >
+                    <Avatar variant="circular" className={classes.iconContainer} >
                       <HomeIcon fontSize="large" className={classes.icon} onClick={() => history.push('/property')}/>
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Grid item container direction="column" spacing={1} justify="flex-start">
+                    <Grid item container direction="column" spacing={1} justifyContent="flex-start">
                       <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} onClick={() => history.push('/property')}>Property</Typography></Grid>
                       <Grid item>Listings <b>3221</b></Grid>
                     </Grid>
@@ -55,14 +55,14 @@ const CategoryBlock = (props) => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid item container justify="center" alignItems="center" spacing={2}>
+                <Grid item container justifyContent="center" alignItems="center" spacing={2}>
                   <Grid item>
-                    <Avatar variant="circle" className={classes.iconContainer} >
+                    <Avatar variant="circular" className={classes.iconContainer} >
                       <PhoneAndroidIcon fontSize="large" className={classes.icon} />
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Grid item container direction="column" spacing={1} justify="flex-start">
+                    <Grid item container direction="column" spacing={1} justifyContent="flex-start">
                       <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle}>Electronics</Typography></Grid>
                       <Grid item>Listings <b>7245</b></Grid>
                     </Grid>
@@ -70,14 +70,14 @@ const CategoryBlock = (props) => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid item container justify="center" alignItems="center" spacing={2}>
+                <Grid item container justifyContent="center" alignItems="center" spacing={2}>
                   <Grid item>
-                    <Avatar variant="circle" className={classes.iconContainer} >
+                    <Avatar variant="circular" className={classes.iconContainer} >
                       <DriveEtaIcon fontSize="large" className={classes.icon} onClick={() => history.push('/vehicle')}/>
                     </Avatar>
                   </Grid>
                   <Grid item>
-                    <Grid item container direction="column" spacing={1} justify="flex-start">
+                    <Grid item container direction="column" spacing={1} justifyContent="flex-start">
                       <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} onClick={() => history.push('/vehicle')}>Vehicles</Typography></Grid>
                       <Grid item>Listings <b>2478</b></Grid>
                     </Grid>

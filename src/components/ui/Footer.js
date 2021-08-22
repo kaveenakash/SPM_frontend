@@ -18,7 +18,7 @@ const Footer = () => {
           item
           container
           direction="row"
-          justify="space-around"
+          justifyContent="space-around"
           className={classes.footerContainer}
         >
           <Grid item>

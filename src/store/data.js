@@ -346,3 +346,37 @@ export const propertyAdds = [
     town:"Galigamuwa"
   },
 ]
+
+
+export const districts = [
+  {id:1, value: "Colombo", label: "Colombo" },
+  {id:2, value: "Kalutara", label: "Kalutara" },
+  {id:3, value: "Gampaha", label: "Gampaha" },
+]
+
+
+export const areas = [
+  {id:1,mainCategory:1,value:"Avissawella",label:"Avissawella"},
+  {id:2,mainCategory:3,value:"Mirigama",label:"Mirigama"},
+  {id:3,mainCategory:2,value:"Kalutara",label:"Kalutara"},
+]
+
+// 2nd form property
+export const propertAdType = [
+  {id:1,value:"For Rent",label:"For Rent"},
+  {id:2,value:"For Sale",label:"For Sale"},
+]
+
+export const propertAdCategory = [
+  {id:1,value:"Land",label:"Land"},
+  {id:2,value:"House",label:"House"},
+]
+
+export const propertType = [
+  {id:1,mainCategory:1,value:"Agricultural",label:"Agricultural"},
+  {id:2,mainCategory:1,value:"Commercial",label:"Commercial"},
+  {id:3,mainCategory:1,value:"Residential",label:"Residential"},
+  {id:4,mainCategory:2,value:"Single Story",label:"Single Story"},
+  {id:5,mainCategory:2,value:"Two Story",label:"Two Story"},
+  {id:6,mainCategory:2,value:"Three Story",label:"Three Story"},
+]

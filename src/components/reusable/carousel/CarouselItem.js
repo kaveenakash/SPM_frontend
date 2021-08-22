@@ -8,7 +8,7 @@ const CarouselItem = (props) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <Grid container direction="row" justify="center">
+      <Grid container direction="row" justifyContent="center">
         <Grid item>
           <img src={props.item} />
         </Grid>

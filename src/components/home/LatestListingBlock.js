@@ -26,7 +26,7 @@ const LatestListingBlock = () => {
             container
             spacing={2}
             className={classes.cardContainer}
-            justify="center"
+            justifyContent="center"
           >
             {vehicleAdds.map((item) => {
                     return (
@@ -37,7 +37,7 @@ const LatestListingBlock = () => {
                   })}
           </Grid>
           <Grid item className={classes.moreButtonContainer}>
-            <Grid item container justify="center">
+            <Grid item container justifyContent="center">
               <Grid item>
                 <Button variant="outlined" className={classes.moreBtn}>See More</Button>
               </Grid>

@@ -44,7 +44,7 @@ const CustomCard = (props) => {
               <Grid
                 item
                 container
-                justify="space-between"
+                justifyContent="space-between"
                 alignItems="baseline"
                 direction="column"
               >

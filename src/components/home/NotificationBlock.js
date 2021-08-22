@@ -28,16 +28,16 @@ const NotificationBlock = (props) => {
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             direction="row"
-            spacing={12}
+            spacing={10}
             className={classes.itemContainer}
           >
-            <Grid item container justify="space-evenly">
+            <Grid item container justifyContent="space-evenly">
               <Grid item>
                   <Grid item container direction="column" alignItems="center" spacing={3}>
                       <Grid item>
-                      <Avatar variant="circle" className={classes.iconContainer}>
+                      <Avatar variant="circular" className={classes.iconContainer}>
                   <AddIcon
                     fontSize="large"
                     className={classes.icon}
@@ -53,7 +53,7 @@ const NotificationBlock = (props) => {
               <Grid item>
                   <Grid item container direction="column" alignItems="center" spacing={3}>
                       <Grid item>
-                      <Avatar variant="circle" className={classes.iconContainer}>
+                      <Avatar variant="circular" className={classes.iconContainer}>
                   <PostAddIcon
                     fontSize="large"
                     className={classes.icon}
@@ -69,7 +69,7 @@ const NotificationBlock = (props) => {
               <Grid item>
                   <Grid item container direction="column" alignItems="center" spacing={3}>
                       <Grid item>
-                      <Avatar variant="circle" className={classes.iconContainer}>
+                      <Avatar variant="circular" className={classes.iconContainer}>
                   <ShareIcon
                     fontSize="large"
                     className={classes.icon}
@@ -85,7 +85,7 @@ const NotificationBlock = (props) => {
               <Grid item>
                   <Grid item container direction="column" alignItems="center" spacing={3}>
                       <Grid item>
-                      <Avatar variant="circle" className={classes.iconContainer}>
+                      <Avatar variant="circular" className={classes.iconContainer}>
                   <LocalAtmIcon
                     fontSize="large"
                     className={classes.icon}

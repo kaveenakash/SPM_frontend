@@ -51,7 +51,7 @@ const Header = (props) => {
             <Container fixed>
               <Grid
                 container
-                justify="space-between"
+                justifyContent="space-between"
                 direction="row"
                 alignItems="center"
               >
@@ -69,7 +69,7 @@ const Header = (props) => {
                     item
                     container
                     spacing={1}
-                    justify="flex-end"
+                    justifyContent="flex-end"
                     direction="row"
                   >
                     <Grid item>

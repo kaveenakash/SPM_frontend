@@ -46,7 +46,7 @@ const PropertyDetail = (props) => {
     <React.Fragment>
       <Container fixed className={classes.container}>
         <Grid container direction="column" className={classes.root}>
-          <Grid item container justify="flex-start">
+          <Grid item container justifyContent="flex-start">
             <Grid item>
               <Breadcrumbs aria-label="breadcrumb" className={classes.breadCrumb}>
                 <Link color="inherit" href="/" onClick={handleHomeLink}>

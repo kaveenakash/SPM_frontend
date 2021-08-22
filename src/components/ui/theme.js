@@ -9,6 +9,7 @@ const seaWhite = '#FFFFFF'
 const borderColor = `#DDDDDD`
 const pureBlack = `#000000`
 const seaGreen = `#37A085`
+const seaWood = `#856405`
 export default createTheme({
   palette: {
     common:{
@@ -20,7 +21,8 @@ export default createTheme({
       lightGray:`${lightGray}`,
       borderColor:`${borderColor}`,
       pureBlack:`${pureBlack}`,
-      seaGreen:`${seaGreen}`
+      seaGreen:`${seaGreen}`,
+      seaWood:`${seaWood}`
     },
     primary: {
       main: `${seaBlue}`,

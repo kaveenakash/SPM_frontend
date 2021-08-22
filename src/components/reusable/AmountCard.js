@@ -15,7 +15,7 @@ const AmountCard = (props) => {
           <Grid
             item
             container
-            justify="center"
+            justifyContent="center"
             spacing={1}
             alignItems="baseline"
           >
@@ -35,7 +35,7 @@ const AmountCard = (props) => {
       </Grid>
       <Grid item className={classes.paperContainer}>
         <Paper variant="outlined" className={classes.paper}>
-          <Grid item container justify="center" alignItems="center" spacing={2}>
+          <Grid item container justifyContent="center" alignItems="center" spacing={2}>
             <Grid item>
               <Typography variant="subtitle2">{boxOneTitle} :</Typography>
             </Grid>
@@ -49,7 +49,7 @@ const AmountCard = (props) => {
       </Grid>
       <Grid item className={classes.paperContainer}>
         <Paper variant="outlined" className={classes.paper}>
-          <Grid item container justify="center" alignItems="center" spacing={2}>
+          <Grid item container justifyContent="center" alignItems="center" spacing={2}>
             <Grid item>
               <Typography variant="subtitle2">{boxTwoTitle} :</Typography>
             </Grid>

@@ -58,7 +58,7 @@ const ModalCard = (props) => {
             <Divider variant="fullWidth" />
           </Grid>
           <Grid item>
-            <Grid item container justify="center" direction="row">
+            <Grid item container justifyContent="center" direction="row">
               <Grid item>
                 <Grid item container direction="column" alignItems="center">
                   <Grid item>

@@ -43,7 +43,7 @@ export default function PropertyPage() {
               item
               container
               direction="row"
-              justify="flex-start"
+              justifyContent="flex-start"
               spacing={2}
             >
               <Grid item xs={12} sm={12} md={4} lg={3}>
@@ -58,7 +58,7 @@ export default function PropertyPage() {
                   container
                   spacing={2}
                   className={classes.cardContainer}
-                  justify="center"
+                  justifyContent="center"
                 >
                   {propertyListings.map((item) => {
                     return (
