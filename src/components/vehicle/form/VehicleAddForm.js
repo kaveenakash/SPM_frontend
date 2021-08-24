@@ -14,7 +14,7 @@ import BasicDetailForm from "../../reusable/BasicDetailForm";
 import PrimaryDetailForm from "./PrimaryDetailForm";
 import DescriptionBox from "../../reusable/DescriptionBox";
 import ImageBox from "../../reusable/ImageBox";
-import PreviewDetails from "../PreviewDetails";
+import PreviewDetails from "./PreviewDetails";
 import Spinner from "../../reusable/spinner/Spinner";
 
 export default function PropertyAddForm() {
@@ -25,12 +25,14 @@ export default function PropertyAddForm() {
   const [imageData, setImageData] = useState([]);
   const classes = useStyles();
 
-
   console.log(imageData)
 
   const submitAllData = () =>{
     alert('HEllo')
-
+    console.log(basicData)
+    console.log(primaryData)
+    console.log(description)
+    console.log(imageData)
   }
 
   return (

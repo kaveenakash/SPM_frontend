@@ -14,20 +14,9 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 const PreviewDetails = (props) => {
   const classes = useStyles();
   const { name, tpNumber, email, area, district } = props.basicData[0];
-  const {
-    advertisementType,
-    propertyCategory,
-    propertyType,
-    price,
-    size,
-    title,
-    bedrooms,
-    bathrooms,
-  } = props.primaryData[0];
-  useEffect(() => {
-    console.log(props.basicData);
-    console.log(props.priamryData);
-  }, []);
+  const {manufacturer,model,modelYear,price,title,vehicleCondition,vehicleType} = props.primaryData[0]
+
+ 
   return (
     <React.Fragment>
       <Grid container direction="column" alignItems="center" spacing={2}>
@@ -165,65 +154,54 @@ const PreviewDetails = (props) => {
                               {title}
                             </StyledTableCell>
                           </StyledTableRow>
-                          <StyledTableRow>
+                       <StyledTableRow>
                             <StyledTableCell align="left">
-                              Advertisement Type
+                              Vehicle Type
                             </StyledTableCell>
                             <StyledTableCell align="left">
-                              {advertisementType.label}
-                            </StyledTableCell>
-                          </StyledTableRow>
-                          <StyledTableRow>
-                            <StyledTableCell align="left">
-                              Property Category
-                            </StyledTableCell>
-                            <StyledTableCell align="left">
-                              {propertyCategory.label}
+                              {vehicleType.label}
                             </StyledTableCell>
                           </StyledTableRow>
                           <StyledTableRow>
                             <StyledTableCell align="left">
-                              Property Type
+                              Manufacturer
                             </StyledTableCell>
                             <StyledTableCell align="left">
-                              {propertyType.label}
+                              {manufacturer.label}
+                            </StyledTableCell>
+                          </StyledTableRow>
+                          <StyledTableRow>
+                            <StyledTableCell align="left">
+                              Model
+                            </StyledTableCell>
+                            <StyledTableCell align="left">
+                             {model.label}
+                            </StyledTableCell>
+                          </StyledTableRow>
+                          <StyledTableRow>
+                            <StyledTableCell align="left">
+                              Model Year
+                            </StyledTableCell>
+                            <StyledTableCell align="left">
+                             {modelYear}
+                            </StyledTableCell>
+                          </StyledTableRow>
+                          <StyledTableRow>
+                            <StyledTableCell align="left">
+                              Vehicle Condition
+                            </StyledTableCell>
+                            <StyledTableCell align="left">
+                             {vehicleCondition.label}
                             </StyledTableCell>
                           </StyledTableRow>
 
-                          <StyledTableRow>
-                            <StyledTableCell align="left">
-                              Land Size
-                            </StyledTableCell>
-                            <StyledTableCell align="left">
-                              {size}
-                            </StyledTableCell>
-                          </StyledTableRow>
-                          {propertyCategory.value === "House" && (
-                            <>
-                              <StyledTableRow>
-                                <StyledTableCell align="left">
-                                  No Of Bed Rooms
-                                </StyledTableCell>
-                                <StyledTableCell align="left">
-                                  {bedrooms}
-                                </StyledTableCell>
-                              </StyledTableRow>
-                              <StyledTableRow>
-                                <StyledTableCell align="left">
-                                  No Of Bath Rooms
-                                </StyledTableCell>
-                                <StyledTableCell align="left">
-                                  {bathrooms}
-                                </StyledTableCell>
-                              </StyledTableRow>
-                            </>
-                          )}
+                        
                           <StyledTableRow>
                             <StyledTableCell align="left">
                               Total Price
                             </StyledTableCell>
                             <StyledTableCell align="left">
-                              Rs.{price}/=
+                                {price}
                             </StyledTableCell>
                           </StyledTableRow>
                         </>

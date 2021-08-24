@@ -380,3 +380,26 @@ export const propertType = [
   {id:5,mainCategory:2,value:"Two Story",label:"Two Story"},
   {id:6,mainCategory:2,value:"Three Story",label:"Three Story"},
 ]
+
+
+
+//Vehicle Data
+export const vehicleType = [
+  {id:1,value:"Cars",label:"Cars"},
+  {id:2,value:"Vans",label:"Vans"},
+  {id:3,value:"SUVs",label:"SUVs"},
+]
+export const manufacturer = [
+  {id:1,value:"Suzuki",label:"Suzuki"},
+  {id:2,value:"Toyota",label:"Toyota"},
+  {id:3,value:"Nissan",label:"Nissan"},
+]
+export const modelTypes = [
+  {id:1,mainCategory:1,value:"Swift",label:"Swift"},
+  {id:2,mainCategory:2,value:"Vitz",label:"Vitz"},
+]
+export const condition = [
+  {id:1,value:"Brand New",label:"Brand New"},
+  {id:2,value:"Reconditioned",label:"Reconditioned"},
+  {id:3,value:"Used",label:"Used"},
+]

@@ -60,7 +60,7 @@ const PropertyBasicForm = (props) => {
               <InputLabel htmlFor="input-with-icon-adornment">
                 <Typography variant="subtitle2">Display Name *</Typography>
               </InputLabel>{" "}
-              <Input fullWidth {...field} />
+              <Input required="true" fullWidth {...field} />
             </>
           )}
         />

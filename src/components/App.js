@@ -8,7 +8,7 @@ import PropertyPage from "./property/PropertyPage";
 import Footer from "./ui/Footer";
 import VehicleDetail from "./vehicle/VehicleDetail";
 import VehiclePage from "./vehicle/VehiclePage";
-import VehicleAddForm from "./vehicle/VehicleAddForm";
+import VehicleAddForm from "./vehicle/form/VehicleAddForm";
 import PropertyAddForm from "./property/form/PropertyAddForm";
 
 function App() {
