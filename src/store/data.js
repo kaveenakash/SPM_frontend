@@ -369,8 +369,8 @@ export const districts = [
   {id:18, value: "Trincomalee", label: "Trincomalee" },
   {id:19, value: "Batticaloa", label: "Batticaloa" },
   {id:20, value: "Ampara", label: "Ampara" },
-  {id:21, value: "Badulla", label: "Badulla" },
-  {id:22, value: "Monaragala", label: "Monaragala" },
+  {id:21, value: "Monaragala", label: "Monaragala" },
+  {id:22, value: "Badulla", label: "Badulla" },
   {id:23, value: "Hambantota", label: "Hambantota" },
   {id:24, value: "Matara", label: "Matara" },
   {id:25, value: "Galle", label: "Galle" },
@@ -502,6 +502,11 @@ export const areas = [
   {id:123,mainCategory:21,value:"Dombagahawela",label:"Dombagahawela"},
   {id:124,mainCategory:21,value:"Buddama",label:"Buddama"},
   {id:125,mainCategory:21,value:"Nakkala",label:"Nakkala"},
+  {id:126,mainCategory:22,value:"Ella",label:"Ella"},
+  {id:127,mainCategory:22,value:"Mahiyanganaya",label:"Mahiyanganaya"},
+  {id:128,mainCategory:22,value:"Walimada",label:"Walimada"},
+  {id:129,mainCategory:22,value:"Kandeketiya",label:"Kandeketiya"},
+  {id:130,mainCategory:22,value:"Hali-Ela",label:"Hali-Ela"},
 ]
 
 // 2nd form property
