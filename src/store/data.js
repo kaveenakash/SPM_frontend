@@ -551,11 +551,22 @@ export const vehicleType = [
   {id:1,value:"Cars",label:"Cars"},
   {id:2,value:"Vans",label:"Vans"},
   {id:3,value:"SUVs",label:"SUVs"},
+  {id:4,value:"Lorry",label:"Lorry"},
+  {id:5,value:"Threeweel",label:"Threeweel"},
+  {id:6,value:"Motor Bicycle",label:"Motar Bicycle"},
+  {id:7,value:"Jeep",label:"Jeep"},
 ]
 export const manufacturer = [
   {id:1,value:"Suzuki",label:"Suzuki"},
   {id:2,value:"Toyota",label:"Toyota"},
   {id:3,value:"Nissan",label:"Nissan"},
+  {id:4,value:"Tata",label:"Tata"},
+  {id:5,value:"Bajaj",label:"Bajaj"},
+  {id:6,value:"Honda",label:"Honda"},
+  {id:7,value:"Isuzu",label:"Isuzu"},
+  {id:8,value:"Mazda",label:"Mazda"},
+  {id:8,value:"Mitsubishi",label:"Mitsubishi"},
+  {id:8,value:"Micro",label:"Micro"},
 ]
 export const modelTypes = [
   {id:1,mainCategory:1,value:"Swift",label:"Swift"},
