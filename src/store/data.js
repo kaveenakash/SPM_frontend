@@ -353,6 +353,27 @@ export const districts = [
   {id:2, value: "Kalutara", label: "Kalutara" },
   {id:3, value: "Gampaha", label: "Gampaha" },
   {id:4, value: "Rathnapura", label: "Rathnapura" },
+  {id:5, value: "Jaffna", label: "Jaffna" },
+  {id:6, value: "Kilinochchi", label: "Kilinochchi" },
+  {id:7, value: "Mannar", label: "Mannar" },
+  {id:8, value: "Mullaitiv", label: "Mullaitiv" },
+  {id:9, value: "Puttalam", label: "Puttalam" },
+  {id:10, value: "Vavuniya", label: "Vavuniya" },
+  {id:11, value: "Kurunegala", label: "Kurunegala" },
+  {id:12, value: "Anuradhapura", label: "Anuradhapura" },
+  {id:13, value: "Polonnaruwa", label: "Polonnaruwa" },
+  {id:14, value: "Matale", label: "Matale" },
+  {id:15, value: "Kandy", label: "Kandy" },
+  {id:16, value: "Nuwara Eliya", label: "Nuwara Eliya" },
+  {id:17, value: "Kegalle", label: "Kegalle" },
+  {id:18, value: "Trincomalee", label: "Trincomalee" },
+  {id:19, value: "Batticaloa", label: "Batticaloa" },
+  {id:20, value: "Ampara", label: "Ampara" },
+  {id:21, value: "Badulla", label: "Badulla" },
+  {id:22, value: "Monaragala", label: "Monaragala" },
+  {id:23, value: "Hambantota", label: "Hambantota" },
+  {id:24, value: "Matara", label: "Matara" },
+  {id:25, value: "Galle", label: "Galle" },
 ]
 
 
@@ -394,6 +415,7 @@ export const areas = [
   {id:35,mainCategory:2,value:"Madurawela",label:"Madurawela"},
   {id:36,mainCategory:2,value:"Matugama",label:"Matugama"},
   {id:37,mainCategory:2,value:"Panadura",label:"Panadura"},
+  //{id:38,mainCategory:3,value:"Panadura",label:"Panadura"},
   
 ]
 
