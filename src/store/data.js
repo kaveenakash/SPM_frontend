@@ -442,6 +442,9 @@ export const areas = [
   {id:63,mainCategory:9,value:"Kalpitiya",label:"Kalpitiya"},
   {id:64,mainCategory:9,value:"Marawila",label:"Marawila"},
   {id:65,mainCategory:9,value:"Wennappuwa",label:"Wennappuwa"},
+  {id:66,mainCategory:10,value:"Cheddikulam",label:"Cheddikulam"},
+  {id:67,mainCategory:10,value:"Nedunkeni",label:"Nedunkeni"},
+  {id:68,mainCategory:10,value:"Vavuniya",label:"Vavuniya"},
 ]
 
 // 2nd form property
