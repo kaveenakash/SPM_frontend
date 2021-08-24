@@ -451,6 +451,12 @@ export const areas = [
   {id:72,mainCategory:11,value:"Wariyapola",label:"Wariyapola"},
   {id:73,mainCategory:11,value:"Bingiriya",label:"Bingiriya"},
   {id:74,mainCategory:11,value:"Patuhena",label:"Patuhena"},
+  {id:75,mainCategory:12,value:"Eppawala",label:"Eppawala"},
+  {id:76,mainCategory:12,value:"Kekirawa",label:"Kekirawa"},
+  {id:77,mainCategory:12,value:"Mihintale",label:"Mihintale"},
+  {id:78,mainCategory:12,value:"Mihintale",label:"Mihintale"},
+  {id:79,mainCategory:12,value:"Kebitigollawa",label:"Kebitigollawa"},
+  {id:80,mainCategory:12,value:"Horawupotana",label:"Horawupotana"},
 ]
 
 // 2nd form property
