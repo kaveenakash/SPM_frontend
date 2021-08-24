@@ -517,6 +517,11 @@ export const areas = [
   {id:138,mainCategory:24,value:"Pasgoda",label:"Pasgoda"},
   {id:139,mainCategory:24,value:"Weligama",label:"Weligama"},
   {id:140,mainCategory:24,value:"Athuraliya",label:"Athuraliya"},
+  {id:141,mainCategory:25,value:"Gintota",label:"Gintota"},
+  {id:142,mainCategory:25,value:"Bope",label:"Bope"},
+  {id:143,mainCategory:25,value:"Katugoda",label:"Katugoda"},
+  {id:144,mainCategory:25,value:"Galwadugoda",label:"Galwadugoda"},
+  {id:145,mainCategory:25,value:"Imaduwa",label:"Imaduwa"},
 ]
 
 // 2nd form property
