@@ -352,6 +352,7 @@ export const districts = [
   {id:1, value: "Colombo", label: "Colombo" },
   {id:2, value: "Kalutara", label: "Kalutara" },
   {id:3, value: "Gampaha", label: "Gampaha" },
+  {id:4, value: "Rathnapura", label: "Rathnapura" },
 ]
 
 
