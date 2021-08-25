@@ -86,7 +86,7 @@ const Header = (props) => {
                       </Button>
                     </Grid>
                     <Grid item>
-                      <Button variant="outlined">Login</Button>
+                      <Button variant="outlined" onClick={() => {history.replace("/login"); setMenuButtonId(0)}}>Login</Button>
                     </Grid>
                   </Grid>
                 </Grid>
