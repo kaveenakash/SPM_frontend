@@ -6,15 +6,15 @@ import CategoryBox from "../reusable/CategoryBox";
 import Container from "@material-ui/core/Container";
 
 
-import { vehicleCategories, vehicleAdds } from "../../store/data";
+import { serviceCategories, serviceAdds } from "../../store/data";
 import { CategoryCheck,FilterListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
 import Warning  from "../reusable/warning/Warning";
 
 export default function VehiclePage() {
   const classes = useStyles();
-  const [categories, setCategories] = useState(vehicleCategories);
-  const [vehicleListings, setVehicleListings] = useState(vehicleAdds);
+  const [categories, setCategories] = useState(serviceCategories);
+  const [vehicleListings, setVehicleListings] = useState(serviceAdds);
   
 
   const handleCheckdCategories = async (id) => {
@@ -24,7 +24,7 @@ export default function VehiclePage() {
   };
 
   const handleVehicleFilter = (categories) =>{
-   const filterData =  FilterListings(categories,vehicleAdds)
+   const filterData =  FilterListings(categories,serviceAdds)
    setVehicleListings(filterData)
   }
 
@@ -36,7 +36,7 @@ export default function VehiclePage() {
         <Grid container direction="column">
           <Grid item className={classes.headerContainer}>
             <Typography variant="h4" align="center" className={classes.header}>
-              All Vehicle Listings
+              All Business and Sevices Listings
             </Typography>
           </Grid>
           <Grid item className={classes.bodyContainer}>
