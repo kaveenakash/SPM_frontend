@@ -11,6 +11,7 @@ import VehiclePage from "./vehicle/VehiclePage";
 import VehicleAddForm from "./vehicle/form/VehicleAddForm";
 import PropertyAddForm from "./property/form/PropertyAddForm";
 import Login from './Login/Login'
+import BusinessPage from './business&services/BusinessPage'
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
         </Route>
         <Route path="/vehicle">
           <VehiclePage />
+        </Route>
+        <Route path="/services">
+          <BusinessPage />
         </Route>
 
         <Route path="/login">
