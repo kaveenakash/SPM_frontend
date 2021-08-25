@@ -13,6 +13,7 @@ import PropertyAddForm from "./property/form/PropertyAddForm";
 import Login from './Login/Login'
 import BusinessPage from './business&services/BusinessPage'
 import ElectronicPage from '../components/electronic/ElectronicPage'
+import Register from "./Register/Register";
 
 function App() {
   return (
@@ -46,9 +47,11 @@ function App() {
         <Route path="/electronic">
           <ElectronicPage />
         </Route>
-
         <Route path="/login">
           <Login/>
+        </Route>
+        <Route path="/register">
+          <Register/>
         </Route>
       </Switch>
       <Footer />
