@@ -10,6 +10,7 @@ import VehicleDetail from "./vehicle/VehicleDetail";
 import VehiclePage from "./vehicle/VehiclePage";
 import VehicleAddForm from "./vehicle/form/VehicleAddForm";
 import PropertyAddForm from "./property/form/PropertyAddForm";
+import Login from './Login/Login'
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
         </Route>
         <Route path="/vehicle">
           <VehiclePage />
+        </Route>
+
+        <Route path="/login">
+          <Login/>
         </Route>
       </Switch>
       <Footer />
