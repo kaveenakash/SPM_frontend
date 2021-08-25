@@ -63,7 +63,7 @@ const CategoryBlock = (props) => {
                   </Grid>
                   <Grid item>
                     <Grid item container direction="column" spacing={1} justifyContent="flex-start">
-                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} >Electronics</Typography></Grid>
+                      <Grid item><Typography variant="subtitle1" className={classes.subCategoryTitle} onClick={() => history.push('/electronic')} >Electronics</Typography></Grid>
                       <Grid item>Listings <b>7245</b></Grid>
                     </Grid>
                   </Grid>
