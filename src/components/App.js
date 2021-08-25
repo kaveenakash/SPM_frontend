@@ -14,6 +14,8 @@ import Login from './Login/Login'
 import BusinessPage from './business&services/BusinessPage'
 import ElectronicPage from '../components/electronic/ElectronicPage'
 import Register from "./Register/Register";
+import ErrorModel from "./reusable/ErrorModel";
+import SuccessfulModel from "./reusable/SuccessfulModel";
 
 function App() {
   return (
@@ -52,6 +54,12 @@ function App() {
         </Route>
         <Route path="/register">
           <Register/>
+        </Route>
+        <Route path="/error">
+          <ErrorModel/>
+        </Route>
+        <Route path="/successful">
+          <SuccessfulModel/>
         </Route>
       </Switch>
       <Footer />
