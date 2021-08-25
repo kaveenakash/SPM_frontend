@@ -571,6 +571,19 @@ export const manufacturer = [
 export const modelTypes = [
   {id:1,mainCategory:1,value:"Swift",label:"Swift"},
   {id:2,mainCategory:2,value:"Vitz",label:"Vitz"},
+  {id:3,mainCategory:3,value:"Sunny",label:"Sunny"},
+  {id:4,mainCategory:4,value:"Alto",label:"Alto"},
+  {id:5,mainCategory:5,value:"Vezel",label:"Vezel"},
+  {id:6,mainCategory:6,value:"Maxximo",label:"Maxximo"},
+  {id:7,mainCategory:7,value:"Bolero",label:"Bolero"},
+  {id:8,mainCategory:8,value:"Caravan",label:"Caravan"},
+  {id:9,mainCategory:9,value:"Hiace",label:"Hiace"},
+  {id:10,mainCategory:10,value:"Hiace Dolphin",label:"Hiace Dolphin"},
+  {id:11,mainCategory:11,value:"Platina",label:"Platina"},
+  {id:12,mainCategory:12,value:"Discover",label:"Discover"},
+  {id:13,mainCategory:13,value:"ct100",label:"ct100"},
+  {id:14,mainCategory:14,value:"Hero pleasure",label:"Hero pleasure"},
+  {id:15,mainCategory:15,value:"Wagon R",label:"Wagon R"},
 ]
 export const condition = [
   {id:1,value:"Brand New",label:"Brand New"},
