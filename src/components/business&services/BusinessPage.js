@@ -11,7 +11,7 @@ import { CategoryCheck,FilterListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
 import Warning  from "../reusable/warning/Warning";
 
-export default function VehiclePage() {
+export default function BusinessPage() {
   const classes = useStyles();
   const [categories, setCategories] = useState(serviceCategories);
   const [vehicleListings, setVehicleListings] = useState(serviceAdds);

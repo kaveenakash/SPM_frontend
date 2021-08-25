@@ -511,7 +511,7 @@ export const electronicCategories = [
   { id: 3, name: "Cameras", isChecked: false },
   { id: 4, name: "Cell phones-Accessories", isChecked: false },
   { id: 5, name: "Kitchen, Home Applianas", isChecked: false },
-  { id: 6, name: "Laptops, Desktops, Tablets & Hardware", isChecked: false },
+  { id: 6, name: "Laptops, Desktops & Hardware", isChecked: false },
   { id: 7, name: "Networking, WiFi, & CCTV", isChecked: false },
   { id: 8, name: "Software", isChecked: false },
   { id: 9, name: "TVs", isChecked: false },
