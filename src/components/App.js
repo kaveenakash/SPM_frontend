@@ -16,13 +16,17 @@ import ElectronicPage from '../components/electronic/ElectronicPage'
 import Register from "./Register/Register";
 import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
+import Profile from '../components/profile/Profile'
 
 function App() {
-  const [loginData,setLoginData] = useState([])
+  const [loginData,setLoginData] = useState(null)
+  const logOut = () =>{
+    setLoginData(null)
+  }
   console.log(loginData)
   return (
     <Router>
-      <Header />
+      <Header loginData={loginData} logOut={logOut} />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -59,6 +63,9 @@ function App() {
         </Route>
         <Route path="/successful">
           <SuccessfulModel/>
+        </Route>
+        <Route path="/user-profile">
+          <Profile loginData={loginData} />
         </Route>
       </Switch>
       <Footer />

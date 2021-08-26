@@ -31,7 +31,7 @@ export default function PropertyAddForm() {
   const history = useHistory()
 
   const submitAllData =async () =>{
-    alert('HEllo')
+ 
     console.log(primaryData)
     let name,
       email,
@@ -91,7 +91,7 @@ export default function PropertyAddForm() {
   
   const handleClose = () => {
     setIsSuccessModalOpen(false);
-    // history.push('/vehicle')
+    history.push('/property')
   };
 
   return (

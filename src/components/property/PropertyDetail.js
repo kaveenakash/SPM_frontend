@@ -73,7 +73,7 @@ const PropertyDetail = (props) => {
               <Grid item container direction="column" alignItems="flex-start" >
                   <Grid item className={classes.headerContainer}>
                     
-                    <Typography variant="h5" className={classes.header}>{item.name}</Typography>
+                    <Typography variant="h5" className={classes.header}>{selectedData.title}</Typography>
                   
                   </Grid>
                   <Grid item>
