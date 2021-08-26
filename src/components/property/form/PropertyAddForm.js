@@ -29,8 +29,21 @@ export default function PropertyAddForm() {
 
   const submitAllData = () =>{
     alert('HEllo')
-    // axios.get('http://localhost:9090/api/vehicle/get-vehicle').then(res => console.log(res))
-    axios.post('http://localhost:9090/api/vehicle/add-vehicle',primaryData).then(res => console.log(res))
+    console.log(primaryData)
+    let name,
+      email,
+      tpNumber,
+      district,
+      area;
+      
+    for (let item in basicData) {
+      name = basicData[item].name;
+      email = basicData[item].email;
+      tpNumber = basicData[item].tpNumber;
+      district = basicData[item].district.value;
+      area = basicData[item].area.value;
+    }
+    
   }
 
   return (
