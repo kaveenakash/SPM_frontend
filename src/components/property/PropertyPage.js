@@ -5,29 +5,39 @@ import { makeStyles } from "@material-ui/core/styles";
 import CategoryBox from "../reusable/CategoryBox";
 import Container from "@material-ui/core/Container";
 
-
 import { propertyCategories, propertyAdds } from "../../store/data";
-import { CategoryCheck,FilterListings } from "../../utility/common";
+import { CategoryCheck, FilterPropertyListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
-
+import axios from "axios";
 export default function PropertyPage() {
   const classes = useStyles();
   const [categories, setCategories] = useState(propertyCategories);
   const [propertyListings, setPropertyListings] = useState(propertyAdds);
-  
+  const [allListings, setAllListings] = useState([]);
+  const [tempData, setTempData] = useState([]);
 
   const handleCheckdCategories = async (id) => {
-    let newCategories = CategoryCheck(categories, id)
+    let newCategories = CategoryCheck(categories, id);
     setCategories(newCategories);
-    const filteredVehicleData = await handleVehicleFilter(newCategories)
+    const filteredVehicleData = await handleVehicleFilter(newCategories);
   };
 
-  const handleVehicleFilter = (categories) =>{
-   const filterData =  FilterListings(categories,propertyAdds)
-   setPropertyListings(filterData)
-  }
+  const handleVehicleFilter = (categories) => {
+    const filterData = FilterPropertyListings(categories, tempData);
+    setAllListings(filterData);
+  };
 
-  
+  useEffect(() => {
+    const getPropertyData = async () => {
+      const result = await axios.get(
+        "http://localhost:9090/api/property/get-all-property"
+      );
+      setAllListings(result.data);
+      setTempData(result.data);
+      console.log(result);
+    };
+    getPropertyData();
+  }, []);
 
   return (
     <React.Fragment>
@@ -60,10 +70,27 @@ export default function PropertyPage() {
                   className={classes.cardContainer}
                   justifyContent="center"
                 >
-                  {propertyListings.map((item) => {
+                  {allListings.map((item) => {
                     return (
-                      <Grid item xs={12} sm={4} md={4} lg={3} xl={3} key={item.id+item.name} >
-                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user} path={'property'} />
+                      <Grid
+                        item
+                        xs={12}
+                        sm={4}
+                        md={4}
+                        lg={3}
+                        xl={3}
+                        key={item.id + item.name}
+                      >
+                        <CustomCard
+                           id={item._id}
+                           imageURL={item.images}
+                           name={item.title}
+                           amount={item.price}
+                           date={item.createdAt}
+                           category={item.propertyCategory}
+                           owner={item.name}
+                          path={"property"}
+                        />
                       </Grid>
                     );
                   })}
@@ -71,7 +98,6 @@ export default function PropertyPage() {
               </Grid>
             </Grid>
           </Grid>
-
         </Grid>
       </Container>
     </React.Fragment>

@@ -40,13 +40,34 @@ export const FilterVehicleListings = (categories, allListings) => {
   const checkedCategories = categories
     .filter((item) => item.isChecked)
     .map((item) => item.name);
+
+  console.log(checkedCategories);
+  let filterdData;
+  if (checkedCategories.includes("All")) {
+    return allListings;
+  } else {
+    console.log(allListings);
+    filterdData = allListings.filter((item) =>
+      checkedCategories.includes(item.propertyType)
+    );
+    console.log(filterdData);
+    return filterdData;
+  }
+};
+
+export const FilterPropertyListings = (categories, allListings) => {
+  const checkedCategories = categories
+    .filter((item) => item.isChecked)
+    .map((item) => item.name);
+
   let filterdData;
   if (checkedCategories.includes("All")) {
     return allListings;
   } else {
     filterdData = allListings.filter((item) =>
-      checkedCategories.includes(item.vehicleType)
+      checkedCategories.includes(item.propertyCategory)
     );
+
     return filterdData;
   }
 };

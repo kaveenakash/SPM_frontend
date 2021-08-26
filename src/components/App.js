@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment,useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "../components/ui/Header";
@@ -18,6 +18,8 @@ import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
 
 function App() {
+  const [loginData,setLoginData] = useState([])
+  console.log(loginData)
   return (
     <Router>
       <Header />
@@ -50,7 +52,7 @@ function App() {
           <ElectronicPage />
         </Route>
         <Route path="/login">
-          <Login/>
+          <Login setLoginData={setLoginData}/>
         </Route>
         <Route path="/register">
           <Register/>
