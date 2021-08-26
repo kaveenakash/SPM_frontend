@@ -14,7 +14,6 @@ import { useHistory } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 
 import MenuButton from '../reusable/MenuButton'
-import ModalCard from "../reusable/ModalCard";
 
 function ElevationScroll(props) {
   const { children } = props;

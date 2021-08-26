@@ -11,10 +11,12 @@ import Card from "@material-ui/core/Card";
 import Button from "@material-ui/core/Button";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
+
 const PreviewDetails = (props) => {
   const classes = useStyles();
   const { name, tpNumber, email, area, district } = props.basicData[0];
   const {manufacturer,model,modelYear,price,title,vehicleCondition,vehicleType} = props.primaryData[0]
+
 
  
   return (

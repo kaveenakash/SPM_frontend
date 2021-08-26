@@ -30,7 +30,7 @@ const NotificationBlock = (props) => {
             container
             justifyContent="center"
             direction="row"
-            spacing={10}
+          
             className={classes.itemContainer}
           >
             <Grid item container justifyContent="space-evenly">

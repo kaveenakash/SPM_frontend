@@ -16,6 +16,7 @@ import DescriptionBox from "../../reusable/DescriptionBox";
 import ImageBox from "../../reusable/ImageBox";
 import PreviewDetails from "../PreviewDetails";
 import Spinner from "../../reusable/spinner/Spinner";
+import axios from 'axios'
 
 export default function PropertyAddForm() {
   const [formID, setFormID] = useState(0);
@@ -26,11 +27,10 @@ export default function PropertyAddForm() {
   const classes = useStyles();
 
 
-  console.log(imageData)
-
   const submitAllData = () =>{
     alert('HEllo')
-
+    // axios.get('http://localhost:9090/api/vehicle/get-vehicle').then(res => console.log(res))
+    axios.post('http://localhost:9090/api/vehicle/add-vehicle',primaryData).then(res => console.log(res))
   }
 
   return (

@@ -22,15 +22,31 @@ export const CategoryCheck = (categories, id) => {
   return newCategories;
 };
 
-
-export const FilterListings = (categories,allListings) =>{
-  const checkedCategories = categories.filter(item => item.isChecked).map(item => item.id)
-    let filterdData;
-    if(checkedCategories.includes(1)){
-      filterdData = allListings
-    }else{
-      
-       filterdData = allListings.filter(item => checkedCategories.includes(item.id))
-    }
-    return filterdData
-}
+export const FilterListings = (categories, allListings) => {
+  const checkedCategories = categories
+    .filter((item) => item.isChecked)
+    .map((item) => item.id);
+  let filterdData;
+  if (checkedCategories.includes(1)) {
+    filterdData = allListings;
+  } else {
+    filterdData = allListings.filter((item) =>
+      checkedCategories.includes(item.id)
+    );
+  }
+  return filterdData;
+};
+export const FilterVehicleListings = (categories, allListings) => {
+  const checkedCategories = categories
+    .filter((item) => item.isChecked)
+    .map((item) => item.name);
+  let filterdData;
+  if (checkedCategories.includes("All")) {
+    return allListings;
+  } else {
+    filterdData = allListings.filter((item) =>
+      checkedCategories.includes(item.vehicleType)
+    );
+    return filterdData;
+  }
+};
