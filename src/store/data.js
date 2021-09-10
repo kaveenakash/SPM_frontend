@@ -664,6 +664,36 @@ export const electronicAdds = [
     district:"Kegalle",
     town:"Galigamuwa"
   },
+
+  {
+    id: 7,
+    categoryId: 5,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 200,
+    name: "Farcry",
+    date: "2021-08-19",
+    category: "Video games",
+    user: "kamal",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "Used",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "I8",
+    fuelType: "Petrol",
+    engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
 ];
 
 
