@@ -37,25 +37,15 @@ export default function DescriptionCard() {
           OVERVIEW
         </Typography>
         <Typography variant="subtitle2">
-        In good condition.
+        good service.
         </Typography>
         <Typography variant="subtitle2">
-        Well maintained.
+        6 month warrenty.
         </Typography>
-        <Typography variant="subtitle2">
-        All document Up-to-Date.
-        </Typography>
-        <Typography variant="subtitle2">
-        Price can be negotiable.
-        </Typography>
+      
         <br/>
        
-        <Typography variant="subtitle2">
-        එන්ජිම හා ධාවනය අනර්ඝ තත්වයේ.
-        </Typography>
-        <Typography variant="subtitle2">
-        ලයිසන් සියල්ල සම්පුර්ණයි.
-        </Typography>
+        
         <Typography variant="subtitle2">
         පරීක්ෂාවෙන් පසු මිල ගණන් සාකච්චා කල හැක
         </Typography>
