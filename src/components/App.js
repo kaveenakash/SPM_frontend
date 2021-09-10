@@ -17,6 +17,7 @@ import Register from "./Register/Register";
 import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
 import Profile from '../components/profile/Profile'
+import AdminHome from '../admin/AdminHome'
 
 function App() {
   const [loginData,setLoginData] = useState(null)
@@ -66,6 +67,9 @@ function App() {
         </Route>
         <Route path="/user-profile">
           <Profile loginData={loginData} />
+        </Route>
+        <Route path="/admin-dashboard">
+          <AdminHome />
         </Route>
       </Switch>
       <Footer />
