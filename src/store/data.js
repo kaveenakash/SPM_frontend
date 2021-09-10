@@ -526,7 +526,7 @@ export const electronicAdds = [
     amount: 925000,
     leaseRental: 84996,
     downPayment: 107000,
-    name: "Mercedes Benz ML320",
+    name: "jbl 110",
     date: "2021-08-19",
     category: "Audio & MP3",
     user: "Sandun",
