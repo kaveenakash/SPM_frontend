@@ -469,6 +469,28 @@ export const serviceAdds = [
     district:"Kegalle",
     town:"Galigamuwa"
   },
+  {
+    id: 7,
+    categoryId: 4,
+    AdReference: "W4018081744961202101",
+    amount: 925000,
+    leaseRental: 84996,
+    downPayment: 107000,
+    name: "Tharu Beauty Care",
+    date: "2021-08-19",
+    category: "Health-Beauty-Fitness",
+    user: "Sandun",
+    image: [
+      "https://i1.wp.com/classifylanka.com/wp-content/uploads/2021/01/Salon-hisa-care-hair-cut.jpg?fit=960%2C649&ssl=1",
+      "https://dminteriors.lk/wp-content/uploads/2019/01/salon-interior-design-in-sri-lanka.jpg",
+      "http://saloninsrilanka.weebly.com/uploads/1/1/3/0/113028645/kk_1_orig.jpg",
+     
+    ],
+    ratings:"5 star",
+    description:"Over the years, Ammu Beauty Care has become synonymous with premium hair styling services in the city of Navinna. We offers great styling and grooming services and bring out your inner beauty and execute on all your requirements.",
+    district:"Vavuniya",
+    town:"Vavuniya"
+  },
 ];
 
 //electronic data
