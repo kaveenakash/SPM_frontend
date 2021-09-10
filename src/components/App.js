@@ -19,15 +19,17 @@ import SuccessfulModel from "./reusable/SuccessfulModel";
 import Profile from '../components/profile/Profile'
 import AdminHome from '../admin/AdminHome'
 
+import {useLocation} from 'react-router-dom'
+
 function App() {
   const [loginData,setLoginData] = useState(null)
   const logOut = () =>{
     setLoginData(null)
   }
-  console.log(loginData)
+
   return (
     <Router>
-      <Header loginData={loginData} logOut={logOut} />
+    <Header loginData={loginData} logOut={logOut} />
       <Switch>
         <Route exact path="/">
           <Home />
