@@ -507,9 +507,9 @@ export const serviceAdds = [
 ];
 export const electronicCategories = [
   { id: 1, name: "All", isChecked: true },
-  { id: 2, name: "Audio & MP3", isChecked: false },
+  { id: 2, name: "Cell phones-Accessories", isChecked: false },
   { id: 3, name: "Cameras", isChecked: false },
-  { id: 4, name: "Cell phones-Accessories", isChecked: false },
+  { id: 4, name: "Audio & MP3", isChecked: false },
   { id: 5, name: "Kitchen, Home Applianas", isChecked: false },
   { id: 6, name: "Laptops, Desktops & Hardware", isChecked: false },
   { id: 7, name: "Networking, WiFi, & CCTV", isChecked: false },
