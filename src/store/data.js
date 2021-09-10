@@ -505,6 +505,8 @@ export const serviceAdds = [
     town:"Galigamuwa"
   },
 ];
+
+//electronic data
 export const electronicCategories = [
   { id: 1, name: "All", isChecked: true },
   { id: 2, name: "Cell phones-Accessories", isChecked: false },
@@ -689,6 +691,66 @@ export const electronicAdds = [
     model: "I8",
     fuelType: "Petrol",
     engineCapacity: "1500 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+
+  {
+    id: 8,
+    categoryId: 5,
+    AdReference: "W4018081744961202102",
+    amount: 1000,
+    leaseRental: 200,
+    downPayment: 200,
+    name: "COD",
+    date: "2021-09-11",
+    category: "Video games",
+    user: "Izam",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2020,
+    condition: "New",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "12",
+    fuelType: "Petrol",
+    engineCapacity: "600 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
+  
+  {
+    id: 9,
+    categoryId: 5,
+    AdReference: "W4018081744961202102",
+    amount: 12000,
+    leaseRental: 2200,
+    downPayment: 2200,
+    name: "Battlefeild",
+    date: "2021-09-11",
+    category: "Video games",
+    user: "Ameer",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2020,
+    condition: "New",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "12",
+    fuelType: "Petrol",
+    engineCapacity: "600 CC",
     mileage: "30000 km",
     color: "White",
     district:"Kegalle",
