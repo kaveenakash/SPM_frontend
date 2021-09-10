@@ -756,6 +756,36 @@ export const electronicAdds = [
     district:"Kegalle",
     town:"Galigamuwa"
   },
+
+  {
+    id: 10,
+    categoryId: 5,
+    AdReference: "W4018081744961202102",
+    amount: 100,
+    leaseRental: 100,
+    downPayment: 100,
+    name: "Batman",
+    date: "2021-09-11",
+    category: "Video games",
+    user: "Ameer",
+    image: [
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/1f63bd17059ace50b7982bd0baa6e2c0-500989.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/bfd44090953c5a677f29f39288ad5287-786302.jpeg",
+      "http://patpat-s3-live.s3.amazonaws.com/uploads/a69a81605b7fe37054dea26571ce94e2-842121.jpeg",
+    ],
+    modelYear: 2017,
+    condition: "New",
+    transmission: "Automatic",
+    manufacturer: "BMW",
+    model: "12",
+    fuelType: "Petrol",
+    engineCapacity: "600 CC",
+    mileage: "30000 km",
+    color: "White",
+    district:"Kegalle",
+    town:"Galigamuwa"
+  },
 ];
 
 
