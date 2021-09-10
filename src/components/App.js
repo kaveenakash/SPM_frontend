@@ -46,6 +46,16 @@ function App() {
         <Route exact path="/vehicle/:id">
           <VehicleDetail />
         </Route>
+
+        <Route exact path="/service">
+          <BusinessPage />
+        </Route>
+        <Route path="/business/add-form">
+          <BusinessAddForm />
+        </Route>
+        <Route exact path="/service/:id">
+          <ServiceDetail />
+        </Route>
         <Route path="/vehicle">
           <VehiclePage />
         </Route>

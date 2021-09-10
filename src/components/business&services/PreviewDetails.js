@@ -19,7 +19,6 @@ const PreviewDetails = (props) => {
     ratings,
     title,
     price,
-    description,
   } = props.primaryData[0];
   useEffect(() => {
     console.log(props.basicData);
@@ -170,14 +169,7 @@ const PreviewDetails = (props) => {
                               {serviceType.label}
                             </StyledTableCell>
                           </StyledTableRow>
-                          <StyledTableRow>
-                            <StyledTableCell align="left">
-                              Description
-                            </StyledTableCell>
-                            <StyledTableCell align="left">
-                              {description.label}
-                            </StyledTableCell>
-                          </StyledTableRow>
+                          
                           <StyledTableRow>
                             <StyledTableCell align="left">
                               Ratings
