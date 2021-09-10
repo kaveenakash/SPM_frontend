@@ -15,7 +15,10 @@ import PrimaryDetailForm from "./PrimaryDetailForm";
 import DescriptionBox from "../../reusable/DescriptionBox";
 import ImageBox from "../../reusable/ImageBox";
 import PreviewDetails from "./PreviewDetails";
+import axios from "axios";
 import Spinner from "../../reusable/spinner/Spinner";
+import NotificationModal from "../../reusable/NotificationModal";
+import {useHistory} from 'react-router-dom'
 
 export default function PropertyAddForm() {
   const [formID, setFormID] = useState(0);
@@ -23,24 +26,76 @@ export default function PropertyAddForm() {
   const [primaryData, setPrimaryData] = useState([]);
   const [description, setDescription] = useState([]);
   const [imageData, setImageData] = useState([]);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const classes = useStyles();
+  const history = useHistory()
 
-  console.log(imageData)
+  const submitAllData = async () => {
+    let name,
+      email,
+      tpNumber,
+      district,
+      area,
+      manufacturer,
+      model,
+      modelYear,
+      price,
+      title,
+      vehicleCondition,
+      vehicleType;
+    for (let item in basicData) {
+      name = basicData[item].name;
+      email = basicData[item].email;
+      tpNumber = basicData[item].tpNumber;
+      district = basicData[item].district.value;
+      area = basicData[item].area.value;
+    }
+    for (let item in primaryData) {
+      manufacturer = primaryData[item].manufacturer.value;
+      model = primaryData[item].model.value;
+      modelYear = primaryData[item].modelYear;
+      price = primaryData[item].price;
+      title = primaryData[item].title;
+      vehicleCondition = primaryData[item].vehicleCondition.value;
+      vehicleType = primaryData[item].vehicleType.value;
+    }
 
-  const submitAllData = () =>{
-    alert('HEllo')
-    console.log(basicData)
-    console.log(primaryData)
-    console.log(description)
-    console.log(imageData)
-  }
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("tpNumber", tpNumber);
+      formData.append("district", district);
+      formData.append("area", area);
+      formData.append("manufacturer", manufacturer);
+      formData.append("model", model);
+      formData.append("modelYear", modelYear);
+      formData.append("price", price);
+      formData.append("title", title);
+      formData.append("vehicleCondition", vehicleCondition);
+      formData.append("vehicleType", vehicleType);
+      formData.append("description", description);
+      formData.append("date", new Date().toDateString());
+      formData.append("image", imageData[0].file);
+
+      const result = await axios.post(
+        "http://localhost:9090/api/vehicle/add-vehicle",
+        formData
+      );
+      setIsSuccessModalOpen(true);
+    } catch (error) {}
+  };
+  const handleClose = () => {
+    setIsSuccessModalOpen(false);
+    history.push('/vehicle')
+  };
 
   return (
     <React.Fragment>
       <Container>
         <Grid container direction="column" spacing={2}>
           <Grid item className={classes.iconContainer}>
-            <IconList formID={formID}/>
+            <IconList formID={formID} />
             <Divider />
           </Grid>
           <Grid item>
@@ -100,8 +155,14 @@ export default function PropertyAddForm() {
               />
             )}
           </Grid>
-       
         </Grid>
+        {isSuccessModalOpen && (
+          <NotificationModal
+            IsOpen={isSuccessModalOpen}
+            closeModal={handleClose}
+            image={imageData ? imageData[0].data_url:''}
+          />
+        )}
       </Container>
     </React.Fragment>
   );

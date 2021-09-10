@@ -16,57 +16,51 @@ const useStyles = makeStyles({
 
 const DescriptionTable = (props) => {
   const classes = useStyles();
-
+  console.log(props.vehicleDetails)
   return (
     <TableContainer component={Paper} elevation={3}>
       <Table className={classes.table} aria-label="customized table">
         <TableBody>
-          {props.vehicleDetails.map((row) => {
-            return (
+       
               <>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Ad Reference</StyledTableCell>
-                <StyledTableCell align="left">{row.AdReference}</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails._id}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Model Year</StyledTableCell>
-                <StyledTableCell align="left">{row.modelYear}</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails.modelYear}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Condition</StyledTableCell>
-                <StyledTableCell align="left">{row.condition}</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails.vehicleCondition}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
-                <StyledTableCell align="left">Transmission</StyledTableCell>
-                <StyledTableCell align="left">{row.transmission}</StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Manufacturer</StyledTableCell>
-                <StyledTableCell align="left">{row.manufacturer}</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails.manufacturer}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Model</StyledTableCell>
-                <StyledTableCell align="left">{row.model}</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails.model}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
-                <StyledTableCell align="left">Fuel Type</StyledTableCell>
-                <StyledTableCell align="left">{row.fuelType}</StyledTableCell>
+              <StyledTableRow >
+                <StyledTableCell align="left">Vehicle Type</StyledTableCell>
+                <StyledTableCell align="left">{props.vehicleDetails.vehicleType}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              {/* <StyledTableRow >
                 <StyledTableCell align="left">Engine Capacity</StyledTableCell>
-                <StyledTableCell align="left">{row.engineCapacity}</StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow key={row.name}>
+                <StyledTableCell align="left"></StyledTableCell>
+              </StyledTableRow> */}
+              {/* <StyledTableRow >
                 <StyledTableCell align="left">Mileage</StyledTableCell>
-                <StyledTableCell align="left">{row.mileage}</StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow key={row.name}>
+                <StyledTableCell align="left"></StyledTableCell>
+              </StyledTableRow> */}
+              {/* <StyledTableRow >
                 <StyledTableCell align="left">Color</StyledTableCell>
-                <StyledTableCell align="left">{row.color}</StyledTableCell>
-              </StyledTableRow>
+                <StyledTableCell align="left"></StyledTableCell>
+              </StyledTableRow> */}
               </>
-            );
-          })}
+          
         </TableBody>
       </Table>
     </TableContainer>

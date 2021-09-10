@@ -21,32 +21,50 @@ const DescriptionTable = (props) => {
     <TableContainer component={Paper} elevation={3}>
       <Table className={classes.table} aria-label="customized table">
         <TableBody>
-          {props.propertyDetails.map((row) => {
-            return (
+          
               <>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
+                <StyledTableCell align="left">Create Date</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.date}</StyledTableCell>
+              </StyledTableRow>
+              <StyledTableRow >
                 <StyledTableCell align="left">Ad Reference</StyledTableCell>
-                <StyledTableCell align="left">{row.AdReference}</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails._id}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
+                <StyledTableCell align="left">Seller</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.name}</StyledTableCell>
+              </StyledTableRow>
+              <StyledTableRow >
                 <StyledTableCell align="left">Area</StyledTableCell>
-                <StyledTableCell align="left">{row.area}</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.area}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
+                <StyledTableCell align="left">Property Type</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.propertyType}</StyledTableCell>
+              </StyledTableRow>
+              <StyledTableRow >
+                <StyledTableCell align="left">Property Category</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.propertyCategory}</StyledTableCell>
+              </StyledTableRow>
+              <StyledTableRow >
+                <StyledTableCell align="left">Size</StyledTableCell>
+                <StyledTableCell align="left">{props.propertyDetails.size}</StyledTableCell>
+              </StyledTableRow>
+              {/* <StyledTableRow key={row.name}>
                 <StyledTableCell align="left">No Of Rooms</StyledTableCell>
                 <StyledTableCell align="left">{2}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow key={row.name}>
                 <StyledTableCell align="left">No Of Bathrooms</StyledTableCell>
                 <StyledTableCell align="left">{1}</StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              </StyledTableRow> */}
+              <StyledTableRow >
                 <StyledTableCell align="left">Price</StyledTableCell>
                 <StyledTableCell align="left">Negotiable</StyledTableCell>
               </StyledTableRow>
               </>
-            );
-          })}
+         
         </TableBody>
       </Table>
     </TableContainer>

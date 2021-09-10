@@ -16,6 +16,9 @@ import DescriptionBox from "../../reusable/DescriptionBox";
 import ImageBox from "../../reusable/ImageBox";
 import PreviewDetails from "../PreviewDetails";
 import Spinner from "../../reusable/spinner/Spinner";
+import axios from 'axios'
+import NotificationModal from "../../reusable/NotificationModal";
+import {useHistory} from 'react-router-dom'
 
 export default function PropertyAddForm() {
   const [formID, setFormID] = useState(0);
@@ -24,14 +27,72 @@ export default function PropertyAddForm() {
   const [description, setDescription] = useState([]);
   const [imageData, setImageData] = useState([]);
   const classes = useStyles();
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const history = useHistory()
+
+  const submitAllData =async () =>{
+ 
+    console.log(primaryData)
+    let name,
+      email,
+      tpNumber,
+      district,
+      area,
+      advertisementType,
+      propertyCategory,
+      propertyType,
+      size,
+      price,
+      title;
+      
+    for (let item in basicData) {
+      name = basicData[item].name;
+      email = basicData[item].email;
+      tpNumber = basicData[item].tpNumber;
+      district = basicData[item].district.value;
+      area = basicData[item].area.value;
+    }
+    
+    for (let item in primaryData) {
+      advertisementType = primaryData[item].advertisementType.value;
+      propertyCategory = primaryData[item].propertyCategory.value;
+      price = primaryData[item].price;
+      title = primaryData[item].title;
+      propertyType = primaryData[item].propertyType.value;
+      size = primaryData[item].size
+    }
 
 
-  console.log(imageData)
 
-  const submitAllData = () =>{
-    alert('HEllo')
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("tpNumber", tpNumber);
+      formData.append("district", district);
+      formData.append("area", area);
+      formData.append("advertisementType", advertisementType);
+      formData.append("propertyCategory", propertyCategory);
+      formData.append("propertyType", propertyType);
+      formData.append("size", size);
+      formData.append("price", price);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("date", new Date().toDateString());
+      formData.append("image", imageData[0].file);
 
-  }
+      const result = await axios.post(
+        "http://localhost:9090/api/property/add-property",
+        formData
+      );
+      setIsSuccessModalOpen(true);
+    } catch (error) {}
+  };
+  
+  const handleClose = () => {
+    setIsSuccessModalOpen(false);
+    history.push('/property')
+  };
 
   return (
     <React.Fragment>
@@ -100,6 +161,13 @@ export default function PropertyAddForm() {
           </Grid>
        
         </Grid>
+        {isSuccessModalOpen && (
+          <NotificationModal
+            IsOpen={isSuccessModalOpen}
+            closeModal={handleClose}
+            image={imageData ? imageData[0].data_url:''}
+          />
+        )}
       </Container>
     </React.Fragment>
   );

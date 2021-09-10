@@ -234,7 +234,7 @@ export const vehicleAdds = [
 
 export const propertyCategories = [
   { id: 1, name: "All", isChecked: true },
-  { id: 2, name: "Houses - Apartments", isChecked: false },
+  { id: 2, name: "House", isChecked: false },
   { id: 3, name: "Rooms & Anexes", isChecked: false },
   { id: 4, name: "Vacation Rentals", isChecked: false },
   { id: 5, name: "Land", isChecked: false },

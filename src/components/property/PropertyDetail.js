@@ -15,7 +15,7 @@ import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
 import {propertyAdds} from '../../store/data'
-
+import axios from 'axios'
 const PropertyDetail = (props) => {
   const history = useHistory();
   const params = useParams();
@@ -23,7 +23,7 @@ const PropertyDetail = (props) => {
   const theme = useTheme();
 
   const [propertyData,setPropertyData] = useState([])
-
+  const [selectedData,setSelectedData] = useState([])
   const handleHomeLink = (event) => {
     event.preventDefault();
     history.replace("/");
@@ -32,13 +32,17 @@ const PropertyDetail = (props) => {
    
   useEffect(() =>{
 
-    async function findProperty() {
-
-      const selectedPropery = propertyAdds.filter(item => item.id == params.id)
-      setPropertyData(selectedPropery)
-      console.log(selectedPropery)
+    async function findVehicle() {
+      // console.log(result)
+      const selectedVehicle = propertyAdds.filter(item => item.id == 2)
+      
+      setPropertyData(selectedVehicle)
+      console.log(selectedVehicle)
+      const result = await axios.get(`http://localhost:9090/api/property/get-property/${params.id}`)
+      setSelectedData(result.data)
+      console.log(result)
     }
-    findProperty()
+    findVehicle()
   },[]) 
 
   console.log(params.id)
@@ -69,25 +73,27 @@ const PropertyDetail = (props) => {
               <Grid item container direction="column" alignItems="flex-start" >
                   <Grid item className={classes.headerContainer}>
                     
-                    <Typography variant="h5" className={classes.header}>{item.name}</Typography>
+                    <Typography variant="h5" className={classes.header}>{selectedData.title}</Typography>
                   
                   </Grid>
                   <Grid item>
-                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {item.user} on {item.date}, {item.district}, {item.town}</Typography>
+                  {/* <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {item.user} on {item.date}, {item.district}, {item.town}</Typography> */}
+                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {selectedData.name} on {new Date().toLocaleDateString()}, {selectedData.district}, {selectedData.area}</Typography>
                   </Grid>
 
                   <Grid item className={classes.sliderContainer}>
                       <Grid item container alignItems="flex-start" spacing={2}>
                           <Grid item >
-                              <CarouselCard imageData={item ? item.image:[]}/>
+                          <CarouselCard imageData={selectedData.images ? selectedData.images:[]}/>
                           </Grid>
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                      <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                  <AmountCard amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                      {/* <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/> */}
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
-                                      <DescriptionTable propertyDetails={propertyData}/>
+                                      <DescriptionTable propertyDetails={selectedData ? selectedData : []}/>
                                   </Grid>
                               </Grid>
                           </Grid>

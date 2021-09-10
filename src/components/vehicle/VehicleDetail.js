@@ -15,6 +15,8 @@ import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
 import {vehicleAdds} from '../../store/data'
+import axios from 'axios'
+
 
 const VehicleDetail = (props) => {
   const history = useHistory();
@@ -23,23 +25,24 @@ const VehicleDetail = (props) => {
   const theme = useTheme();
 
   const [vehicleData,setVehicleData] = useState([])
+  const [selectedData,setSelectedData] = useState([])
 
   const handleHomeLink = (event) => {
     event.preventDefault();
     history.replace("/");
   };
 
- 
-    
-    
-
   useEffect(() =>{
 
     async function findVehicle() {
-
-      const selectedVehicle = vehicleAdds.filter(item => item.id == params.id)
+      // console.log(result)
+      const selectedVehicle = vehicleAdds.filter(item => item.id == 2)
+      
       setVehicleData(selectedVehicle)
       console.log(selectedVehicle)
+      const result = await axios.get(`http://localhost:9090/api/vehicle/get-vehicle/${params.id}`)
+      setSelectedData(result.data)
+      console.log(result)
     }
     findVehicle()
   },[]) 
@@ -66,7 +69,7 @@ const VehicleDetail = (props) => {
             </Grid>
            
           </Grid>
-          {vehicleData.map(item => {
+          {/* {vehicleData.map(item => {
             return(
           <Grid item>
               <Grid item container direction="column" alignItems="flex-start" >
@@ -106,7 +109,45 @@ const VehicleDetail = (props) => {
           </Grid>
 
             )
-          })}
+          })} */}
+         
+          <Grid item>
+              <Grid item container direction="column" alignItems="flex-start" >
+                  <Grid item className={classes.headerContainer}>
+                    
+                    <Typography variant="h5" className={classes.header}>{selectedData.title}</Typography>
+                  
+                  </Grid>
+                  <Grid item>
+                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {selectedData.name} on {new Date().toLocaleDateString()}, {selectedData.district}, {selectedData.area}</Typography>
+                  </Grid>
+
+                  <Grid item className={classes.sliderContainer}>
+                      <Grid item container alignItems="flex-start" spacing={2}>
+                          <Grid item >
+                              <CarouselCard imageData={selectedData.images ? selectedData.images:[]}/>
+                          </Grid>
+                          <Grid item>
+                              <Grid item container direction="column">
+                                  <Grid item>
+                                      <AmountCard amount={selectedData.totalPrice ?  selectedData.totalPrice : 1500000} leaseRental={selectedData.totalPrice/20} downPayment={((selectedData.totalPrice/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                  </Grid>
+                                  <Grid item className={classes.descriptionTableContainer}>
+                                      <DescriptionTable vehicleDetails={selectedData ? selectedData : []}/>
+                                  </Grid>
+                              </Grid>
+                          </Grid>
+                      </Grid>
+                  </Grid>
+                  <Grid item className={classes.descriptionCardContainer}>
+                    <DescriptionCard/>
+                  </Grid>
+                  <Grid item className={classes.descriptionCardContainer}>
+                    <Warning/>
+                  </Grid>
+              </Grid>
+          </Grid>
+
         </Grid>
       </Container>
     </React.Fragment>

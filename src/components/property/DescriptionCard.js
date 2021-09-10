@@ -36,7 +36,7 @@ export default function DescriptionCard() {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           OVERVIEW
         </Typography>
-        <Typography variant="subtitle2">
+        {/* <Typography variant="subtitle2">
         In good condition.
         </Typography>
         <Typography variant="subtitle2">
@@ -47,20 +47,17 @@ export default function DescriptionCard() {
         </Typography>
         <Typography variant="subtitle2">
         Price can be negotiable.
-        </Typography>
+        </Typography> */}
         <br/>
        
         <Typography variant="subtitle2">
-        එන්ජිම හා ධාවනය අනර්ඝ තත්වයේ.
+        🏞️ වටිනා ඉඩමක් විකිණීමට.පර්චස් 106යි.
         </Typography>
         <Typography variant="subtitle2">
-        ලයිසන් සියල්ල සම්පුර්ණයි.
+        🏞️ පරීක්ෂාවෙන් පසු මිල ගණන් සාකච්චා කල හැක
         </Typography>
         <Typography variant="subtitle2">
-        පරීක්ෂාවෙන් පසු මිල ගණන් සාකච්චා කල හැක
-        </Typography>
-        <Typography variant="subtitle2">
-        ඉක්මනින් විකිණීමට.
+        🏞️ ඉක්මනින් විකිණීමට.
         </Typography>
       </CardContent>
      

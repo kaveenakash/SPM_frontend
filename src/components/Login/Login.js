@@ -14,8 +14,11 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { useHistory } from "react-router-dom";
+
 
 const Login = (props) => {
+
   return (
     <React.Fragment>
       <Typography variant="body2" color="textSecondary" align="center">
@@ -49,11 +52,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
+  const history = useHistory()
 
   const responseGoogle = (response) => {
     console.log(response);
+    props.setLoginData(response)
+    history.push('/')
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -114,7 +120,7 @@ export default function SignIn() {
             </Grid>
           </Grid>
           <center><GoogleLogin
-            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+            clientId="496877226261-n7lir6vjuj76598ronn6sj6ng2bk97ok.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}

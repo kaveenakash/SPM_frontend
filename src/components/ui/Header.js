@@ -12,9 +12,9 @@ import { makeStyles } from "@material-ui/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import Link from "@material-ui/core/Link";
+import Avatar from '@material-ui/core/Avatar';
 
 import MenuButton from '../reusable/MenuButton'
-import ModalCard from "../reusable/ModalCard";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -71,22 +71,26 @@ const Header = (props) => {
                     spacing={1}
                     justifyContent="flex-end"
                     direction="row"
+                    alignItems="center"
                   >
                     <Grid item>
                       <Hidden smDown>
                         <MenuButton menuButtonId={menuButtonId}/>
                       </Hidden>
                     </Grid>
-                    <Grid item>
+                  {!props.loginData &&  <Grid item>
                       <Button
                         variant="outlined" onClick={() => {history.replace("/register"); setMenuButtonId(0)}}
                         className={classes.registerBtn}
                       >
                         Register
                       </Button>
+                    </Grid>}
+                    <Grid item>
+                     {!props.loginData ? <Button variant="outlined" onClick={() => {history.replace("/login"); setMenuButtonId(0)}}>Login</Button>:<Button variant="outlined" onClick={() => {props.logOut();history.replace("/login"); setMenuButtonId(0)}}>Logout</Button>}
                     </Grid>
                     <Grid item>
-                      <Button variant="outlined" onClick={() => {history.replace("/login"); setMenuButtonId(0)}}>Login</Button>
+                      {props.loginData && <Avatar alt="Remy Sharp" src={props.loginData.profileObj.imageUrl} onClick={() => history.push('/user-profile')}/>}
                     </Grid>
                   </Grid>
                 </Grid>
