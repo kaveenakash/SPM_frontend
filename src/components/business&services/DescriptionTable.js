@@ -24,20 +24,24 @@ const DescriptionTable = (props) => {
           {props.serviceDetails.map((row) => {
             return (
               <>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Ad Reference</StyledTableCell>
-                <StyledTableCell align="left">{row.AdReference}</StyledTableCell>
+                <StyledTableCell align="left">{props.serviceDetails._id}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
+                <StyledTableCell align="left">Service Type</StyledTableCell>
+                <StyledTableCell align="left">{props.serviceDetails.serviceType}</StyledTableCell>
+              </StyledTableRow>
+              <StyledTableRow >
                 <StyledTableCell align="left">Ratings</StyledTableCell>
-                <StyledTableCell align="left">{row.ratings}</StyledTableCell>
+                <StyledTableCell align="left">{props.serviceDetails.ratings}</StyledTableCell>
               </StyledTableRow>
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Description</StyledTableCell>
-                <StyledTableCell align="left">{row.description}</StyledTableCell>
+                <StyledTableCell align="left">{props.serviceDetails.description}</StyledTableCell>
               </StyledTableRow>
               
-              <StyledTableRow key={row.name}>
+              <StyledTableRow >
                 <StyledTableCell align="left">Price</StyledTableCell>
                 <StyledTableCell align="left">Negotiable</StyledTableCell>
               </StyledTableRow>

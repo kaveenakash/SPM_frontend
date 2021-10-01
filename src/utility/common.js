@@ -71,3 +71,19 @@ export const FilterPropertyListings = (categories, allListings) => {
     return filterdData;
   }
 };
+export const FilterServiceListings = (categories, allListings) => {
+  const checkedCategories = categories
+    .filter((item) => item.isChecked)
+    .map((item) => item.name);
+
+  let filterdData;
+  if (checkedCategories.includes("All")) {
+    return allListings;
+  } else {
+    filterdData = allListings.filter((item) =>
+      checkedCategories.includes(item.serviceType)
+    );
+
+    return filterdData;
+  }
+};

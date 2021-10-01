@@ -15,7 +15,7 @@ import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
 import {serviceAdds} from '../../store/data'
-
+import axios from "axios";
 const ServiceDetail = (props) => {
   const history = useHistory();
   const params = useParams();
@@ -23,6 +23,7 @@ const ServiceDetail = (props) => {
   const theme = useTheme();
 
   const [serviceData,setServiceData] = useState([])
+  const [selectedData, setSelectedData] = useState([])
 
   const handleHomeLink = (event) => {
     event.preventDefault();
@@ -36,9 +37,12 @@ const ServiceDetail = (props) => {
       // console.log(result)
      
 
-      const selectedService = serviceAdds.filter(item => item.id == params.id)
+      const selectedService = serviceAdds.filter(item => item.id == 2)
       setServiceData(selectedService)
       console.log(selectedService)
+      const result = await axios.get (`http://localhost:9090/api/service/get-service/${params.id}`)
+      setSelectedData(result.data)
+      console.log(result)
     }
     findService()
   },[]) 
@@ -71,25 +75,25 @@ const ServiceDetail = (props) => {
               <Grid item container direction="column" alignItems="flex-start" >
                   <Grid item className={classes.headerContainer}>
                     
-                    <Typography variant="h5" className={classes.header}>{item.name}</Typography>
+                    <Typography variant="h5" className={classes.header}>{selectedData.title}</Typography>
                   
                   </Grid>
                   <Grid item>
-                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {item.user} on {item.date}, {item.district}, {item.town}</Typography>
+                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {selectedData.name} on {new Date().toLocaleDateString()}, {selectedData.district}, {selectedData.area}</Typography>
                   </Grid>
 
                   <Grid item className={classes.sliderContainer}>
                       <Grid item container alignItems="flex-start" spacing={2}>
                           <Grid item >
-                              <CarouselCard imageData={item ? item.image:[]}/>
+                              <CarouselCard imageData={selectedData.images ? selectedData.images:[]}/>
                           </Grid>
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                      <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                  <AmountCard amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
-                                      <DescriptionTable serviceDetails={serviceData}/>
+                                      <DescriptionTable serviceDetails={selectedData ? selectedData : []}/>
                                   </Grid>
                               </Grid>
                           </Grid>

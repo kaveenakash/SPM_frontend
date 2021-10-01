@@ -88,10 +88,8 @@ const PrimaryDetailForm = (props) => {
             </>
           )}
         />
-        
         <br />
         <br />
-
         <Controller
           name="ratings"
           control={control}

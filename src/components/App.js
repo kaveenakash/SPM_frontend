@@ -17,19 +17,18 @@ import Register from "./Register/Register";
 import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
 import Profile from '../components/profile/Profile'
-import AdminHome from '../admin/AdminHome'
-
-import {useLocation} from 'react-router-dom'
+import ServiceDetail from "./business&services/ServiceDetail";
+import BusinessAddForm from'./business&services/form/BuisnessAddForm'
 
 function App() {
   const [loginData,setLoginData] = useState(null)
   const logOut = () =>{
     setLoginData(null)
   }
-
+  console.log(loginData)
   return (
     <Router>
-    <Header loginData={loginData} logOut={logOut} />
+      <Header loginData={loginData} logOut={logOut} />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -79,9 +78,6 @@ function App() {
         </Route>
         <Route path="/user-profile">
           <Profile loginData={loginData} />
-        </Route>
-        <Route path="/admin-dashboard">
-          <AdminHome />
         </Route>
       </Switch>
       <Footer />
