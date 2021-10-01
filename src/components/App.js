@@ -58,12 +58,15 @@ function App() {
         <Route path="/electronic/add-form">
           <ElectronicAddForm />
         </Route>
-        <Route path="/electronic">
-          <ElectronicPage />
-        </Route>
+
         <Route exact path="/electronic/:id">
           <ElectronicDetail />
         </Route>
+
+        <Route path="/electronic">
+          <ElectronicPage />
+        </Route>
+      
        
         <Route path="/login">
           <Login setLoginData={setLoginData}/>

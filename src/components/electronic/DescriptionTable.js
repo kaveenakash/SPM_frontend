@@ -33,15 +33,15 @@ const DescriptionTable = (props) => {
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Manufacturer</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.manufacturer}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.manufacture}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Model</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.model}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.models}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Color</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.color}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.color}</StyledTableCell>
               </StyledTableRow>
               {/* <StyledTableRow >
                 <StyledTableCell align="left">Engine Capacity</StyledTableCell>

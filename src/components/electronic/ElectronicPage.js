@@ -5,30 +5,41 @@ import { makeStyles } from "@material-ui/core/styles";
 import CategoryBox from "../reusable/CategoryBox";
 import Container from "@material-ui/core/Container";
 
-
+// import { vehicleCategories, vehicleAdds } from "../../store/data";
+// import { CategoryCheck, FilterVehicleListings } from "../../utility/common";
 import { electronicCategories, electronicAdds } from "../../store/data";
-import { CategoryCheck,FilterListings } from "../../utility/common";
+import { CategoryCheck,FilterElectronicListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
-import Warning  from "../reusable/warning/Warning";
-
+import Warning from "../reusable/warning/Warning";
+import axios from "axios";
 export default function ElectronicPage() {
   const classes = useStyles();
   const [categories, setCategories] = useState(electronicCategories);
   const [electronicListings, setElectronicListings] = useState(electronicAdds);
-  
+  const [allListings, setAllListings] = useState([]);
+  const [tempData, setTempData] = useState([]);
+
 
   const handleCheckdCategories = async (id) => {
-    let newCategories = CategoryCheck(categories, id)
+    let newCategories = CategoryCheck(categories, id);
     setCategories(newCategories);
-    const filteredElectronicData = await handleElectronicFilter(newCategories)
+    const filteredElectronicData = await handleElectronicFilter(newCategories);
   };
 
-  const handleElectronicFilter = (categories) =>{
-   const filterData =  FilterListings(categories,electronicAdds)
-   setElectronicListings(filterData)
-  }
-
-  
+  const handleElectronicFilter = (categories) => {
+    const filterData = FilterElectronicListings(categories, tempData);
+    setAllListings(filterData);
+  };
+  useEffect(() => {
+    const getElectronicData = async () => {
+      const result = await axios.get(
+        "http://localhost:9090/api/electronic/get-all-electronic"
+      );
+      setAllListings(result.data)
+      setTempData(result.data)
+    };
+    getElectronicData();
+  }, []);
 
   return (
     <React.Fragment>
@@ -61,10 +72,27 @@ export default function ElectronicPage() {
                   className={classes.cardContainer}
                   justify="center"
                 >
-                  {electronicListings.map((item) => {
+                  {allListings.map((item) => {
                     return (
-                      <Grid item xs={12} sm={4} md={4} lg={3} xl={3} key={item.id+item.name} >
-                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user}  path={'electronic'}/>
+                      <Grid
+                        item
+                        xs={12}
+                        sm={4}
+                        md={4}
+                        lg={3}
+                        xl={3}
+                        key={item.id + item.name}
+                      >
+                        <CustomCard
+                          id={item._id}
+                          imageURL={item.images}
+                          name={item.title}
+                          amount={item.price}
+                          date={item.createdAt}
+                          category={item.electronicCategory}
+                          owner={item.name}
+                          path={"electronic"}
+                        />
                       </Grid>
                     );
                   })}
@@ -72,7 +100,6 @@ export default function ElectronicPage() {
               </Grid>
             </Grid>
           </Grid>
-
         </Grid>
       </Container>
     </React.Fragment>

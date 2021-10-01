@@ -40,7 +40,7 @@ const ElectronicDetail = (props) => {
       
       setElectronicData(selectedElectronic)
       console.log(selectedElectronic)
-      const result = await axios.get(`http://localhost:9090/api/vehicle/get-vehicle/${params.id}`)
+      const result = await axios.get(`http://localhost:9090/api/electronic/get-electronic/${params.id}`)
       setSelectedData(result.data)
       console.log(result)
     }
@@ -130,7 +130,7 @@ const ElectronicDetail = (props) => {
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                      <AmountCard amount={selectedData.totalPrice ?  selectedData.totalPrice : 1500000} leaseRental={selectedData.totalPrice/20} downPayment={((selectedData.totalPrice/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                      <AmountCard amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
                                       <DescriptionTable electronicDetails={selectedData ? selectedData : []}/>
