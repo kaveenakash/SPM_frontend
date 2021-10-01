@@ -69,47 +69,7 @@ const ElectronicDetail = (props) => {
             </Grid>
            
           </Grid>
-          {/* {vehicleData.map(item => {
-            return(
-          <Grid item>
-              <Grid item container direction="column" alignItems="flex-start" >
-                  <Grid item className={classes.headerContainer}>
-                    
-                    <Typography variant="h5" className={classes.header}>{item.name}</Typography>
-                  
-                  </Grid>
-                  <Grid item>
-                  <Typography variant="subtitle1" className={classes.subTitle}>For Sale By {item.user} on {item.date}, {item.district}, {item.town}</Typography>
-                  </Grid>
-
-                  <Grid item className={classes.sliderContainer}>
-                      <Grid item container alignItems="flex-start" spacing={2}>
-                          <Grid item >
-                              <CarouselCard imageData={item ? item.image:[]}/>
-                          </Grid>
-                          <Grid item>
-                              <Grid item container direction="column">
-                                  <Grid item>
-                                      <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
-                                  </Grid>
-                                  <Grid item className={classes.descriptionTableContainer}>
-                                      <DescriptionTable vehicleDetails={vehicleData}/>
-                                  </Grid>
-                              </Grid>
-                          </Grid>
-                      </Grid>
-                  </Grid>
-                  <Grid item className={classes.descriptionCardContainer}>
-                    <DescriptionCard/>
-                  </Grid>
-                  <Grid item className={classes.descriptionCardContainer}>
-                    <Warning/>
-                  </Grid>
-              </Grid>
-          </Grid>
-
-            )
-          })} */}
+          
          
           <Grid item>
               <Grid item container direction="column" alignItems="flex-start" >

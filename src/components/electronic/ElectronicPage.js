@@ -5,8 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import CategoryBox from "../reusable/CategoryBox";
 import Container from "@material-ui/core/Container";
 
-// import { vehicleCategories, vehicleAdds } from "../../store/data";
-// import { CategoryCheck, FilterVehicleListings } from "../../utility/common";
 import { electronicCategories, electronicAdds } from "../../store/data";
 import { CategoryCheck,FilterElectronicListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";

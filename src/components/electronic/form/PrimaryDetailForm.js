@@ -111,42 +111,7 @@ const PrimaryDetailForm = (props) => {
           )}
         />
         <br />
-        {/* <Controller
-          name="manufacturer"
-          control={control}
-          render={({ field }) => (
-            <>
-              <InputLabel htmlFor="input-with-icon-adornment">
-                <Typography variant="subtitle2">Manufacturer *</Typography>
-              </InputLabel>
-              <Select
-                {...field}
-                options={manufacturer}
-                placeholder="Choose Category"
-                value={model}
-                onChange={handleCategory}
-              />
-            </>
-          )}
-        />
-        <br />
-        <br />
-        <Controller
-          name="model"
-          control={control}
-          render={({ field }) => (
-            <>
-              <InputLabel htmlFor="input-with-icon-adornment">
-                <Typography variant="subtitle2">Model *</Typography>
-              </InputLabel>
-              <Select
-                {...field}
-                options={filterdCategory}
-                placeholder="Select Model"
-              />
-            </>
-          )}
-        /> */}
+        
         <br />
         <br />
         <Controller
