@@ -9,6 +9,9 @@ import Footer from "./ui/Footer";
 import VehicleDetail from "./vehicle/VehicleDetail";
 import VehiclePage from "./vehicle/VehiclePage";
 import VehicleAddForm from "./vehicle/form/VehicleAddForm";
+import ElectronicDetail from "./electronic/ElectronicDetail";
+// import ElectronicPage from "./electronic/ElectronicPage";
+import ElectronicAddForm from "./electronic/form/ElectronicAddForm";
 import PropertyAddForm from "./property/form/PropertyAddForm";
 import Login from './Login/Login'
 import BusinessPage from './business&services/BusinessPage'
@@ -65,9 +68,19 @@ function App() {
         <Route path="/services">
           <BusinessPage />
         </Route>
+        <Route path="/electronic/add-form">
+          <ElectronicAddForm />
+        </Route>
+
+        <Route exact path="/electronic/:id">
+          <ElectronicDetail />
+        </Route>
+
         <Route path="/electronic">
           <ElectronicPage />
         </Route>
+      
+       
         <Route path="/login">
           <Login setLoginData={setLoginData}/>
         </Route>

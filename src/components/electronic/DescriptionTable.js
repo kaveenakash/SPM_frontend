@@ -16,7 +16,7 @@ const useStyles = makeStyles({
 
 const DescriptionTable = (props) => {
   const classes = useStyles();
-  console.log(props.vehicleDetails)
+  console.log(props.electronicDetails)
   return (
     <TableContainer component={Paper} elevation={3}>
       <Table className={classes.table} aria-label="customized table">
@@ -25,40 +25,25 @@ const DescriptionTable = (props) => {
               <>
               <StyledTableRow >
                 <StyledTableCell align="left">Ad Reference</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails._id}</StyledTableCell>
-              </StyledTableRow>
-              <StyledTableRow >
-                <StyledTableCell align="left">Model Year</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.modelYear}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails._id}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Condition</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.vehicleCondition}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.condition}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Manufacturer</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.manufacturer}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.manufacture}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
                 <StyledTableCell align="left">Model</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.model}</StyledTableCell>
+                <StyledTableCell align="left">{props.electronicDetails.models}</StyledTableCell>
               </StyledTableRow>
               <StyledTableRow >
-                <StyledTableCell align="left">Vehicle Type</StyledTableCell>
-                <StyledTableCell align="left">{props.vehicleDetails.vehicleType}</StyledTableCell>
-              </StyledTableRow>
-              {/* <StyledTableRow >
-                <StyledTableCell align="left">Engine Capacity</StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-              </StyledTableRow> */}
-              {/* <StyledTableRow >
-                <StyledTableCell align="left">Mileage</StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-              </StyledTableRow> */}
-              {/* <StyledTableRow >
                 <StyledTableCell align="left">Color</StyledTableCell>
-                <StyledTableCell align="left"></StyledTableCell>
-              </StyledTableRow> */}
+                <StyledTableCell align="left">{props.electronicDetails.color}</StyledTableCell>
+              </StyledTableRow>
+            
               </>
           
         </TableBody>

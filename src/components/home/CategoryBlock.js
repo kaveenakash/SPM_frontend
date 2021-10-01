@@ -58,7 +58,7 @@ const CategoryBlock = (props) => {
                 <Grid item container justifyContent="center" alignItems="center" spacing={2}>
                   <Grid item>
                     <Avatar variant="circular" className={classes.iconContainer} >
-                      <PhoneAndroidIcon fontSize="large" className={classes.icon} />
+                      <PhoneAndroidIcon fontSize="large" className={classes.icon} onClick={() => history.push('/electronic')}/>
                     </Avatar>
                   </Grid>
                   <Grid item>
