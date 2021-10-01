@@ -7,26 +7,37 @@ import Container from "@material-ui/core/Container";
 
 
 import { serviceCategories, serviceAdds } from "../../store/data";
-import { CategoryCheck,FilterListings } from "../../utility/common";
+import { CategoryCheck,FilterServiceListings } from "../../utility/common";
 import CustomCard from "../reusable/CustomCard";
 import Warning  from "../reusable/warning/Warning";
-
+import axios from "axios";
 export default function BusinessPage() {
   const classes = useStyles();
   const [categories, setCategories] = useState(serviceCategories);
-  const [vehicleListings, setVehicleListings] = useState(serviceAdds);
-  
+  const [serviceListings, setServiceListings] = useState(serviceAdds);
+  const[allListings, setAllListings]=useState([]);
+  const [tempData,setTempData] = useState([]);
 
   const handleCheckdCategories = async (id) => {
     let newCategories = CategoryCheck(categories, id)
     setCategories(newCategories);
-    const filteredVehicleData = await handleVehicleFilter(newCategories)
+    const filteredServiceData = await handleServiceFilter(newCategories)
   };
 
-  const handleVehicleFilter = (categories) =>{
-   const filterData =  FilterListings(categories,serviceAdds)
-   setVehicleListings(filterData)
+  const handleServiceFilter = (categories) =>{
+   const filterData =  FilterServiceListings(categories,tempData);
+   setAllListings(filterData)
   }
+  useEffect(() => {
+    const getServiceData = async() => {
+      const result = await axios.get("http://localhost:9090/api/service/get-all-service");
+      setAllListings(result.data);
+      setTempData(result.data);
+      console.log(result);
+    }
+    getServiceData();
+
+  }, []);
 
   
 
@@ -61,10 +72,18 @@ export default function BusinessPage() {
                   className={classes.cardContainer}
                   justify="center"
                 >
-                  {vehicleListings.map((item) => {
+                  {allListings.map((item) => {
                     return (
                       <Grid item xs={12} sm={4} md={4} lg={3} xl={3} key={item.id+item.name} >
-                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user}  path={'vehicle'}/>
+                        <CustomCard  
+                        id={item.id} 
+                        imageURL={item.image} 
+                        name={item.name} 
+                        amount={item.amount} 
+                        date={item.date} 
+                        category={item.category} 
+                        owner={item.user}  
+                        path={'service'}/>
                       </Grid>
                     );
                   })}

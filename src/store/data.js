@@ -805,3 +805,16 @@ export const eCondition = [
   {id:1,value:"Brand New",label:"Brand New"},
   {id:2,value:"Used",label:"Used"},
 ]
+
+//Service Data
+export const serviceType =[
+  {id:1, value:"BabySitter-Nanny", label:"BabySitter-Nanny"},
+  {id:2, value:"Computer Service", label:"Computer Service"},
+  {id:3, value:"Health-Beauty-Fitness", label:"Health-Beauty-Fitness"},
+  {id:4, value:"Household-Domestric Help", label:"Household-Domestric Help"},
+  {id:5, value:"Industry Tools & Machinery", label:"Industry Tools & Machinery"},
+  {id:6, value:"Repair", label:"Repair"},
+  {id:7, value:"Supplier & Manufacturers", label:"Supplier & Manufacturers"},
+  {id:8, value:"Even Services", label:"Even Services"},
+  {id:9, value:"Other", label:"Other"},
+]

@@ -17,6 +17,8 @@ import ImageBox from "../../reusable/ImageBox";
 import PreviewDetails from "../PreviewDetails";
 import Spinner from "../../reusable/spinner/Spinner";
 import axios from 'axios'
+import NotificationModal from "../../reusable/NotificationModal";
+import {useHistory} from 'react-router-dom'
 
 export default function BusinessAddForm() {
   const [formID, setFormID] = useState(0);
@@ -25,13 +27,59 @@ export default function BusinessAddForm() {
   const [description, setDescription] = useState([]);
   const [imageData, setImageData] = useState([]);
   const classes = useStyles();
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const history = useHistory()
 
+  const submitAllData = async() =>{
+    let name,
+        email,
+        tpNumber,
+        district,
+        area,
+        serviceType,
+        title,
+        ratings,
+        price;
+    for(let item in basicData){
+      name = basicData[item].name;
+      email = basicData[item].email;
+      tpNumber = basicData[item].tpNumber;
+      district = basicData[item].district.value;
+      area = basicData[item].area.value;
+    }
+    for (let item in primaryData){
+      serviceType = primaryData[item].serviceType;
+      price = primaryData[item].price;
+      title = primaryData[item].title;
+      ratings = primaryData[item].ratings;
+    }
+    try{
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("tpNumber", tpNumber);
+      formData.append("district", district);
+      formData.append("area", area);
+      formData.append("serviceType", serviceType);
+      formData.append("ratings", ratings);
+      formData.append("price", price);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("image", imageData[0].file);
 
-  const submitAllData = () =>{
-    alert('HEllo')
-    // axios.get('http://localhost:9090/api/service/get-service').then(res => console.log(res))
-    axios.post('http://localhost:9090/api/service/add-service',primaryData).then(res => console.log(res))
-  }
+      const result = await axios.post(
+        "http://localhost:9090/api/service/add-service",
+        formData
+      );
+      setIsSuccessModalOpen(true);
+    } catch (error) {}
+  };
+
+  const handleClose = () => {
+    setIsSuccessModalOpen(false);
+    history.push('/service')
+  };
+
 
   return (
     <React.Fragment>
@@ -100,6 +148,14 @@ export default function BusinessAddForm() {
           </Grid>
        
         </Grid>
+        
+        {isSuccessModalOpen && (
+          <NotificationModal
+            IsOpen={isSuccessModalOpen}
+            closeModal={handleClose}
+            image={imageData ? imageData[0].data_url:''}
+          />
+        )}
       </Container>
     </React.Fragment>
   );
