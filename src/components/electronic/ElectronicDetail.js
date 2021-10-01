@@ -14,17 +14,17 @@ import AmountCard from '../reusable/AmountCard'
 import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
-import {vehicleAdds} from '../../store/data'
+import {electronicAdds} from '../../store/data'
 import axios from 'axios'
 
 
-const VehicleDetail = (props) => {
+const ElectronicDetail = (props) => {
   const history = useHistory();
   const params = useParams();
   const classes = useStyles();
   const theme = useTheme();
 
-  const [vehicleData,setVehicleData] = useState([])
+  const [electronicData,setElectronicData] = useState([])
   const [selectedData,setSelectedData] = useState([])
 
   const handleHomeLink = (event) => {
@@ -34,17 +34,17 @@ const VehicleDetail = (props) => {
 
   useEffect(() =>{
 
-    async function findVehicle() {
+    async function findElectronic() {
       // console.log(result)
-      const selectedVehicle = vehicleAdds.filter(item => item.id == 2)
+      const selectedElectronic = electronicAdds.filter(item => item.id == 2)
       
-      setVehicleData(selectedVehicle)
-      console.log(selectedVehicle)
+      setElectronicData(selectedElectronic)
+      console.log(selectedElectronic)
       const result = await axios.get(`http://localhost:9090/api/vehicle/get-vehicle/${params.id}`)
       setSelectedData(result.data)
       console.log(result)
     }
-    findVehicle()
+    findElectronic()
   },[]) 
 
   console.log(params.id)
@@ -63,7 +63,7 @@ const VehicleDetail = (props) => {
                   href="/getting-started/installation/"
                   onClick={handleHomeLink}
                 >
-                  Vehicle
+                  Electronic
                 </Link>
               </Breadcrumbs>
             </Grid>
@@ -133,7 +133,7 @@ const VehicleDetail = (props) => {
                                       <AmountCard amount={selectedData.totalPrice ?  selectedData.totalPrice : 1500000} leaseRental={selectedData.totalPrice/20} downPayment={((selectedData.totalPrice/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
-                                      <DescriptionTable vehicleDetails={selectedData ? selectedData : []}/>
+                                      <DescriptionTable electronicDetails={selectedData ? selectedData : []}/>
                                   </Grid>
                               </Grid>
                           </Grid>
@@ -183,4 +183,4 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default VehicleDetail;
+export default ElectronicDetail;

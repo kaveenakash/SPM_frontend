@@ -14,18 +14,18 @@ import Warning  from "../reusable/warning/Warning";
 export default function ElectronicPage() {
   const classes = useStyles();
   const [categories, setCategories] = useState(electronicCategories);
-  const [vehicleListings, setVehicleListings] = useState(electronicAdds);
+  const [electronicListings, setElectronicListings] = useState(electronicAdds);
   
 
   const handleCheckdCategories = async (id) => {
     let newCategories = CategoryCheck(categories, id)
     setCategories(newCategories);
-    const filteredVehicleData = await handleVehicleFilter(newCategories)
+    const filteredElectronicData = await handleElectronicFilter(newCategories)
   };
 
-  const handleVehicleFilter = (categories) =>{
+  const handleElectronicFilter = (categories) =>{
    const filterData =  FilterListings(categories,electronicAdds)
-   setVehicleListings(filterData)
+   setElectronicListings(filterData)
   }
 
   
@@ -61,10 +61,10 @@ export default function ElectronicPage() {
                   className={classes.cardContainer}
                   justify="center"
                 >
-                  {vehicleListings.map((item) => {
+                  {electronicListings.map((item) => {
                     return (
                       <Grid item xs={12} sm={4} md={4} lg={3} xl={3} key={item.id+item.name} >
-                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user}  path={'vehicle'}/>
+                        <CustomCard  id={item.id} imageURL={item.image} name={item.name} amount={item.amount} date={item.date} category={item.category} owner={item.user}  path={'electronic'}/>
                       </Grid>
                     );
                   })}
