@@ -10,6 +10,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
 
+import Calendar from './Calendar'
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "4rem",
@@ -60,6 +62,7 @@ export default function SimpleCard(props) {
                   <Grid item container spacing={2} direction="column">
                     <Grid item>
                       <Typography variant="h5">kaveenakash1998@gmail.com</Typography>
+                      <Typography variant="subtitle2">Seller</Typography>
                     </Grid>
                     <Grid item>
                       <Typography variant="h5">
@@ -78,7 +81,7 @@ export default function SimpleCard(props) {
                 <Grid item></Grid>
               </Grid>
             </Grid>
-            <Grid item></Grid>
+            {/* <Grid item> <Calendar/></Grid> */}
           </Grid>
 
           
