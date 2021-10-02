@@ -10,6 +10,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import {useHistory} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 const options = ['Post Ad Your Free', 'Business & Services', 'Property','Electronics','Vehicles'];
 
@@ -18,9 +19,12 @@ export default function MenuButton(props) {
   const anchorRef = React.useRef(null);
   const [selectedIndex, setSelectedIndex] = React.useState(props.menuButtonId);
   const history = useHistory()
-
+  const isLogged =  useSelector(state => state.login.loginState)
   const handleClick = () => {
     console.info(`You clicked ${options[selectedIndex]}`);
+    if(!isLogged){
+      history.push('/login')
+    }
   };
 
   const handleMenuItemClick = (event, index) => {
@@ -80,7 +84,7 @@ export default function MenuButton(props) {
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList id="split-button-menu">
+                  <MenuList id="split-button-menu" >
                     {options.map((option, index) => (
                       <MenuItem
                         key={option}

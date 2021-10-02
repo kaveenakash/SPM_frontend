@@ -14,6 +14,8 @@ import { useHistory } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import Avatar from '@material-ui/core/Avatar';
 
+import {useSelector} from 'react-redux'
+
 import MenuButton from '../reusable/MenuButton'
 
 function ElevationScroll(props) {
@@ -31,6 +33,8 @@ function ElevationScroll(props) {
 const Header = (props) => {
   const [postAddModalStatus, setPostAddModalStatus] = useState(false);
   const [menuButtonId, setMenuButtonId] = useState(0);
+
+  const isLogged = useSelector(state => state.login.loginState)
 
   const classes = useStyles();
   const theme = useTheme();
@@ -78,7 +82,7 @@ const Header = (props) => {
                         <MenuButton menuButtonId={menuButtonId}/>
                       </Hidden>
                     </Grid>
-                  {!props.loginData &&  <Grid item>
+                  {!isLogged &&  <Grid item>
                       <Button
                         variant="outlined" onClick={() => {history.replace("/register"); setMenuButtonId(0)}}
                         className={classes.registerBtn}
@@ -87,7 +91,7 @@ const Header = (props) => {
                       </Button>
                     </Grid>}
                     <Grid item>
-                     {!props.loginData ? <Button variant="outlined" onClick={() => {history.replace("/login"); setMenuButtonId(0)}}>Login</Button>:<Button variant="outlined" onClick={() => {props.logOut();history.replace("/login"); setMenuButtonId(0)}}>Logout</Button>}
+                     {!isLogged ? <Button variant="outlined" onClick={() => {history.replace("/login"); setMenuButtonId(0)}}>Login</Button>:<Button variant="outlined" onClick={() => {props.logOut();history.replace("/login"); setMenuButtonId(0)}}>Logout</Button>}
                     </Grid>
                     <Grid item>
                       {props.loginData && <Avatar alt="Remy Sharp" src={props.loginData.profileObj.imageUrl} onClick={() => history.push('/user-profile')}/>}

@@ -15,7 +15,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { EventRounded } from '@material-ui/icons';
 import axios from '../axios/axios'
-import {useDispath,useSelector} from 'react-redux'
+import {useHistory} from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux'
 
 import Modal from '../error/Modal'
 
@@ -56,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
   
   export default function SignUp() {
     const classes = useStyles();
+    const dispatch = useDispatch()
+    const history = useHistory()
+    
     const [fname,setFname] = useState('');
     const [lname,setLname] = useState('');
     const [email,setEmail] = useState('');
@@ -70,8 +74,12 @@ const useStyles = makeStyles((theme) => ({
         password
       }
       try {
-        const response = await axios.post('auth/signup',data)
-    
+        const result = await dispatch(signupValidate(data))
+        console.log(result.status)
+        if(result.status === 201){
+
+          history.replace('/')
+        }
       } catch (error) {
         setError(true)
       }

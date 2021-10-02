@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import ReactDOM from "react-dom";
 import GoogleLogin from "react-google-login";
 import Avatar from "@material-ui/core/Avatar";
@@ -18,7 +18,7 @@ import { useHistory } from "react-router-dom";
 
 
 const Login = (props) => {
-
+  
   return (
     <React.Fragment>
       <Typography variant="body2" color="textSecondary" align="center">
@@ -61,6 +61,9 @@ export default function SignIn(props) {
     props.setLoginData(response)
     history.push('/')
   };
+  const loginHandler = () =>[
+
+  ]
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

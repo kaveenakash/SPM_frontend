@@ -21,6 +21,7 @@ import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
 import Profile from '../components/profile/Profile'
 import AdminHome from '../admin/AdminHome'
+import {useSelector} from 'react-redux'
 
 import {useLocation} from 'react-router-dom'
 
@@ -29,6 +30,7 @@ function App() {
   const logOut = () =>{
     setLoginData(null)
   }
+ const isLogged = useSelector(state => state.login.loginState)
 
   return (
     <Router>
@@ -82,7 +84,7 @@ function App() {
       
        
         <Route path="/login">
-          <Login setLoginData={setLoginData}/>
+         {!isLogged ? <Login setLoginData={setLoginData}/> : <Home/>}
         </Route>
         <Route path="/register">
           <Register/>
