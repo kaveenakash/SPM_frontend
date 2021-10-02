@@ -57,10 +57,10 @@ function App() {
           <BusinessPage />
         </Route>
         <Route path="/business/add-form">
-          <BusinessAddForm />
+          {/* <BusinessAddForm /> */}
         </Route>
         <Route exact path="/service/:id">
-          <ServiceDetail />
+          {/* <ServiceDetail /> */}
         </Route>
         <Route path="/vehicle">
           <VehiclePage />
