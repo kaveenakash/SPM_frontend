@@ -17,6 +17,8 @@ import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
 import {useDispatch} from 'react-redux'
 
+import {loginValidate} from '../../store/loginActions'
+
 
 const Login = (props) => {
   
@@ -55,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
+  const dispatch = useDispatch()
   const [email,setEmail] = useState('')
   const [password,setPassword] = useState('')
   const history = useHistory()
@@ -64,13 +67,19 @@ export default function SignIn(props) {
     props.setLoginData(response)
     history.push('/')
   };
-  const loginHandler = (event) =>{
+  const loginHandler = async(event) =>{
     event.preventDefault()
     let data = {
       email,
       password
     }
-    console.log(data)
+    try {
+      const response = await dispatch(loginValidate(data))
+ 
+    } catch (error) {
+
+    }
+
   }
   return (
     <Container component="main" maxWidth="xs">
