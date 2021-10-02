@@ -30,11 +30,11 @@ export default function PropertyPage() {
   useEffect(() => {
     const getPropertyData = async () => {
       const result = await axios.get(
-        "http://localhost:9090/api/property/get-all-property"
+        "https://spmsliit.herokuapp.com/api/property/get-all-property"
       );
       setAllListings(result.data);
       setTempData(result.data);
-      console.log(result);
+      console.log(result.data);
     };
     getPropertyData();
   }, []);

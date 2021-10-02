@@ -40,7 +40,7 @@ const VehicleDetail = (props) => {
       
       setVehicleData(selectedVehicle)
       console.log(selectedVehicle)
-      const result = await axios.get(`http://localhost:9090/api/vehicle/get-vehicle/${params.id}`)
+      const result = await axios.get(`https://spmsliit.herokuapp.com/api/vehicle/get-vehicle/${params.id}`)
       setSelectedData(result.data)
       console.log(result)
     }

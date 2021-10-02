@@ -79,7 +79,7 @@ export default function PropertyAddForm() {
       formData.append("image", imageData[0].file);
 
       const result = await axios.post(
-        "http://localhost:9090/api/vehicle/add-vehicle",
+        "https://spmsliit.herokuapp.com/api/vehicle/add-vehicle",
         formData
       );
       setIsSuccessModalOpen(true);

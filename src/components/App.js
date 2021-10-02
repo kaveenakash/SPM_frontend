@@ -93,9 +93,7 @@ function App() {
         <Route path="/user-profile">
           <Profile loginData={loginData} />
         </Route>
-        <Route path="/admin-dashboard">
-          <AdminHome />
-        </Route>
+    
       </Switch>
       <Footer />
     </Router>

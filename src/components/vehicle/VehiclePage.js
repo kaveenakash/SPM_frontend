@@ -31,7 +31,7 @@ export default function VehiclePage() {
   useEffect(() => {
     const getVehicleData = async () => {
       const result = await axios.get(
-        "http://localhost:9090/api/vehicle/get-all-vehicle"
+        "https://spmsliit.herokuapp.com/api/vehicle/get-all-vehicle"
       );
       setAllListings(result.data)
       setTempData(result.data)

@@ -37,10 +37,8 @@ const PropertyDetail = (props) => {
       const selectedVehicle = propertyAdds.filter(item => item.id == 2)
       
       setPropertyData(selectedVehicle)
-      console.log(selectedVehicle)
-      const result = await axios.get(`http://localhost:9090/api/property/get-property/${params.id}`)
+      const result = await axios.get(`https://spmsliit.herokuapp.com/api/property/get-property/${params.id}`)
       setSelectedData(result.data)
-      console.log(result)
     }
     findVehicle()
   },[]) 

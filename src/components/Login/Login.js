@@ -82,6 +82,7 @@ export default function SignIn(props) {
             name="email"
             autoComplete="email"
             autoFocus
+            
           />
           <TextField
             variant="outlined"
@@ -119,13 +120,15 @@ export default function SignIn(props) {
               </Link>
             </Grid>
           </Grid>
-          <center><GoogleLogin
+          <br/>
+          <center>
+            <GoogleLogin
             clientId="496877226261-n7lir6vjuj76598ronn6sj6ng2bk97ok.apps.googleusercontent.com"
             buttonText="Login"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
             cookiePolicy={"single_host_origin"}
-            style={{width:"10rem"}}
+            
           />
           </center>
         </form>
