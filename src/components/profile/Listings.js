@@ -13,11 +13,11 @@ export default function Listings() {
     "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg";
   return (
     <Container>
-      <Grid container alignItems="center" direction="column">
+      <Grid container alignItems="center" direction="column" >
         <Grid item>
           <Card className={classes.root}>
             <CardContent>
-              <Grid container item  > 
+              <Grid container item justifyContent="space-between"> 
                 <Grid item>
                   <Grid item container spacing={4}>
                     <Grid item>
@@ -46,12 +46,17 @@ export default function Listings() {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item>
-                  
+                <Grid item >
+                  <Grid item container direction="column" justifyContent="center" alignItems="center">
+                      <br/>
+                      <br/>
+                      
+                      <Grid item>
+                          sdfsdfs
+                      </Grid>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                   
-                </Grid>
+               
               </Grid>
             </CardContent>
           </Card>
