@@ -64,9 +64,14 @@ export default function SignIn(props) {
     props.setLoginData(response)
     history.push('/')
   };
-  const loginHandler = () =>[
-
-  ]
+  const loginHandler = (event) =>{
+    event.preventDefault()
+    let data = {
+      email,
+      password
+    }
+    console.log(data)
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -88,6 +93,7 @@ export default function SignIn(props) {
             name="email"
             autoComplete="email"
             autoFocus
+            onChange={(event) => setEmail(event.target.value)}
             
           />
           <TextField
@@ -100,6 +106,7 @@ export default function SignIn(props) {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={(event) => setPassword(event.target.value)}
           />
           {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -111,6 +118,7 @@ export default function SignIn(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={(event) => loginHandler(event)}
           >
             Sign In
           </Button>
