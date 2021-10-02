@@ -1,33 +1,51 @@
-import React from 'react'
-import Grid from '@material-ui/core/Grid'
+import React from "react";
+import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Container from '@material-ui/core/Container'
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Container from "@material-ui/core/Container";
+import Avatar from "@material-ui/core/Avatar";
 
 export default function Listings() {
-    const classes = useStyles()
-    return (
-        <Container>
-            <Grid container>
-                <Grid item xs={12}>
-                    <Card className={classes.root}>
-                        <CardContent>
-                            dasfdsf
-                        </CardContent>
-                    </Card>
-                </Grid>
-            </Grid>
-        </Container>
-    )
+  const classes = useStyles();
+  const imageUrl =
+    "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg";
+  return (
+    <Container>
+      <Grid container alignItems="center" direction="column">
+        <Grid item >
+          <Card className={classes.root}>
+            <CardContent>
+              <img
+                alt="Remy Sharp"
+                width="150rem"
+                src={imageUrl}
+                className={classes.large}
+              />
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item >
+          <Card className={classes.root}>
+            <CardContent>
+              <img
+                alt="Remy Sharp"
+                width="150rem"
+                src={imageUrl}
+                className={classes.large}
+              />
+            </CardContent>
+          </Card>
+        </Grid>
+      </Grid>
+    </Container>
+  );
 }
 
-
 const useStyles = makeStyles((theme) => ({
-    root: {
-      marginTop: "4rem",
-      minWidth: 950,
-     
-    },
-    
-  }));
+  root: {
+    marginTop: "4rem",
+    minWidth: 850,
+    backgroundColor:"#FFFDE7"
+  },
+}));
