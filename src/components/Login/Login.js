@@ -15,6 +15,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
+import {useDispatch} from 'react-redux'
 
 
 const Login = (props) => {
@@ -54,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn(props) {
   const classes = useStyles();
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
   const history = useHistory()
 
   const responseGoogle = (response) => {
