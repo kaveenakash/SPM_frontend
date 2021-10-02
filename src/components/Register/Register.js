@@ -14,9 +14,13 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { EventRounded } from '@material-ui/icons';
-import axios from '../../axios/axios'
+import axios from '../axios/axios'
+import {useDispath,useSelector} from 'react-redux'
 
 import Modal from '../error/Modal'
+
+//redux
+import {signupValidate} from '../../store/loginActions'
 
 function Register(props) {
     return (

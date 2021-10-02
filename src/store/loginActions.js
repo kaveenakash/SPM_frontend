@@ -1,6 +1,6 @@
 import {login,signup} from "./loginSlice"
 
-import { loginValid,signupValid } from "../api/API";
+import { loginValid,signupValid } from "./api";
 
 
 export const loginValidate = (loginData) => {
