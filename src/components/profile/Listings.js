@@ -6,6 +6,9 @@ import CardContent from "@material-ui/core/CardContent";
 import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
+import DeleteIcon from '@material-ui/icons/Delete';
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import EditIcon from '@material-ui/icons/Edit';
 
 export default function Listings() {
   const classes = useStyles();
@@ -52,7 +55,17 @@ export default function Listings() {
                       <br/>
                       
                       <Grid item>
-                          sdfsdfs
+                          <Grid item container spacing={2}>
+                              <Grid item>
+                                  <EditIcon fontSize="medium" className={classes.editBtn}/>
+                              </Grid>
+                              <Grid item>
+                                  <DeleteIcon fontSize="medium" className={classes.deleteBtn} />
+                              </Grid>
+                              <Grid item>
+                                  <VisibilityIcon fontSize="medium" className={classes.viewBtn}/>
+                              </Grid>
+                          </Grid>
                       </Grid>
                   </Grid>
                 </Grid>
@@ -72,4 +85,20 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 850,
     backgroundColor: "#FFFDE7",
   },
+  editBtn:{
+    "&:hover": {
+        color: theme.palette.success.main
+      }
+  },
+  deleteBtn:{
+    "&:hover": {
+        color: theme.palette.error.main
+      }
+  },
+  viewBtn:{
+    "&:hover": {
+        color: theme.palette.primary.main
+      }
+  },
+
 }));
