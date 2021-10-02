@@ -10,7 +10,7 @@ import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
 
-import Calendar from './Calendar'
+import TotalListings from './TotalListings'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,16 +47,16 @@ export default function SimpleCard(props) {
     <Grid container justifyContent="center">
       <Card className={classes.root}>
         <CardContent>
-          <Grid container spacing={6}>
+          <Grid container justifyContent="space-between">
             <Grid item>
-              <Avatar
+              <Grid item container spacing={6}>
+                <Grid item> <Avatar
                 alt="Remy Sharp"
                 width="3rem"
                 src={imageUrl}
                 className={classes.large}
-              />
-            </Grid>
-            <Grid item>
+              /></Grid>
+                <Grid item>
               <Grid item container direction="column">
                 <Grid item>
                   <Grid item container spacing={2} direction="column">
@@ -80,8 +80,11 @@ export default function SimpleCard(props) {
                 </Grid>
                 <Grid item></Grid>
               </Grid>
+
+                </Grid>
+              </Grid>
             </Grid>
-            {/* <Grid item> <Calendar/></Grid> */}
+            <Grid item> <TotalListings/></Grid>
           </Grid>
 
           
