@@ -9,9 +9,11 @@ import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
+import Container from "@material-ui/core/Container"
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import TotalListings from './TotalListings'
-
+import Listings from './Listings'
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "4rem",
@@ -44,7 +46,10 @@ export default function SimpleCard(props) {
   const imageUrl =
     "https://lh3.googleusercontent.com/ogw/ADea4I5IcdXO7JcJ-4L38PfnTqCuRl_RuSaFiewjb2zn=s83-c-mo";
   return (
-    <Grid container justifyContent="center">
+    <Container>
+    <Grid container justifyContent="center" direction="column" alignItems="center">
+      <Grid item>
+
       <Card className={classes.root}>
         <CardContent>
           <Grid container justifyContent="space-between">
@@ -90,6 +95,18 @@ export default function SimpleCard(props) {
           
         </CardContent>
       </Card>
+      </Grid>
+      <br/>
+      <Grid item>
+      <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
+        <Button>Listings</Button>
+        <Button>Messages</Button>
+      </ButtonGroup>
+      </Grid>
+      <Grid item>
+        <Listings/>
+      </Grid>
     </Grid>
+    </Container>
   );
 }
