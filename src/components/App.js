@@ -93,7 +93,7 @@ function App() {
           <SuccessfulModel/>
         </Route>
         <Route path="/user-profile">
-          <Profile loginData={loginData} />
+          <Profile />
         </Route>
     
       </Switch>

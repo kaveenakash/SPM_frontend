@@ -10,8 +10,11 @@ import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    marginTop:"6rem",
-    minWidth: 650,
+    marginTop:"4rem",
+    minWidth: 950,
+    margin:"3rem",
+    padding:"3rem",
+    backgroundColor:"#F0F4F6"
   },
   bullet: {
     display: 'inline-block',
@@ -25,30 +28,49 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: 12,
   },
   large: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(12),
+    height: theme.spacing(12),
   },
 }));
 
 export default function SimpleCard(props) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
   console.log(props.loginData)
+  const imageUrl = 'https://lh3.googleusercontent.com/ogw/ADea4I5IcdXO7JcJ-4L38PfnTqCuRl_RuSaFiewjb2zn=s83-c-mo'
   return (
-    <Grid container justifyContent="center">
+    <Grid container justifyContent="center" >
 
     <Card className={classes.root}>
       <CardContent>
-        <center><Typography variant="h4">User Profile</Typography></center>
-        <br/>
-        <br/>
+        <Grid container spacing={6}>
+          <Grid item>
+          <Avatar  alt="Remy Sharp" width="3rem" src={imageUrl} className={classes.large}/>
+          </Grid>
+          <Grid item>
+            <Grid item container direction="column">
+                <Grid item>
+                    <Grid item container spacing={2}>
+                      <Grid item>
+                      <Typography variant="h5">Kaveen Akash</Typography>
+                      </Grid>
+                      <Grid item>
+                      <Typography variant="h5">Kaveen Akash</Typography>
+                      </Grid>
+                      <Grid item></Grid>
+                    </Grid>
+                </Grid>
+                <Grid item>
+
+                </Grid>
+            </Grid>
         
-        <center><Avatar alt="Remy Sharp" fontSize="large" src={props.loginData.profileObj.imageUrl} className={classes.large}/></center>
-        <br/>
-        <center><Typography variant="h5"> {props.loginData.profileObj.name}</Typography></center>
-        <center><Typography variant="h5"> {props.loginData.profileObj.email}</Typography></center>
-        <br/>
-        <br/>
+          </Grid>
+          <Grid item>
+        
+          </Grid>
+        </Grid>
+     
+        
         <center><Button variant="contained" color="secondary">Close</Button> </center>
 
        </CardContent>

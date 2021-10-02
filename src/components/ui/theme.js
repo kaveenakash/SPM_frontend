@@ -10,6 +10,7 @@ const borderColor = `#DDDDDD`
 const pureBlack = `#000000`
 const seaGreen = `#37A085`
 const seaWood = `#856405`
+const seaDark = `#1E272D`;
 export default createTheme({
   palette: {
     common:{
@@ -35,5 +36,29 @@ export default createTheme({
     h3:{
       fontWeight:300
     }
-  }
+  },
+  overrides: {
+    MuiFab: {
+      root: {
+        textTransform: "none",
+      },
+      extended: {
+        "&$sizeSmall": {
+          paddingLeft: "0px",
+        },
+      },
+    },
+    MuiPopover:{
+      paper:{
+          backgroundColor:`${seaDark}`,
+          boxShadow:'0 2px 8px hsl(0deg 0% 100% / 15%)',
+          minWidth:"13rem"
+      }
+  },
+    MuiListItemIcon:{
+        root:{
+            minWidth:"35px"
+        }
+    }
+  },
 });
