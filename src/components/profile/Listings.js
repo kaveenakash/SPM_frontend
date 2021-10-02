@@ -5,6 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Container from "@material-ui/core/Container";
 import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
 
 export default function Listings() {
   const classes = useStyles();
@@ -13,27 +14,45 @@ export default function Listings() {
   return (
     <Container>
       <Grid container alignItems="center" direction="column">
-        <Grid item >
+        <Grid item>
           <Card className={classes.root}>
             <CardContent>
-              <img
-                alt="Remy Sharp"
-                width="150rem"
-                src={imageUrl}
-                className={classes.large}
-              />
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item >
-          <Card className={classes.root}>
-            <CardContent>
-              <img
-                alt="Remy Sharp"
-                width="150rem"
-                src={imageUrl}
-                className={classes.large}
-              />
+              <Grid container item  > 
+                <Grid item>
+                  <Grid item container spacing={4}>
+                    <Grid item>
+                      <img
+                        alt="Remy Sharp"
+                        width="150rem"
+                        src={imageUrl}
+                        className={classes.large}
+                      />
+                    </Grid>
+                    <Grid item>
+                        <Grid item container direction="column">
+                            <Grid item>
+                            <Typography variant="subtitle1"> <li>Title - Land Sale in Malabe</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Price - Rs.45,0000</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Type - Land</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Location - Malabe</li></Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item>
+                  
+                </Grid>
+                <Grid item>
+                   
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>
@@ -46,6 +65,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "4rem",
     minWidth: 850,
-    backgroundColor:"#FFFDE7"
+    backgroundColor: "#FFFDE7",
   },
 }));
