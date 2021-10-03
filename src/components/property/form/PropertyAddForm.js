@@ -16,9 +16,10 @@ import DescriptionBox from "../../reusable/DescriptionBox";
 import ImageBox from "../../reusable/ImageBox";
 import PreviewDetails from "../PreviewDetails";
 import Spinner from "../../reusable/spinner/Spinner";
-import axios from 'axios'
+import axios from "axios";
 import NotificationModal from "../../reusable/NotificationModal";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function PropertyAddForm() {
   const [formID, setFormID] = useState(0);
@@ -28,11 +29,12 @@ export default function PropertyAddForm() {
   const [imageData, setImageData] = useState([]);
   const classes = useStyles();
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
-  const submitAllData =async () =>{
- 
-    console.log(primaryData)
+  
+  const submitAllData = async () => {
+    const userId = localStorage.getItem('userId');;
+  console.log('user id',userId);
     let name,
       email,
       tpNumber,
@@ -44,7 +46,7 @@ export default function PropertyAddForm() {
       size,
       price,
       title;
-      
+
     for (let item in basicData) {
       name = basicData[item].name;
       email = basicData[item].email;
@@ -52,17 +54,15 @@ export default function PropertyAddForm() {
       district = basicData[item].district.value;
       area = basicData[item].area.value;
     }
-    
+
     for (let item in primaryData) {
       advertisementType = primaryData[item].advertisementType.value;
       propertyCategory = primaryData[item].propertyCategory.value;
       price = primaryData[item].price;
       title = primaryData[item].title;
       propertyType = primaryData[item].propertyType.value;
-      size = primaryData[item].size
+      size = primaryData[item].size;
     }
-
-
 
     try {
       const formData = new FormData();
@@ -80,18 +80,20 @@ export default function PropertyAddForm() {
       formData.append("description", description);
       formData.append("date", new Date().toDateString());
       formData.append("image", imageData[0].file);
+      formData.append("userId", userId);
 
       const result = await axios.post(
         "https://spmsliit.herokuapp.com/api/property/add-property",
+        // "http://localhost:9090/api/property/add-property",
         formData
       );
       setIsSuccessModalOpen(true);
     } catch (error) {}
   };
-  
+
   const handleClose = () => {
     setIsSuccessModalOpen(false);
-    history.push('/property')
+    history.push("/property");
   };
 
   return (
@@ -99,7 +101,7 @@ export default function PropertyAddForm() {
       <Container>
         <Grid container direction="column" spacing={2}>
           <Grid item className={classes.iconContainer}>
-            <IconList formID={formID}/>
+            <IconList formID={formID} />
             <Divider />
           </Grid>
           <Grid item>
@@ -159,13 +161,12 @@ export default function PropertyAddForm() {
               />
             )}
           </Grid>
-       
         </Grid>
         {isSuccessModalOpen && (
           <NotificationModal
             IsOpen={isSuccessModalOpen}
             closeModal={handleClose}
-            image={imageData ? imageData[0].data_url:''}
+            image={imageData ? imageData[0].data_url : ""}
           />
         )}
       </Container>
