@@ -26,11 +26,15 @@ export default function ViewDialog(props) {
       <Dialog
         fullScreen={fullScreen}
         open={props.open}
+       
         // onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
-        <center><DialogTitle id="responsive-dialog-title">{"Delete"}</DialogTitle></center>
-        <DialogContent>
+        <center><DialogTitle id="responsive-dialog-title">{props.title}</DialogTitle></center>
+        <DialogContent  style={{minWidth:400}}>
+          <DialogContentText>
+            Land Sale In Malabe
+          </DialogContentText>
           <DialogContentText>
             Land Sale In Malabe
           </DialogContentText>

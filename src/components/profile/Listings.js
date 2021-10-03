@@ -10,6 +10,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteDialog from "./DeleteDialog";
+import ViewDialog from "./ViewDialog";
 
 export default function Listings() {
   const classes = useStyles();
@@ -87,7 +88,7 @@ export default function Listings() {
        
       </Grid>
       {openDelete && <DeleteDialog open={openDelete} handleDelete={handleDelete}/>}
-      {openView && <DeleteDialog open={openView} handleDelete={handleView}/>}
+      {openView && <ViewDialog open={openView} title={"Listing Details"} handleView={handleView}/>}
     </Container>
   );
 }
