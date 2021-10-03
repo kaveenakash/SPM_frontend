@@ -14,6 +14,7 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import TotalListings from './TotalListings'
 import Listings from './Listings'
+import Messages from './Messages'
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "4rem",
@@ -42,9 +43,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleCard(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(5);
+  const [isListings,setIsListings] = useState(true)
   console.log(props.loginData);
   const imageUrl =
-    "https://lh3.googleusercontent.com/ogw/ADea4I5IcdXO7JcJ-4L38PfnTqCuRl_RuSaFiewjb2zn=s83-c-mo";
+    "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
   return (
     <Container>
     <Grid container justifyContent="center" direction="column" alignItems="center">
@@ -99,12 +101,12 @@ export default function SimpleCard(props) {
       <br/>
       <Grid item>
       <ButtonGroup variant="contained" color="primary" aria-label="contained primary button group">
-        <Button>Listings</Button>
-        <Button>Messages</Button>
+        <Button onClick={() => setIsListings(true)}>Listings</Button>
+        <Button onClick={() => setIsListings(false)}>Messages</Button>
       </ButtonGroup>
       </Grid>
       <Grid item>
-        <Listings/>
+        {isListings ? <Listings/> : <Messages/>}
       </Grid>
     </Grid>
     </Container>
