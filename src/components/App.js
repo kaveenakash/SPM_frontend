@@ -21,9 +21,10 @@ import ErrorModel from "./reusable/NotificationModal";
 import SuccessfulModel from "./reusable/SuccessfulModel";
 import Profile from '../components/profile/Profile'
 import AdminHome from '../admin/AdminHome'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 
 import {useLocation} from 'react-router-dom'
+import {refresh} from '../store/loginSlice'
 
 function App() {
   const [loginData,setLoginData] = useState(null)
@@ -31,6 +32,10 @@ function App() {
     setLoginData(null)
   }
  const isLogged = useSelector(state => state.login.loginState)
+ const userId = useSelector(state => state.login.userId)
+
+ const dispatch = useDispatch(refresh())
+
 
   return (
     <Router>

@@ -25,7 +25,8 @@ const ImageBox = (props) => {
     setImages(imageList);
   };
 
-  const handleImageSubmit = () =>{
+  const handleImageSubmit = (event) =>{
+    event.preventDefault()
     props.setImageData(images)
     props.setFormID(4)
   }
@@ -156,7 +157,7 @@ const ImageBox = (props) => {
               variant="outlined"
               align="right"
               color="secondary"
-              onClick={handleImageSubmit}
+              onClick={(event) => handleImageSubmit(event)}
             >
               Next
             </Button>
