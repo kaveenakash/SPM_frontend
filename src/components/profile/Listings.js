@@ -74,6 +74,120 @@ export default function Listings() {
             </CardContent>
           </Card>
         </Grid>
+        <Grid item>
+          <Card className={classes.root}>
+            <CardContent>
+              <Grid container item justifyContent="space-between"> 
+                <Grid item>
+                  <Grid item container spacing={4}>
+                    <Grid item>
+                      <img
+                        alt="Remy Sharp"
+                        width="150rem"
+                        src={imageUrl}
+                        className={classes.large}
+                      />
+                    </Grid>
+                    <Grid item>
+                        <Grid item container direction="column">
+                            <Grid item>
+                            <Typography variant="subtitle1"> <li>Title - Land Sale in Malabe</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Price - Rs.45,0000</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Type - Land</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Location - Malabe</li></Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item >
+                  <Grid item container direction="column" justifyContent="center" alignItems="center">
+                      <br/>
+                      <br/>
+                      
+                      <Grid item>
+                          <Grid item container spacing={2}>
+                              <Grid item>
+                                  <EditIcon fontSize="medium" className={classes.editBtn}/>
+                              </Grid>
+                              <Grid item>
+                                  <DeleteIcon fontSize="medium" className={classes.deleteBtn} />
+                              </Grid>
+                              <Grid item>
+                                  <VisibilityIcon fontSize="medium" className={classes.viewBtn}/>
+                              </Grid>
+                          </Grid>
+                      </Grid>
+                  </Grid>
+                </Grid>
+               
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid item>
+          <Card className={classes.root}>
+            <CardContent>
+              <Grid container item justifyContent="space-between"> 
+                <Grid item>
+                  <Grid item container spacing={4}>
+                    <Grid item>
+                      <img
+                        alt="Remy Sharp"
+                        width="150rem"
+                        src={imageUrl}
+                        className={classes.large}
+                      />
+                    </Grid>
+                    <Grid item>
+                        <Grid item container direction="column">
+                            <Grid item>
+                            <Typography variant="subtitle1"> <li>Title - Land Sale in Malabe</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Price - Rs.45,0000</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Type - Land</li></Typography>
+                            </Grid>
+                            <Grid item>
+                            <Typography variant="subtitle1"><li>Location - Malabe</li></Typography>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item >
+                  <Grid item container direction="column" justifyContent="center" alignItems="center">
+                      <br/>
+                      <br/>
+                      
+                      <Grid item>
+                          <Grid item container spacing={2}>
+                              <Grid item>
+                                  <EditIcon fontSize="medium" className={classes.editBtn}/>
+                              </Grid>
+                              <Grid item>
+                                  <DeleteIcon fontSize="medium" className={classes.deleteBtn} />
+                              </Grid>
+                              <Grid item>
+                                  <VisibilityIcon fontSize="medium" className={classes.viewBtn}/>
+                              </Grid>
+                          </Grid>
+                      </Grid>
+                  </Grid>
+                </Grid>
+               
+              </Grid>
+            </CardContent>
+          </Card>
+        </Grid>
       </Grid>
     </Container>
   );
