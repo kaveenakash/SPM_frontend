@@ -5,7 +5,7 @@ import Chip from '@material-ui/core/Chip';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 const percentage = 66;
-export default function TotalListings() {
+export default function TotalListings(props) {
     return (
       
         <Grid container direction="column" alignItems="center">
@@ -14,7 +14,7 @@ export default function TotalListings() {
             </Grid>
             <Grid item>
           
-                <Typography variant="h6" style={{fontWeight:600}}><Chip label="5" /></Typography>
+                <Typography variant="h6" style={{fontWeight:600}}><Chip label={props.totalListings} /></Typography>
 
           </Grid>
           <br/>

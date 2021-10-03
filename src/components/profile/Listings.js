@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -11,18 +11,40 @@ import VisibilityIcon from '@material-ui/icons/Visibility';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteDialog from "./DeleteDialog";
 import ViewDialog from "./ViewDialog";
+import axios from '../axios/axios'
+import {useSelector} from 'react-redux'
 
-export default function Listings() {
+export default function Listings(props) {
   const classes = useStyles();
   const [openDelete,setOpenDelete] = useState(false)
   const [openView,setOpenView] = useState(false)
+  const [userListings,setUserListings] = useState([])
 
+  const userId = localStorage.getItem('userId')
   const handleDelete = () =>{
       setOpenDelete(!openDelete)
   }
   const handleView = () =>{
     setOpenView(!openView)
   }
+
+  useEffect(() => {
+    getUserListings()
+  }, [])
+
+
+
+  const getUserListings = async() =>{
+    const data = {userId:userId}
+    const result = await axios.post('auth/get-user-listings',data)
+    if(result.data.propertyListings){
+      
+      props.handleTotalListings(result.data.propertyListings.length)
+    }
+    setUserListings(result.propertyListings)
+    console.log(result)
+  }
+
   const imageUrl =
     "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg";
   return (
