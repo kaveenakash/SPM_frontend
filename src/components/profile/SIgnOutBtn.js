@@ -12,8 +12,8 @@ const SignOutButton = (props) => {
   const classes = useStyles();
   const [IsProfilePopOpen, setIsProfilePopOpen] = useState(false);
 
-  const imageUrl = 'https://lh3.googleusercontent.com/ogw/ADea4I5IcdXO7JcJ-4L38PfnTqCuRl_RuSaFiewjb2zn=s83-c-mo'
-  const userName = 'kaveen akash'
+  const imageUrl = 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png'
+  const userName = localStorage.getItem('fname') + " " + localStorage.getItem('lname')
   const email =  useSelector(state => state.login.email)
   
   const handleClick = (event) => {

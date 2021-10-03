@@ -28,8 +28,9 @@ const loginSlice = createSlice({
             localStorage.removeItem("token");
             localStorage.removeItem("email");
             localStorage.removeItem("userId");
-            localStorage.setItem("fname",action.payload.fname);
-            localStorage.setItem("lname",action.payload.lname);
+            localStorage.removeItem("fname");
+            localStorage.removeItem("lname");
+       
             state.loginState = null;
             state.userId = null;
             state.email = null;

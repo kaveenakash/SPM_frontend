@@ -43,11 +43,18 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleCard(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(5);
+  const [totalListings,setTotalListings] = useState('')
   const [isListings,setIsListings] = useState(true)
-  console.log(props.loginData);
+  const userName = localStorage.getItem('fname') + " " + localStorage.getItem('lname')
+  const email = localStorage.getItem('email')
   const imageUrl =
     "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
-  return (
+  
+    const handleTotalListings = (value) =>{
+      setTotalListings(value)
+    }
+  
+    return (
     <Container>
     <Grid container justifyContent="center" direction="column" alignItems="center">
       <Grid item>
@@ -68,7 +75,8 @@ export default function SimpleCard(props) {
                 <Grid item>
                   <Grid item container spacing={2} direction="column">
                     <Grid item>
-                      <Typography variant="h5">kaveenakash1998@gmail.com</Typography>
+                      <Typography variant="h5">{userName}</Typography>
+                      <Typography variant="subtitle1">{email}</Typography>
                       <Typography variant="subtitle2">Seller</Typography>
                     </Grid>
                     <Grid item>
@@ -91,7 +99,7 @@ export default function SimpleCard(props) {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item> <TotalListings/></Grid>
+            <Grid item> <TotalListings totalListings={totalListings}/></Grid>
           </Grid>
 
           
@@ -106,7 +114,7 @@ export default function SimpleCard(props) {
       </ButtonGroup>
       </Grid>
       <Grid item>
-        {isListings ? <Listings/> : <Messages/>}
+        {isListings ? <Listings handleTotalListings={handleTotalListings}/> : <Messages/>}
       </Grid>
     </Grid>
     </Container>
