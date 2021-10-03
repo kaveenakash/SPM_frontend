@@ -45,7 +45,8 @@ export default function SimpleCard(props) {
   const [value, setValue] = React.useState(5);
   const [isListings,setIsListings] = useState(true)
   console.log(props.loginData);
-  
+  const userName = localStorage.getItem('fname') + " " + localStorage.getItem('lname')
+  const email = localStorage.getItem('email')
   const imageUrl =
     "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
   return (
@@ -69,8 +70,8 @@ export default function SimpleCard(props) {
                 <Grid item>
                   <Grid item container spacing={2} direction="column">
                     <Grid item>
-                      <Typography variant="h5">kaveenakash1998@gmail.com</Typography>
-                      <Typography variant="subtitle1">kaveenakash1998@gmail.com</Typography>
+                      <Typography variant="h5">{userName}</Typography>
+                      <Typography variant="subtitle1">{email}</Typography>
                       <Typography variant="subtitle2">Seller</Typography>
                     </Grid>
                     <Grid item>
