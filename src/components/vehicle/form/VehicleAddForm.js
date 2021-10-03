@@ -29,6 +29,7 @@ export default function PropertyAddForm() {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   const classes = useStyles();
   const history = useHistory()
+  const userId = localStorage.getItem('userId')
 
   const submitAllData = async () => {
     let name,
@@ -77,6 +78,7 @@ export default function PropertyAddForm() {
       formData.append("description", description);
       formData.append("date", new Date().toDateString());
       formData.append("image", imageData[0].file);
+      formData.append("userId", userId);
 
       const result = await axios.post(
         "https://spmsliit.herokuapp.com/api/vehicle/add-vehicle",

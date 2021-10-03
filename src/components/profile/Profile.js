@@ -45,14 +45,12 @@ export default function SimpleCard(props) {
   const [value, setValue] = React.useState(5);
   const [totalListings,setTotalListings] = useState('')
   const [isListings,setIsListings] = useState(true)
-  console.log(props.loginData);
   const userName = localStorage.getItem('fname') + " " + localStorage.getItem('lname')
   const email = localStorage.getItem('email')
   const imageUrl =
     "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
   
     const handleTotalListings = (value) =>{
-      console.log(value)
       setTotalListings(value)
     }
   
