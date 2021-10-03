@@ -20,16 +20,34 @@ export default function Listings(props) {
   const [openView, setOpenView] = useState(false);
   const [userListings, setUserListings] = useState([]);
   const [viewListings, setViewListings] = useState([]);
+  const [deleteItemId, setDeleteItemId] = useState('');
+  const [deleteItemType, setDeleteItemType] = useState('');
 
   const userId = localStorage.getItem("userId");
-  const handleDelete = () => {
+  const handleDelete = (id,type) => {
     setOpenDelete(!openDelete);
+    setDeleteItemId(id)
+    setDeleteItemType(type)
   };
   const handleView = (id) => {
     setOpenView(!openView);
     const result = userListings.filter(item => item._id === id)
     setViewListings(result)
   };
+
+  const handleDeleteApi = async() =>{
+    setOpenDelete(!openDelete);
+    const data = {
+      userId,
+      itemId:deleteItemId,
+    }
+    console.log(data)
+    if(deleteItemType === 'property'){
+      
+    }else{
+
+    }
+  }
 
   useEffect(() => {
     getUserListings();
@@ -117,7 +135,7 @@ export default function Listings(props) {
                                 <DeleteIcon
                                   fontSize="medium"
                                   className={classes.deleteBtn}
-                                  onClick={() => handleDelete()}
+                                  onClick={() => handleDelete(item._id,item.listingType)}
                                 />
                               </Grid>
                               <Grid item>
@@ -223,7 +241,7 @@ export default function Listings(props) {
         })}
       </Grid>
       {openDelete && (
-        <DeleteDialog open={openDelete} handleDelete={handleDelete} />
+        <DeleteDialog open={openDelete} handleDelete={handleDelete} handleDeleteApi={handleDeleteApi} />
       )}
       {openView && (
               <ViewDialog
