@@ -19,13 +19,16 @@ export default function Listings(props) {
   const [openDelete, setOpenDelete] = useState(false);
   const [openView, setOpenView] = useState(false);
   const [userListings, setUserListings] = useState([]);
+  const [viewListings, setViewListings] = useState([]);
 
   const userId = localStorage.getItem("userId");
   const handleDelete = () => {
     setOpenDelete(!openDelete);
   };
-  const handleView = () => {
+  const handleView = (id) => {
     setOpenView(!openView);
+    const result = userListings.filter(item => item._id === id)
+    setViewListings(result)
   };
 
   useEffect(() => {
@@ -40,8 +43,8 @@ export default function Listings(props) {
         result.data.propertyListings.length + result.data.vehicleListings.length
       );
     }
-    setUserListings([...result.data.propertyListings]);
-    // setUserListings([...result.data.propertyListings,...result.data.vehicleListings])
+    // setUserListings([...result.data.propertyListings]);
+    setUserListings([...result.data.propertyListings,...result.data.vehicleListings])
     console.log(result);
   };
   console.log(userListings);
@@ -121,7 +124,7 @@ export default function Listings(props) {
                                 <VisibilityIcon
                                   fontSize="medium"
                                   className={classes.viewBtn}
-                                  onClick={() => handleView()}
+                                  onClick={() => handleView(item._id)}
                                 />
                               </Grid>
                             </Grid>
@@ -133,7 +136,89 @@ export default function Listings(props) {
                 </Card>
               </Grid>
             );
+            
           } else {
+            return (
+              <Grid item>
+                <Card className={classes.root}>
+                  <CardContent>
+                    <Grid container item justifyContent="space-between">
+                      <Grid item>
+                        <Grid item container spacing={4}>
+                          <Grid item>
+                            <img
+                              alt="Remy Sharp"
+                              width="150rem"
+                              src={item.images && item.images[0]}
+                              className={classes.large}
+                            />
+                          </Grid>
+                          <Grid item>
+                            <Grid item container direction="column">
+                              <Grid item>
+                                <Typography variant="subtitle1">
+                                  {" "}
+                                  <li>Title - {item.title}</li>
+                                </Typography>
+                              </Grid>
+                              <Grid item>
+                                <Typography variant="subtitle1">
+                                  <li>Price - Rs.{item.totalPrice}</li>
+                                </Typography>
+                              </Grid>
+                              <Grid item>
+                                <Typography variant="subtitle1">
+                                  <li>Type - {item.listingType}</li>
+                                </Typography>
+                              </Grid>
+                              <Grid item>
+                                <Typography variant="subtitle1">
+                                  <li>Location - {item.area}</li>
+                                </Typography>
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                      <Grid item>
+                        <Grid
+                          item
+                          container
+                          direction="column"
+                          justifyContent="center"
+                          alignItems="center"
+                        >
+                          <br />
+                          <br />
+
+                          <Grid item>
+                            <Grid item container spacing={2}>
+                              {/* <Grid item>
+                                  <EditIcon fontSize="medium" className={classes.editBtn}/>
+                                </Grid> */}
+                              <Grid item>
+                                <DeleteIcon
+                                  fontSize="medium"
+                                  className={classes.deleteBtn}
+                                  onClick={() => handleDelete()}
+                                />
+                              </Grid>
+                              <Grid item>
+                                <VisibilityIcon
+                                  fontSize="medium"
+                                  className={classes.viewBtn}
+                                  onClick={() => handleView(item._id)}
+                                />
+                              </Grid>
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </Card>
+              </Grid>
+            );
           }
         })}
       </Grid>
@@ -141,12 +226,13 @@ export default function Listings(props) {
         <DeleteDialog open={openDelete} handleDelete={handleDelete} />
       )}
       {openView && (
-        <ViewDialog
-          open={openView}
-          title={"Listing Details"}
-          handleView={handleView}
-        />
-      )}
+              <ViewDialog
+                open={openView}
+                title={"Listing Details"}
+                handleView={handleView}
+                viewListings={viewListings}
+              />
+            )}
     </Container>
   );
 }

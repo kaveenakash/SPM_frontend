@@ -25,6 +25,9 @@ export default function ViewDialog(props) {
 
   return (
     <div>
+      {props.viewListings.map(item =>{
+        if(item.listingType === 'property'){
+          return(
       <Dialog
         fullScreen={fullScreen}
         open={props.open}
@@ -32,20 +35,27 @@ export default function ViewDialog(props) {
         aria-labelledby="responsive-dialog-title"
       >
         <center>
-          <DialogTitle id="responsive-dialog-title">{props.title}</DialogTitle>
+          <DialogTitle id="responsive-dialog-title">{item.title}</DialogTitle>
         </center>
         <center>
           {" "}
           <img
             alt="Remy Sharp"
             width="150rem"
-            src={'http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg'}
+            src={item.images && item.images[0]}
             className={classes.large}
           />
         </center>
         <center> <DialogContent style={{ minWidth: 400 }}>
-          <DialogContentText>Land Sale In Malabe</DialogContentText>
-          <DialogContentText>Land Sale In Malabe</DialogContentText>
+          <DialogContentText>Date : {item.date}</DialogContentText>
+          <DialogContentText>District : {item.district}</DialogContentText>
+          <DialogContentText>Area : {item.area}</DialogContentText>
+          <DialogContentText>Property Category : {item.propertyCategory}</DialogContentText>
+          <DialogContentText>Property Type : {item.propertyType}</DialogContentText>
+          <DialogContentText>Size : {item.size}</DialogContentText>
+          <DialogContentText>Telephone : {item.tpNumber}</DialogContentText>
+          <DialogContentText>Status : {item.PermissionStatus}</DialogContentText>
+          <DialogContentText>Price : {item.price}</DialogContentText>
         </DialogContent></center>
         <DialogActions>
           <Button autoFocus onClick={() => props.handleView()} color="warning">
@@ -53,6 +63,10 @@ export default function ViewDialog(props) {
           </Button>
         </DialogActions>
       </Dialog>
+
+          )
+        }
+      })}
     </div>
   );
 }
