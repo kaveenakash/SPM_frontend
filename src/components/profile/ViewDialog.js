@@ -25,52 +25,131 @@ export default function ViewDialog(props) {
 
   return (
     <div>
-      {props.viewListings.map(item =>{
-        if(item.listingType === 'property'){
-          return(
-      <Dialog
-        fullScreen={fullScreen}
-        open={props.open}
-        // onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-      >
-        <center>
-          <DialogTitle id="responsive-dialog-title">{item.title}</DialogTitle>
-        </center>
-        <center>
-          {" "}
-          <img
-            alt="Remy Sharp"
-            width="150rem"
-            src={item.images && item.images[0]}
-            className={classes.large}
-          />
-        </center>
-        <center> <DialogContent style={{ minWidth: 400 }}>
-          <DialogContentText>Date : {item.date}</DialogContentText>
-          <DialogContentText>District : {item.district}</DialogContentText>
-          <DialogContentText>Area : {item.area}</DialogContentText>
-          <DialogContentText>Property Category : {item.propertyCategory}</DialogContentText>
-          <DialogContentText>Property Type : {item.propertyType}</DialogContentText>
-          <DialogContentText>Size : {item.size}</DialogContentText>
-          <DialogContentText>Telephone : {item.tpNumber}</DialogContentText>
-          <DialogContentText>Status : {item.PermissionStatus}</DialogContentText>
-          <DialogContentText>Price : {item.price}</DialogContentText>
-        </DialogContent></center>
-        <DialogActions>
-          <Button autoFocus onClick={() => props.handleView()} color="warning">
-            Cancel
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-          )
+      {props.viewListings.map((item) => {
+        if (item.listingType === "property") {
+          return (
+            <Dialog
+              fullScreen={fullScreen}
+              open={props.open}
+              // onClose={handleClose}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <center>
+                <DialogTitle id="responsive-dialog-title">
+                  {item.title}
+                </DialogTitle>
+              </center>
+              <center>
+                {" "}
+                <img
+                  alt="Remy Sharp"
+                  width="150rem"
+                  src={item.images && item.images[0]}
+                  className={classes.large}
+                />
+              </center>
+              <center>
+                {" "}
+                <DialogContent style={{ minWidth: 400 }}>
+                  <DialogContentText>Date : {item.date}</DialogContentText>
+                  <DialogContentText>
+                    District : {item.district}
+                  </DialogContentText>
+                  <DialogContentText>Area : {item.area}</DialogContentText>
+                  <DialogContentText>
+                    Property Category : {item.propertyCategory}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Property Type : {item.propertyType}
+                  </DialogContentText>
+                  <DialogContentText>Size : {item.size}</DialogContentText>
+                  <DialogContentText>
+                    Telephone : {item.tpNumber}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Status : {item.PermissionStatus}
+                  </DialogContentText>
+                  <DialogContentText>Price : {item.price}</DialogContentText>
+                </DialogContent>
+              </center>
+              <DialogActions>
+                <Button
+                  autoFocus
+                  onClick={() => props.handleView()}
+                  color="warning"
+                >
+                  Cancel
+                </Button>
+              </DialogActions>
+            </Dialog>
+          );
+        } else {
+          return (
+            <Dialog
+              fullScreen={fullScreen}
+              open={props.open}
+              // onClose={handleClose}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <center>
+                <DialogTitle id="responsive-dialog-title">
+                  {item.title}
+                </DialogTitle>
+              </center>
+              <center>
+                {" "}
+                <img
+                  alt="Remy Sharp"
+                  width="150rem"
+                  src={item.images && item.images[0]}
+                  className={classes.large}
+                />
+              </center>
+              <center>
+                {" "}
+                <DialogContent style={{ minWidth: 400 }}>
+                  <DialogContentText>Date : {item.date}</DialogContentText>
+                  <DialogContentText>Area : {item.area}</DialogContentText>
+                  <DialogContentText>
+                    District : {item.district}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Vehicle Type : {item.vehicleType}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Manufacturer : {item.manufacturer}
+                  </DialogContentText>
+                  <DialogContentText>Model : {item.model}</DialogContentText>
+                  <DialogContentText>
+                    Model Year : {item.modelYear}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Condition : {item.vehicleCondition}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Telephone : {item.tpNumber}
+                  </DialogContentText>
+                  <DialogContentText>
+                    Price: Rs.{item.totalPrice}/=
+                  </DialogContentText>
+                </DialogContent>
+              </center>
+              <DialogActions>
+                <Button
+                  autoFocus
+                  onClick={() => props.handleView()}
+                  color="warning"
+                >
+                  Cancel
+                </Button>
+              </DialogActions>
+            </Dialog>
+          );
         }
       })}
     </div>
   );
 }
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
