@@ -8,7 +8,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
-export default function DeleteDialog(props) {
+export default function ViewDialog(props) {
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -32,15 +32,12 @@ export default function DeleteDialog(props) {
         <center><DialogTitle id="responsive-dialog-title">{"Delete"}</DialogTitle></center>
         <DialogContent>
           <DialogContentText>
-            If You want Delete Click Agree Button
+            Land Sale In Malabe
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={() => props.handleDelete()} color="warning">
+          <Button autoFocus onClick={() => props.handleView()} color="warning">
             Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
           </Button>
         </DialogActions>
       </Dialog>
