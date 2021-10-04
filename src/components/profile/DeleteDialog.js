@@ -39,7 +39,7 @@ export default function DeleteDialog(props) {
           <Button autoFocus onClick={() => props.handleDelete()} color="warning">
             Cancel
           </Button>
-          <Button onClick={() => props.handleDeleteApi()} color="primary" autoFocus>
+          <Button onClick={() => props.handleDelete()} color="primary" autoFocus>
             Agree
           </Button>
         </DialogActions>

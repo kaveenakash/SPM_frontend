@@ -21,11 +21,16 @@ export default function Messages(props) {
   const [openView,setOpenView] = useState(false)
   const [messages,setMessages] = useState([])
   const [selectedMessage,setSelectedMessage] = useState('')
+  const [selectedMessageId,setSelectedMessageId] = useState('')
+  const [selectedReplyMessages,setSelectedReplyMessages] = useState([])
   const [selectedName,setSelectedName] = useState('')
   const userId = localStorage.getItem("userId");
-  const handleDelete = () =>{
+  const handleDelete = (id) =>{
       setOpenDelete(!openDelete)
-  }
+      let temp = messages
+      temp = messages.filter(item => item._id !== id)
+      setMessages(temp)
+    }
   const handleView = () =>{
     setOpenView(!openView)
   }
@@ -36,16 +41,23 @@ export default function Messages(props) {
     }
     const result = await axios.post('http://localhost:9090/api/auth/get-message',data)
     setMessages(result.data.message)
-    props.setTotalMessages(result.data.message.length)
     console.log(result)
   }
   useEffect(() => {
     handleApi()
   }, [])
 
-  const handleReply = (userId,name,email,replyMessage) =>{
+  const handleReply = async(userId,name,email,replyMessage,messageId) =>{
     setOpenView(!openView)
-    console.log(replyMessage)
+    const data = {
+      userId,
+      name,
+      email,
+      messageId,
+      replyMessage
+    }
+    handleApi()
+    await axios.post('http://localhost:9090/api/auth/reply-message',data)
   }
   // handleApi()
   const imageUrl =
@@ -54,6 +66,7 @@ export default function Messages(props) {
     <Container>
       <Grid container alignItems="center" direction="column">
       { messages.map(item => {
+        console.log(messages)
         return(
           <>
          <Grid item>
@@ -111,7 +124,7 @@ export default function Messages(props) {
                             variant="contained"
                             endIcon={<VisibilityIcon />}
                             className={classes.viewBtn}
-                            onClick={() =>{handleView();setSelectedMessage(item.message);setSelectedName(item.name)}}
+                            onClick={() =>{handleView();setSelectedMessage(item.message);setSelectedName(item.name);setSelectedMessageId(item._id);setSelectedReplyMessages(item.replyMessage)}}
                           >
                             View Message
                           </Button>
@@ -121,7 +134,7 @@ export default function Messages(props) {
                           /> */}
                         </Grid>
                         <Grid item>
-                          <Button onClick={() =>handleDelete()} style={{textTransform:'none'}} variant="contained" endIcon={<DeleteIcon />}  className={classes.deleteBtn}>
+                          <Button onClick={() =>handleDelete(item._id)} style={{textTransform:'none'}} variant="contained" endIcon={<DeleteIcon />}  className={classes.deleteBtn}>
                             Delete
                           </Button>
                           {/* <DeleteIcon
@@ -149,7 +162,7 @@ export default function Messages(props) {
       </Grid>
      
       {openDelete && <DeleteDialog open={openDelete} handleDelete={handleDelete}/>}
-      {openView && <MessageViewDialog name={selectedName} message={selectedMessage} userId={userId} open={openView} handleView={handleReply}/>}
+      {openView && <MessageViewDialog name={selectedName} message={selectedMessage} selectedMessageId={selectedMessageId} userId={userId} open={openView} handleView={handleView} handleReply={handleReply} replyMessage={selectedReplyMessages}/>}
     </Container>
   );
 }

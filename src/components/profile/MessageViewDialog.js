@@ -9,7 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Grid from '@material-ui/core/Grid'
 const styles = (theme) => ({
   root: {
     margin: 0,
@@ -71,8 +72,26 @@ export default function CustomizedDialogs(props) {
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            {props.message}
+            <Grid container spacing={1}>
+              <Grid item>
+              <AccountCircleIcon color="primary"/> 
+              </Grid>
+              <Grid item>{props.message}</Grid>
+              </Grid> 
           </Typography>
+          {props.replyMessage.map(item =>{
+            return(
+
+        
+           <Grid container spacing={1} justifyContent="flex-end">
+              <Grid item>  <Typography align="right" gutterBottom>{item}</Typography></Grid>
+              <Grid item>
+              <AccountCircleIcon color="secondary"/> 
+              </Grid>
+              </Grid> 
+          
+            )
+          })}
           <br/>
           <TextField
           id="outlined-multiline-static"
@@ -85,7 +104,7 @@ export default function CustomizedDialogs(props) {
         />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={() => {props.handleView(props.userId,props.name,props.email,replyMessage)}} color="primary">
+          <Button autoFocus onClick={() => {props.handleReply(props.userId,props.name,props.email,replyMessage,props.selectedMessageId)}} color="primary">
             Reply
           </Button>
         </DialogActions>
