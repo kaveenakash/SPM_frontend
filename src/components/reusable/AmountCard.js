@@ -68,6 +68,7 @@ const AmountCard = (props) => {
           variant="contained"
           fullWidth
           className={classes.contactSellerBtn}
+          onClick={() => props.handleView()}
         >
           Contact Seller
         </Button>

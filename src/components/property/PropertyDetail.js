@@ -15,20 +15,32 @@ import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
 import {propertyAdds} from '../../store/data'
+import MessageDialog from './MessageDialog'
+
 import axios from 'axios'
 const PropertyDetail = (props) => {
   const history = useHistory();
   const params = useParams();
   const classes = useStyles();
   const theme = useTheme();
-
+  const [openView,setOpenView] = useState(false)
   const [propertyData,setPropertyData] = useState([])
   const [selectedData,setSelectedData] = useState([])
   const handleHomeLink = (event) => {
     event.preventDefault();
     history.replace("/");
   };
-
+  const handleView = () =>{
+    setOpenView(!openView)
+  }
+  
+  const handleMessageApi = (name,email,message,userId) =>{
+    setOpenView(!openView)
+    console.log(name)
+    console.log(email)
+    console.log(message)
+    console.log(userId)
+  }
    
   useEffect(() =>{
 
@@ -43,7 +55,6 @@ const PropertyDetail = (props) => {
     findVehicle()
   },[]) 
 
-  console.log(params.id)
   return (
     <React.Fragment>
       <Container fixed className={classes.container}>
@@ -87,7 +98,7 @@ const PropertyDetail = (props) => {
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                  <AmountCard amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                  <AmountCard handleView={handleView} amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
                                       {/* <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/> */}
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
@@ -104,6 +115,7 @@ const PropertyDetail = (props) => {
                     <Warning/>
                   </Grid>
               </Grid>
+              {openView && <MessageDialog handleMessageApi={handleMessageApi} userId={selectedData.userId} name={selectedData.name} email={selectedData.email} telephone={selectedData.tpNumber} open={openView} handleView={handleView}/>}
           </Grid>
 
             )
