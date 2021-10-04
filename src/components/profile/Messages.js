@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -10,15 +10,19 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import EditIcon from "@material-ui/icons/Edit";
 import Button from "@material-ui/core/Button";
+import axios from 'axios'
 
 import DeleteDialog from './DeleteDialog'
 import MessageViewDialog from './MessageViewDialog'
 
-export default function Messages() {
+export default function Messages(props) {
   const classes = useStyles();
   const [openDelete,setOpenDelete] = useState(false)
   const [openView,setOpenView] = useState(false)
-
+  const [messages,setMessages] = useState([])
+  const [selectedMessage,setSelectedMessage] = useState('')
+  const [selectedName,setSelectedName] = useState('')
+  const userId = localStorage.getItem("userId");
   const handleDelete = () =>{
       setOpenDelete(!openDelete)
   }
@@ -26,12 +30,33 @@ export default function Messages() {
     setOpenView(!openView)
   }
 
+  const handleApi = async() =>{
+    const data = {
+      userId
+    }
+    const result = await axios.post('http://localhost:9090/api/auth/get-message',data)
+    setMessages(result.data.message)
+    props.setTotalMessages(result.data.message.length)
+    console.log(result)
+  }
+  useEffect(() => {
+    handleApi()
+  }, [])
+
+  const handleReply = (userId,name,email,replyMessage) =>{
+    setOpenView(!openView)
+    console.log(replyMessage)
+  }
+  // handleApi()
   const imageUrl =
     "https://st2.depositphotos.com/1104517/11967/v/950/depositphotos_119675554-stock-illustration-male-avatar-profile-picture-vector.jpg";
   return (
     <Container>
       <Grid container alignItems="center" direction="column">
-        <Grid item>
+      { messages.map(item => {
+        return(
+          <>
+         <Grid item>
           <Card className={classes.root}>
             <CardContent>
               <Grid container item justifyContent="space-between">
@@ -55,13 +80,13 @@ export default function Messages() {
                       <Grid item container direction="column">
                         <Grid item>
                           <Typography variant="h6">
-                            {" "}
-                            <li>User - Lumini Nanayakkara</li>
+                           
+                            <li>User - {item.name}</li>
                           </Typography>
                         </Grid>
                         <Grid item>
                           <Typography variant="subtitle1">
-                            <li>I want know more details about the</li>
+                            <li>Email - {item.email}</li>
                           </Typography>
                         </Grid>
                       </Grid>
@@ -86,7 +111,7 @@ export default function Messages() {
                             variant="contained"
                             endIcon={<VisibilityIcon />}
                             className={classes.viewBtn}
-                            onClick={() =>handleView()}
+                            onClick={() =>{handleView();setSelectedMessage(item.message);setSelectedName(item.name)}}
                           >
                             View Message
                           </Button>
@@ -116,11 +141,15 @@ export default function Messages() {
                 </Grid>
               </Grid>
             </CardContent>
-          </Card>
+          </Card> 
         </Grid>
+                          </>
+        )}
+        )}
       </Grid>
+     
       {openDelete && <DeleteDialog open={openDelete} handleDelete={handleDelete}/>}
-      {openView && <MessageViewDialog open={openView} handleView={handleView}/>}
+      {openView && <MessageViewDialog name={selectedName} message={selectedMessage} userId={userId} open={openView} handleView={handleReply}/>}
     </Container>
   );
 }

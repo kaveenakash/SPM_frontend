@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -40,6 +40,7 @@ const DialogTitle = withStyles(styles)((props) => {
 const DialogContent = withStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
+    minWidth:450
   },
 }))(MuiDialogContent);
 
@@ -52,25 +53,25 @@ const DialogActions = withStyles((theme) => ({
 
 export default function CustomizedDialogs(props) {
   const [open, setOpen] = React.useState(false);
-
+  const [replyMessage,setReplyMessage] = useState('')
   const handleClickOpen = () => {
     setOpen(true);
   };
   const handleClose = () => {
     setOpen(false);
   };
+  
 
   return (
     <div>
      
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={props.open}>
         <DialogTitle id="customized-dialog-title" onClose={props.handleView}>
-          Lumini Nanayakkara
+          {props.name}
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+            {props.message}
           </Typography>
           <br/>
           <TextField
@@ -80,10 +81,11 @@ export default function CustomizedDialogs(props) {
           rows={4}
           variant="outlined"
           fullWidth
+          onChange={(event) => setReplyMessage(event.target.value)}
         />
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={props.handleView} color="primary">
+          <Button autoFocus onClick={() => {props.handleView(props.userId,props.name,props.email,replyMessage)}} color="primary">
             Reply
           </Button>
         </DialogActions>

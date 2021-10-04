@@ -23,7 +23,7 @@ export default function TotalListings(props) {
             </Grid>
             <Grid item>
           
-                <Typography variant="h6" style={{fontWeight:600}}> <Chip label="2" /></Typography>
+                <Typography variant="h6" style={{fontWeight:600}}> <Chip label={props.totalMessages} /></Typography>
 
           </Grid>
           </Grid>

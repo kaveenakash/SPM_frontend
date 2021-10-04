@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,7 +11,7 @@ import Box from "@material-ui/core/Box";
 import Rating from "@material-ui/lab/Rating";
 import Container from "@material-ui/core/Container"
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import axios from 'axios'
 import TotalListings from './TotalListings'
 import Listings from './Listings'
 import Messages from './Messages'
@@ -43,17 +43,30 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleCard(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(5);
-  const [totalListings,setTotalListings] = useState('')
+  const [totalListings,setTotalListings] = useState('')          
+  const [totalMessages,setTotalMessages] = useState('')          
   const [isListings,setIsListings] = useState(true)
   const userName = localStorage.getItem('fname') + " " + localStorage.getItem('lname')
   const email = localStorage.getItem('email')
+  const userId = localStorage.getItem("userId");
   const imageUrl =
     "https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png";
   
     const handleTotalListings = (value) =>{
       setTotalListings(value)
     }
-  
+    const handleApi = async() =>{
+      const data = {
+        userId
+      }
+      const result = await axios.post('http://localhost:9090/api/auth/get-message',data)
+     
+     setTotalMessages(result.data.message.length)
+   
+    }
+    useEffect(() => {
+      handleApi()
+    }, [])
     return (
     <Container>
     <Grid container justifyContent="center" direction="column" alignItems="center">
@@ -99,7 +112,7 @@ export default function SimpleCard(props) {
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item> <TotalListings totalListings={totalListings}/></Grid>
+            <Grid item> <TotalListings totalListings={totalListings} totalMessages={totalMessages}/></Grid>
           </Grid>
 
           
@@ -114,7 +127,7 @@ export default function SimpleCard(props) {
       </ButtonGroup>
       </Grid>
       <Grid item>
-        {isListings ? <Listings handleTotalListings={handleTotalListings}/> : <Messages/>}
+        {isListings ? <Listings handleTotalListings={handleTotalListings}/> : <Messages setTotalMessages={setTotalMessages}/>}
       </Grid>
     </Grid>
     </Container>

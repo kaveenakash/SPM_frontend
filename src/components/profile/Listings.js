@@ -57,7 +57,7 @@ export default function Listings(props) {
 
   useEffect(() => {
     getUserListings();
-  }, [userListings]);
+  }, []);
 
   const getUserListings = async () => {
     const data = { userId: userId };
