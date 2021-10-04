@@ -52,15 +52,12 @@ const PropertyDetail = (props) => {
     }
     try {
       
-      await  axios.post('http://localhost:9090/api/auth/save-message',data)
+      await  axios.post('https://spmsliit.herokuapp.com/api/auth/save-message',data)
       setOpen(true);
     } catch (error) {
       
     }
-    console.log(name)
-    console.log(email)
-    console.log(message)
-    console.log(userId)
+  
   }
  
    
