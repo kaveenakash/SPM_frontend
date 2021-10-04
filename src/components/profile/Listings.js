@@ -20,20 +20,44 @@ export default function Listings(props) {
   const [openView, setOpenView] = useState(false);
   const [userListings, setUserListings] = useState([]);
   const [viewListings, setViewListings] = useState([]);
+  const [deleteItemId, setDeleteItemId] = useState("");
+  const [deleteItemType, setDeleteItemType] = useState("");
 
   const userId = localStorage.getItem("userId");
-  const handleDelete = () => {
+  const handleDelete = (id, type) => {
     setOpenDelete(!openDelete);
+    setDeleteItemId(id);
+    setDeleteItemType(type);
   };
   const handleView = (id) => {
     setOpenView(!openView);
-    const result = userListings.filter(item => item._id === id)
-    setViewListings(result)
+    const result = userListings.filter((item) => item._id === id);
+    setViewListings(result);
+  };
+
+  const handleDeleteApi = async () => {
+    setOpenDelete(!openDelete);
+    const data = {
+      userId,
+      itemId: deleteItemId,
+    };
+    if (deleteItemType === "property") {
+      const result = await axios.post(
+        "https://spmsliit.herokuapp.com/api/auth/remove-property-listings",
+        data
+      );
+    } else {
+      const result = await axios.post(
+        "http://localhost:9090/api/auth/remove-vehicle-listings",
+        data
+      );
+    }
+    getUserListings()
   };
 
   useEffect(() => {
     getUserListings();
-  }, []);
+  }, [userListings]);
 
   const getUserListings = async () => {
     const data = { userId: userId };
@@ -44,10 +68,12 @@ export default function Listings(props) {
       );
     }
     // setUserListings([...result.data.propertyListings]);
-    setUserListings([...result.data.propertyListings,...result.data.vehicleListings])
-    console.log(result);
+    setUserListings([
+      ...result.data.propertyListings,
+      ...result.data.vehicleListings,
+    ]);
   };
-  console.log(userListings);
+
   const imageUrl =
     "http://patpat-s3-live.s3.amazonaws.com/uploads/30ab9e94924fbbd7efa6682bbce08a29-710100.jpeg";
   return (
@@ -80,7 +106,10 @@ export default function Listings(props) {
                               </Grid>
                               <Grid item>
                                 <Typography variant="subtitle1">
-                                  <li>Price - Rs.{item.price.toLocaleString("en-US")}</li>
+                                  <li>
+                                    Price - Rs.
+                                    {item.price.toLocaleString("en-US")}
+                                  </li>
                                 </Typography>
                               </Grid>
                               <Grid item>
@@ -117,7 +146,9 @@ export default function Listings(props) {
                                 <DeleteIcon
                                   fontSize="medium"
                                   className={classes.deleteBtn}
-                                  onClick={() => handleDelete()}
+                                  onClick={() =>
+                                    handleDelete(item._id, item.listingType)
+                                  }
                                 />
                               </Grid>
                               <Grid item>
@@ -136,7 +167,6 @@ export default function Listings(props) {
                 </Card>
               </Grid>
             );
-            
           } else {
             return (
               <Grid item>
@@ -200,7 +230,7 @@ export default function Listings(props) {
                                 <DeleteIcon
                                   fontSize="medium"
                                   className={classes.deleteBtn}
-                                  onClick={() => handleDelete()}
+                                  onClick={() => handleDelete(item._id, item.listingType)}
                                 />
                               </Grid>
                               <Grid item>
@@ -223,16 +253,20 @@ export default function Listings(props) {
         })}
       </Grid>
       {openDelete && (
-        <DeleteDialog open={openDelete} handleDelete={handleDelete} />
+        <DeleteDialog
+          open={openDelete}
+          handleDelete={handleDelete}
+          handleDeleteApi={handleDeleteApi}
+        />
       )}
       {openView && (
-              <ViewDialog
-                open={openView}
-                title={"Listing Details"}
-                handleView={handleView}
-                viewListings={viewListings}
-              />
-            )}
+        <ViewDialog
+          open={openView}
+          title={"Listing Details"}
+          handleView={handleView}
+          viewListings={viewListings}
+        />
+      )}
     </Container>
   );
 }
