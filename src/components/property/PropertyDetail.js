@@ -15,20 +15,64 @@ import DescriptionTable from "./DescriptionTable";
 import DescriptionCard from "./DescriptionCard";
 import Warning from "../reusable/warning/Warning";
 import {propertyAdds} from '../../store/data'
+import MessageDialog from './MessageDialog'
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
 import axios from 'axios'
 const PropertyDetail = (props) => {
+  
+  const [vertical,setVertical] = useState('top')
+  const [horizontal,setHorizontal] = useState('center')
   const history = useHistory();
   const params = useParams();
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
   const theme = useTheme();
-
+  const [openView,setOpenView] = useState(false)
   const [propertyData,setPropertyData] = useState([])
   const [selectedData,setSelectedData] = useState([])
   const handleHomeLink = (event) => {
     event.preventDefault();
     history.replace("/");
   };
+  const handleView = () =>{
+    setOpenView(!openView)
+  }
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+  const handleMessageApi = async(name,email,message,userId) =>{
+    setOpenView(!openView)
+    const data = {
+      name,
+      email,
+      message,
+      userId
+    }
+    try {
+      
+      await  axios.post('http://localhost:9090/api/auth/save-message',data)
+      setOpen(true);
+    } catch (error) {
+      
+    }
+    console.log(name)
+    console.log(email)
+    console.log(message)
+    console.log(userId)
+  }
+ 
+   
+  
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
    
   useEffect(() =>{
 
@@ -43,7 +87,6 @@ const PropertyDetail = (props) => {
     findVehicle()
   },[]) 
 
-  console.log(params.id)
   return (
     <React.Fragment>
       <Container fixed className={classes.container}>
@@ -87,7 +130,7 @@ const PropertyDetail = (props) => {
                           <Grid item>
                               <Grid item container direction="column">
                                   <Grid item>
-                                  <AmountCard amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
+                                  <AmountCard handleView={handleView} amount={selectedData.price ?  selectedData.price : 1500000} leaseRental={selectedData.price/20} downPayment={((selectedData.price/40) + 100000)} boxOneTitle={'BEST LEASE RENTAL'} boxTwoTitle={'DOWN PAYMENT'}/>
                                       {/* <AmountCard amount={item.amount} leaseRental={item.leaseRental} downPayment={item.downPayment} boxOneTitle={'INSTALLEMENT'} boxTwoTitle={'DOWN PAYMENT'}/> */}
                                   </Grid>
                                   <Grid item className={classes.descriptionTableContainer}>
@@ -104,11 +147,17 @@ const PropertyDetail = (props) => {
                     <Warning/>
                   </Grid>
               </Grid>
+              {openView && <MessageDialog handleMessageApi={handleMessageApi} userId={selectedData.userId} name={selectedData.name} email={selectedData.email} telephone={selectedData.tpNumber} open={openView} handleView={handleView}/>}
           </Grid>
 
             )
           })}
         </Grid>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical, horizontal }}>
+        <Alert onClose={handleClose} severity="success">
+          Send Successfull!
+        </Alert>
+      </Snackbar>
       </Container>
     </React.Fragment>
   );
