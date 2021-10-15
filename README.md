@@ -1,3 +1,34 @@
+Group ID - 2021S2_REG_WD_07
+-------------------------------------------------
+Project Name - Seller.lk
+-------------------------------------------------
+Group Details
+--------------------------------------------------
+Member Details:-
+
+| Name  | Student ID | Username|
+| ------------- | ------------- | -------------|
+| Hariscumar.S  | IT19000886  |IT19000886|
+| Akash Y.A. K | IT19181820  |kaveenakash|
+| Walimuni Dewage T.S.S | IT19161334  |ThushanSandeepa|
+| Nanayakkara K.O.K.L | IT19130576  |LuminiNanayakkara|
+
+Project Description
+------------------------------------------------------
+We are plaining to do online selling management system. In our project, there are only four main categories. They are, Vehicle, Property, Electronic, Business and services. In this system have sellers and buyers. Sellers can sell items and Buyers can buy items. Each category has different pages, and each page has search function. Each pages display the available listings. System has both signup and login functionalities. Seller must be login into the system. Seller can add the details into their expected category. After seller add the item to the page it is not display directly. Those details move to the admin panel. Admin has responsibility to approve or reject the added details. If admin approve it, the system will send the email to the seller’s email address and display the latest added details in the respective category. All the four categories have search function and display the latest details on the top of the page. Finally, the report will be generating on according to the respective categories.
+
+--------------------------------------------------------------------------------------------------------------
+Technologies
+
+Frontend :- react Js
+/Backend  :- node Js
+/Database :- MongoDB
+/Tools    :- Vs code
+
+------------------------------------------------------------------
+How to get started with your app
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
